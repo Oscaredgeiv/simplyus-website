@@ -42,9 +42,7 @@ export default function OrbitPage() {
       {/* ── NAVBAR ── */}
       <nav className="fixed top-0 left-0 right-0 z-50 h-20 flex items-center backdrop-blur-xl" style={{ background: "rgba(11,11,13,0.9)" }}>
         <div className="max-w-7xl w-full mx-auto px-6 md:px-12 flex items-center justify-between">
-          <Link href="/concepts">
-            <img src="/logo.png" alt="Simply Us & U" className="h-20 sm:h-24" />
-          </Link>
+          <Link href="/concepts" className="text-sm text-[#9CA3AF] hover:text-white transition-colors">← Concepts</Link>
           <Link href="/contact" className="px-6 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider text-white bg-[#F97316] transition-all duration-300 hover:shadow-[0_0_25px_rgba(249,115,22,0.5)] hover:scale-105">
             Get Started
           </Link>
@@ -60,23 +58,20 @@ export default function OrbitPage() {
         </div>
         {/* Grain overlay */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E\")", backgroundRepeat: "repeat", backgroundSize: "200px" }} />
-        {/* Logo backdrop — large offset-right readable accent */}
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        {/* Logo as company name — large, centered above headline */}
+        <div className="pointer-events-none absolute inset-0 flex justify-center overflow-hidden">
           <motion.img
             src="/logo.png"
             alt=""
             aria-hidden="true"
-            className="absolute -right-[5%] top-1/2 -translate-y-1/2 w-[800px] sm:w-[1000px] md:w-[1200px] lg:w-[1400px] select-none"
-            initial={{ scale: 1.05, opacity: 0, x: 40 }}
-            animate={{ scale: 1, opacity: 0.13, x: 0 }}
-            transition={{ duration: 2.5, ease: "easeOut" }}
+            className="absolute top-[10%] sm:top-[12%] left-1/2 -translate-x-1/2 w-[500px] sm:w-[650px] md:w-[800px] lg:w-[950px] select-none"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 0.28 }}
+            transition={{ duration: 1.8, ease: "easeOut" }}
           />
         </div>
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <Reveal>
-            <p className="text-xs tracking-[0.3em] uppercase mb-6 font-semibold text-[#F97316]">Simply Us & U</p>
-          </Reveal>
           <Reveal delay={0.15}>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] mb-8">
               Launch. Scale.<br /><span className="text-[#F97316]">Dominate.</span>

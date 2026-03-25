@@ -84,9 +84,7 @@ export default function ForgeConcept() {
       {/* NAVBAR */}
       <nav className="fixed top-0 left-0 right-0 z-50 h-20 bg-[#0B0B0D]/90 backdrop-blur-xl border-b border-white/[0.06]">
         <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-          <Link href="/concepts">
-            <img src="/logo.png" alt="Simply Us & U" className="h-20 sm:h-24" />
-          </Link>
+          <Link href="/concepts" className="text-sm text-[#9CA3AF] hover:text-white transition-colors">← Concepts</Link>
           <div className="flex items-center gap-6">
             <Link href="#services" className="hidden md:block text-sm text-[#9CA3AF] hover:text-white transition-colors">Services</Link>
             <Link href="#process" className="hidden md:block text-sm text-[#9CA3AF] hover:text-white transition-colors">Process</Link>
@@ -104,23 +102,20 @@ export default function ForgeConcept() {
         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-[#F97316]/[0.04] blur-[100px]" />
         {/* Grain overlay */}
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E\")", backgroundRepeat: "repeat", backgroundSize: "256px" }} />
-        {/* Logo backdrop � large, offset right, readable accent */}
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        {/* Logo as company name — large, centered above headline */}
+        <div className="pointer-events-none absolute inset-0 flex justify-center overflow-hidden">
           <motion.img
             src="/logo.png"
             alt=""
             aria-hidden="true"
-            className="absolute -right-[5%] top-1/2 -translate-y-1/2 w-[700px] sm:w-[900px] md:w-[1100px] lg:w-[1300px] select-none"
-            initial={{ scale: 1.05, opacity: 0 }}
-            animate={{ scale: 1, opacity: 0.12 }}
-            transition={{ duration: 2.5, ease: "easeOut" }}
+            className="absolute top-[10%] sm:top-[12%] left-1/2 -translate-x-1/2 w-[500px] sm:w-[650px] md:w-[800px] lg:w-[950px] select-none"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 0.28 }}
+            transition={{ duration: 1.8, ease: "easeOut" }}
           />
         </div>
         {/* Hero content */}
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-20">
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="text-xs tracking-[0.3em] uppercase text-[#F97316] mb-6 font-bold">
-            Simply Us & U
-          </motion.p>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.35 }} className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.05]">
             Marketing. Design.<br /><span className="text-[#F97316]">Development.</span>
           </motion.h1>

@@ -95,7 +95,6 @@ export default function ClarityPage() {
           <Link href="/concepts" className="group flex items-center gap-2 text-sm text-[#9CA3AF] hover:text-white transition-colors">
             <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" /> Concepts
           </Link>
-          <img src="/logo.png" alt="Simply Us & U" className="h-20 sm:h-24" />
           <Link href="#contact" className="hidden sm:inline-flex items-center gap-2 rounded-full bg-[#F97316] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#ea6c0e] hover:shadow-[0_0_20px_rgba(249,115,22,0.3)]">
             Get Started
           </Link>
@@ -110,16 +109,16 @@ export default function ClarityPage() {
           background: "radial-gradient(ellipse at 20% 50%, rgba(249,115,22,0.08) 0%, transparent 50%), radial-gradient(ellipse at 80% 50%, rgba(249,115,22,0.04) 0%, transparent 50%), #0B0B0D",
         }} />
 
-        {/* Logo backdrop — large offset-left readable accent */}
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        {/* Logo as company name — large, centered above headline */}
+        <div className="pointer-events-none absolute inset-0 flex justify-center overflow-hidden">
           <motion.img
             src="/logo.png"
             alt=""
             aria-hidden="true"
-            className="absolute -left-[5%] top-1/2 -translate-y-1/2 w-[800px] sm:w-[1000px] md:w-[1200px] lg:w-[1400px] select-none"
-            initial={{ scale: 1.05, opacity: 0, x: -40 }}
-            animate={{ scale: 1, opacity: 0.13, x: 0 }}
-            transition={{ duration: 2.5, ease: "easeOut" }}
+            className="absolute top-[10%] sm:top-[12%] left-1/2 -translate-x-1/2 w-[500px] sm:w-[650px] md:w-[800px] lg:w-[950px] select-none"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 0.28 }}
+            transition={{ duration: 1.8, ease: "easeOut" }}
           />
         </div>
 
@@ -128,15 +127,6 @@ export default function ClarityPage() {
 
         {/* Content */}
         <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-          <motion.p
-            className="mb-4 text-sm font-bold uppercase tracking-[0.3em]"
-            style={{ color: orange }}
-            initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Simply Us & U
-          </motion.p>
           <motion.h1
             className="text-5xl font-bold leading-[0.95] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
             initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
