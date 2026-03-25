@@ -85,7 +85,7 @@ export default function ForgeConcept() {
       <nav className="fixed top-0 left-0 right-0 z-50 h-20 bg-[#0B0B0D]/90 backdrop-blur-xl border-b border-white/[0.06]">
         <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
           <Link href="/concepts">
-            <img src="/logo.png" alt="Simply Us & U" className="h-14 sm:h-16" />
+            <img src="/logo.png" alt="Simply Us & U" className="h-20 sm:h-24" />
           </Link>
           <div className="flex items-center gap-6">
             <Link href="#services" className="hidden md:block text-sm text-[#9CA3AF] hover:text-white transition-colors">Services</Link>
@@ -104,15 +104,16 @@ export default function ForgeConcept() {
         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-[#F97316]/[0.04] blur-[100px]" />
         {/* Grain overlay */}
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E\")", backgroundRepeat: "repeat", backgroundSize: "256px" }} />
-        {/* Animated logo watermark */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        {/* Logo backdrop � large, offset right, readable accent */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <motion.img
             src="/logo.png"
             alt=""
-            className="w-[500px] sm:w-[600px] md:w-[800px] opacity-[0.07] select-none"
-            initial={{ scale: 1.1, opacity: 0 }}
-            animate={{ scale: 1, opacity: 0.07 }}
-            transition={{ duration: 2, ease: "easeOut" }}
+            aria-hidden="true"
+            className="absolute -right-[5%] top-1/2 -translate-y-1/2 w-[700px] sm:w-[900px] md:w-[1100px] lg:w-[1300px] select-none"
+            initial={{ scale: 1.05, opacity: 0 }}
+            animate={{ scale: 1, opacity: 0.12 }}
+            transition={{ duration: 2.5, ease: "easeOut" }}
           />
         </div>
         {/* Hero content */}

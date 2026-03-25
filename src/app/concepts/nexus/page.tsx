@@ -48,7 +48,7 @@ export default function NexusPage() {
       <nav className="fixed top-0 left-0 w-full z-50 h-20 flex items-center backdrop-blur-xl border-b border-white/10" style={{ background: "rgba(11,11,13,0.9)" }}>
         <div className="max-w-7xl mx-auto w-full flex items-center justify-between px-6">
           <Link href="/concepts">
-            <img src="/logo.png" alt="Simply Us & U" className="h-14 sm:h-16" />
+            <img src="/logo.png" alt="Simply Us & U" className="h-20 sm:h-24" />
           </Link>
           <Link href="#contact" className="text-sm font-bold uppercase tracking-wider px-6 py-2.5 rounded-full bg-[#F97316] text-white transition-all duration-300 hover:shadow-[0_0_25px_rgba(249,115,22,0.4)]">
             Get Started
@@ -62,8 +62,18 @@ export default function NexusPage() {
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 30% 20%, rgba(249,115,22,0.06), transparent 60%), radial-gradient(ellipse at 70% 80%, rgba(249,115,22,0.04), transparent 60%)" }} />
         {/* Grain overlay */}
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E\")", backgroundRepeat: "repeat", backgroundSize: "128px 128px" }} />
-        {/* Animated logo watermark */}
-        <motion.img src="/logo.png" alt="" aria-hidden="true" initial={{ scale: 1.1, opacity: 0 }} animate={{ scale: 1, opacity: 0.07 }} transition={{ duration: 2, ease: "easeOut" }} className="pointer-events-none select-none absolute w-[500px] md:w-[650px] lg:w-[800px]" />
+        {/* Logo backdrop — large offset-left readable accent */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <motion.img
+            src="/logo.png"
+            alt=""
+            aria-hidden="true"
+            className="absolute -left-[5%] top-1/2 -translate-y-1/2 w-[800px] sm:w-[1000px] md:w-[1200px] lg:w-[1400px] select-none"
+            initial={{ scale: 1.05, opacity: 0, x: -40 }}
+            animate={{ scale: 1, opacity: 0.13, x: 0 }}
+            transition={{ duration: 2.5, ease: "easeOut" }}
+          />
+        </div>
         {/* Content */}
         <div className="relative z-10 max-w-5xl mx-auto text-center px-6 pt-24">
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.6 }} className="uppercase tracking-[0.3em] text-sm mb-6 font-medium text-[#F97316]">

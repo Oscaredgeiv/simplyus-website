@@ -91,11 +91,11 @@ export default function VelocityPage() {
     <div className="min-h-screen font-sans" style={{ background: "#0B0B0D", color: "#FFFFFF" }}>
       {/* Premium Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50" style={{ background: "rgba(11,11,13,0.9)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+        <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-6">
           <Link href="/concepts" className="group flex items-center gap-2 text-sm text-[#9CA3AF] hover:text-white transition-colors">
             <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" /> Concepts
           </Link>
-          <img src="/logo.png" alt="Simply Us & U" className="h-14 sm:h-16" />
+          <img src="/logo.png" alt="Simply Us & U" className="h-20 sm:h-24" />
           <Link href="#contact" className="hidden sm:inline-flex items-center gap-2 rounded-full bg-[#F97316] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#ea6c0e] hover:shadow-[0_0_20px_rgba(249,115,22,0.3)]">
             Get Started
           </Link>
@@ -110,17 +110,16 @@ export default function VelocityPage() {
           background: "radial-gradient(ellipse at 20% 50%, rgba(249,115,22,0.08) 0%, transparent 50%), radial-gradient(ellipse at 80% 50%, rgba(249,115,22,0.04) 0%, transparent 50%), #0B0B0D",
         }} />
 
-        {/* Logo watermark — large, centered, tasteful */}
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+        {/* Logo backdrop — large offset-right readable accent */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <motion.img
             src="/logo.png"
             alt=""
             aria-hidden="true"
-            className="w-[500px] sm:w-[600px] md:w-[700px] lg:w-[800px] select-none"
-            style={{ filter: "blur(2px)" }}
-            initial={{ scale: 1.1, opacity: 0 }}
-            animate={{ scale: 1, opacity: 0.07 }}
-            transition={{ duration: 2, ease: "easeOut" }}
+            className="absolute -right-[5%] top-1/2 -translate-y-1/2 w-[800px] sm:w-[1000px] md:w-[1200px] lg:w-[1400px] select-none"
+            initial={{ scale: 1.05, opacity: 0, x: 40 }}
+            animate={{ scale: 1, opacity: 0.13, x: 0 }}
+            transition={{ duration: 2.5, ease: "easeOut" }}
           />
         </div>
 
