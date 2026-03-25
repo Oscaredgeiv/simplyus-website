@@ -3,72 +3,86 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { Container } from "@/components/ui/container";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-brand-50 via-white to-gray-50" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(99,102,241,0.08),transparent_60%)]" />
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
+      {/* Dual radial orange gradient blobs */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at 20% 50%, rgba(249,115,22,0.06) 0%, transparent 50%), radial-gradient(ellipse at 80% 50%, rgba(249,115,22,0.05) 0%, transparent 50%), #0B0B0D",
+        }}
+      />
 
-      <Container className="relative z-10">
-        <div className="mx-auto max-w-3xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="inline-block rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700">
-              Trusted by 100+ growing businesses
-            </span>
-          </motion.div>
+      {/* SVG grain/noise texture overlay */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")",
+        }}
+      />
 
-          <motion.h1
-            className="mt-6 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            Your Growth Marketing{" "}
-            <span className="bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent">
-              & Operations Partner
-            </span>
-          </motion.h1>
+      {/* Animated logo watermark */}
+      <div className="pointer-events-none absolute inset-0 flex justify-center overflow-hidden">
+        <motion.img
+          src="/logo-transparent.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute top-[8%] left-1/2 w-[400px] -translate-x-1/2 select-none sm:top-[10%] sm:w-[500px] md:w-[600px] lg:w-[700px]"
+          initial={{ opacity: 0, y: -30, scale: 1.05 }}
+          animate={{ opacity: 0.9, y: 0, scale: 1 }}
+          transition={{ duration: 2, ease: "easeOut" }}
+        />
+      </div>
 
-          <motion.p
-            className="mt-6 text-lg text-gray-600 sm:text-xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            We manage your social media, run your digital marketing, streamline
-            your operations, and automate the rest — so you can focus on what
-            matters most: your clients.
-          </motion.p>
+      {/* Content */}
+      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
+        {/* Headline */}
+        <motion.h1
+          className="text-5xl font-bold leading-[0.95] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
+          initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.9, delay: 0.4 }}
+        >
+          Digital Marketing. Web Design.{" "}
+          <span className="text-[#F97316]">Software Development.</span>
+        </motion.h1>
 
-          <motion.div
-            className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+        {/* Description */}
+        <motion.p
+          className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-[#9CA3AF] md:text-lg"
+          initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+        >
+          The velocity growth engine behind brands that move fast. We deploy
+          marketing, operations, and automation as one integrated system.
+        </motion.p>
+
+        {/* CTA Buttons */}
+        <motion.div
+          className="mt-10 flex flex-wrap items-center justify-center gap-4"
+          initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+        >
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 rounded-lg bg-[#F97316] px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(249,115,22,0.3)]"
           >
-            <Link
-              href="/contact"
-              className="inline-flex h-14 items-center justify-center gap-2 rounded-lg bg-brand-600 px-10 text-lg font-semibold text-white shadow-md transition-all hover:bg-brand-700 hover:shadow-lg"
-            >
-              Get a Free Strategy Session
-              <ArrowRight className="h-5 w-5" />
-            </Link>
-            <Link
-              href="/case-studies"
-              className="inline-flex h-14 items-center justify-center rounded-lg px-10 text-lg font-semibold text-gray-700 transition-colors hover:bg-gray-100"
-            >
-              See Our Results
-            </Link>
-          </motion.div>
-        </div>
-      </Container>
+            GET A FREE QUOTE
+          </Link>
+          <Link
+            href="mailto:info@simplyusandyou.com"
+            className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[#F97316] transition-all duration-300 hover:text-white"
+          >
+            OR EMAIL US <ArrowRight size={16} />
+          </Link>
+        </motion.div>
+      </div>
     </section>
   );
 }

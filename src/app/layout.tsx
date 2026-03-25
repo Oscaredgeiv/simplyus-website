@@ -19,11 +19,12 @@ const body = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Simply Us & You — Growth Marketing & Operations Partner",
-    template: "%s | Simply Us & You",
+    default:
+      "Simply Us & U — Digital Marketing, Web Design & Software Development",
+    template: "%s | Simply Us & U",
   },
   description:
-    "We help service-based businesses grow through social media management, digital marketing, operations consulting, and software automation.",
+    "We help businesses grow through digital marketing, social content creation, website design, hosting, and software development.",
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "https://simplyusandyou.com"
   ),
@@ -37,9 +38,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${heading.variable} ${body.variable} h-full antialiased`}
+      className={`${heading.variable} ${body.variable} dark h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-[family-name:var(--font-inter)]">
+      <body className="min-h-full flex flex-col bg-[#0B0B0D] text-white font-[family-name:var(--font-inter)]">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

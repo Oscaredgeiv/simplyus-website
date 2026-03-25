@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -27,37 +28,48 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-40 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/[0.06]",
         isScrolled
-          ? "bg-white/90 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
+          ? "bg-[#0B0B0D]/95 backdrop-blur-xl"
+          : "bg-[#0B0B0D]/90 backdrop-blur-xl"
       )}
     >
       <Container>
-        <nav className="flex h-16 items-center justify-between lg:h-20">
-          <Link href="/" className="text-xl font-bold text-gray-900">
-            Simply Us & You
+        <nav className="flex h-20 items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="relative h-10 w-40 shrink-0">
+            <Image
+              src="/logo-transparent.png"
+              alt="Simply Us & U"
+              fill
+              className="object-contain object-left"
+              priority
+            />
           </Link>
 
-          {/* Desktop Nav */}
+          {/* Desktop Nav — Center */}
           <div className="hidden items-center gap-8 lg:flex">
             {mainNavItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-brand-600",
+                  "text-sm font-medium transition-colors duration-200",
                   pathname === item.href
-                    ? "text-brand-600"
-                    : "text-gray-600"
+                    ? "text-white"
+                    : "text-[#9CA3AF] hover:text-white"
                 )}
               >
                 {item.label}
               </Link>
             ))}
+          </div>
+
+          {/* Desktop CTA — Right */}
+          <div className="hidden lg:flex items-center">
             <Link
               href="/contact"
-              className="inline-flex h-9 items-center justify-center rounded-lg bg-brand-600 px-4 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
+              className="inline-flex h-10 items-center justify-center rounded-full bg-[#F97316] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#EA580C]"
             >
               Get Started
             </Link>
@@ -65,14 +77,14 @@ export function Navbar() {
 
           {/* Mobile Toggle */}
           <button
-            className="lg:hidden"
+            className="lg:hidden p-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
             {isOpen ? (
-              <X className="h-6 w-6 text-gray-900" />
+              <X className="h-6 w-6 text-white" />
             ) : (
-              <Menu className="h-6 w-6 text-gray-900" />
+              <Menu className="h-6 w-6 text-white" />
             )}
           </button>
         </nav>
@@ -85,19 +97,20 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-t border-gray-100 bg-white lg:hidden"
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="overflow-hidden border-t border-white/[0.06] bg-[#0B0B0D]/95 backdrop-blur-xl lg:hidden"
           >
-            <Container className="py-4">
-              <div className="flex flex-col gap-3">
+            <Container className="py-6">
+              <div className="flex flex-col gap-1">
                 {mainNavItems.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
                     className={cn(
-                      "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                      "rounded-lg px-4 py-3 text-sm font-medium transition-colors",
                       pathname === item.href
-                        ? "bg-brand-50 text-brand-600"
-                        : "text-gray-600 hover:bg-gray-50"
+                        ? "bg-white/[0.06] text-white"
+                        : "text-[#9CA3AF] hover:bg-white/[0.04] hover:text-white"
                     )}
                   >
                     {item.label}
@@ -105,7 +118,7 @@ export function Navbar() {
                 ))}
                 <Link
                   href="/contact"
-                  className="mt-2 inline-flex h-11 items-center justify-center rounded-lg bg-brand-600 px-6 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
+                  className="mt-4 inline-flex h-12 items-center justify-center rounded-full bg-[#F97316] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#EA580C]"
                 >
                   Get Started
                 </Link>

@@ -1,30 +1,34 @@
-import Link from "next/link";
+import type { Metadata } from "next";
 import { HeroSection } from "@/components/sections/hero-section";
+import { StatsBar } from "@/components/sections/stats-bar";
+import { ServicesOverview } from "@/components/sections/services-overview";
+import { ProcessTimeline } from "@/components/sections/process-timeline";
+import { TestimonialsSection } from "@/components/sections/testimonials-section";
+import { CTASection } from "@/components/sections/cta-section";
+
+export const metadata: Metadata = {
+  title:
+    "Simply Us & U — Digital Marketing, Web Design & Software Development",
+  description:
+    "We help businesses grow through digital marketing, social content creation, website design, hosting, and custom software development.",
+};
+
+const stats = [
+  { value: "100+", label: "CLIENTS SERVED" },
+  { value: "312%", label: "AVG ROI" },
+  { value: "4.2M+", label: "IMPRESSIONS" },
+  { value: "5-STAR", label: "RATING" },
+];
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
-
-      {/* Concepts CTA */}
-      <section className="py-20 bg-gray-950 text-white">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-            Explore 8 Website Concepts
-          </h2>
-          <p className="mt-4 text-lg text-gray-400">
-            We designed 8 completely unique visual directions — each with its own
-            palette, typography, layout, and personality. See them all and pick
-            your favorite.
-          </p>
-          <Link
-            href="/concepts"
-            className="mt-8 inline-flex h-14 items-center justify-center gap-2 rounded-lg bg-indigo-600 px-10 text-lg font-semibold text-white shadow-md transition-all hover:bg-indigo-700 hover:shadow-lg"
-          >
-            Browse All 8 Concepts →
-          </Link>
-        </div>
-      </section>
+      <StatsBar stats={stats} />
+      <ServicesOverview />
+      <ProcessTimeline />
+      <TestimonialsSection />
+      <CTASection />
     </>
   );
 }

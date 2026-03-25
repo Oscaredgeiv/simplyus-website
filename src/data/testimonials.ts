@@ -22,4 +22,25 @@ export const testimonials: Testimonial[] = [
     role: "Founder",
     company: "Elevate Coaching Co",
   },
+  {
+    quote:
+      "Our new website tripled our conversion rate in the first month. The design is premium and the performance is blazing fast — exactly what we needed.",
+    author: "James Thornton",
+    role: "Managing Director",
+    company: "Oakridge Financial Advisors",
+  },
+  {
+    quote:
+      "They built a custom booking system that replaced three separate tools we were paying for. Our staff saves hours every week and clients love the experience.",
+    author: "Diana Reyes",
+    role: "Owner",
+    company: "Luxe Salon & Spa",
+  },
+  {
+    quote:
+      "From SEO to paid ads, they took us from page three to the top of Google in under six months. The ROI has been incredible for our practice.",
+    author: "Dr. Kevin Nguyen",
+    role: "Partner",
+    company: "Clearview Dental Group",
+  },
 ];
