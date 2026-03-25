@@ -66,10 +66,11 @@ export default function GreenfieldPage() {
             src="/logo.png"
             alt=""
             aria-hidden="true"
-            className="absolute top-[10%] sm:top-[12%] left-1/2 -translate-x-1/2 w-[500px] sm:w-[650px] md:w-[800px] lg:w-[950px] select-none"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 0.28 }}
-            transition={{ duration: 1.8, ease: "easeOut" }}
+            className="absolute top-[8%] sm:top-[10%] left-1/2 -translate-x-1/2 w-[400px] sm:w-[500px] md:w-[600px] lg:w-[700px] select-none"
+            style={{ mixBlendMode: "lighten" }}
+            initial={{ opacity: 0, y: -30, scale: 1.05 }}
+            animate={{ opacity: 0.9, y: 0, scale: 1 }}
+            transition={{ duration: 2, ease: "easeOut" }}
           />
         </div>
         {/* Content */}
