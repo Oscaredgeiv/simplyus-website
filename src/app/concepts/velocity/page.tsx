@@ -39,7 +39,7 @@ const services = [
     desc: "Paid ads, SEO, email funnels, and full-funnel campaigns — all engineered for velocity and measured against real revenue, not vanity metrics.",
     bullets: ["Google & Meta Ads Management", "Search Engine Optimization", "Email Marketing & Automation", "Analytics & Performance Tracking"],
     img: "Digital Marketing",
-    imgSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+    imgSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=90",
   },
   {
     num: "02",
@@ -48,7 +48,7 @@ const services = [
     desc: "Scroll-stopping content, reels, graphics, and strategy that grow audiences, drive engagement, and turn followers into customers at speed.",
     bullets: ["Social Media Strategy & Planning", "Content Creation (Photos, Video, Reels)", "Community Management & Engagement", "Brand Voice Development"],
     img: "Social Content Creation",
-    imgSrc: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
+    imgSrc: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=90",
   },
   {
     num: "03",
@@ -57,7 +57,7 @@ const services = [
     desc: "Custom, conversion-focused websites built to load fast, look sharp, and turn traffic into revenue — no template shortcuts.",
     bullets: ["Custom UI/UX Design", "Mobile-First Responsive Layouts", "Landing Pages & Sales Funnels", "E-commerce Solutions"],
     img: "Website Design",
-    imgSrc: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
+    imgSrc: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=90",
   },
   {
     num: "04",
@@ -66,7 +66,7 @@ const services = [
     desc: "Fast, secure, reliable hosting that keeps your site online, protected, and performing at peak — so you never lose a visitor to downtime.",
     bullets: ["99.9% Uptime Guarantee", "SSL Certificates & Security", "Daily Backups & Monitoring", "Managed WordPress Hosting"],
     img: "Website Hosting",
-    imgSrc: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+    imgSrc: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=90",
   },
   {
     num: "05",
@@ -75,7 +75,7 @@ const services = [
     desc: "Custom apps, CRM integrations, and intelligent automation that eliminate repetitive tasks and let your team focus on high-value work.",
     bullets: ["Custom Web & Mobile Apps", "CRM Setup & Integration", "Workflow Automation", "API Development & Integrations"],
     img: "Software & App Development",
-    imgSrc: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
+    imgSrc: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=90",
   },
 ];
 
@@ -112,11 +112,11 @@ export default function VelocityPage() {
         {/* Logo as company name — large, centered above headline */}
         <div className="pointer-events-none absolute inset-0 flex justify-center overflow-hidden">
           <motion.img
-            src="/logo.png"
+            src="/logo-transparent.png"
             alt=""
             aria-hidden="true"
             className="absolute top-[8%] sm:top-[10%] left-1/2 -translate-x-1/2 w-[400px] sm:w-[500px] md:w-[600px] lg:w-[700px] select-none"
-            style={{ mixBlendMode: "lighten" }}
+            
             initial={{ opacity: 0, y: -30, scale: 1.05 }}
             animate={{ opacity: 0.9, y: 0, scale: 1 }}
             transition={{ duration: 2, ease: "easeOut" }}
@@ -275,7 +275,7 @@ export default function VelocityPage() {
           <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
             {/* Logo + Tagline */}
             <div>
-              <img src="/logo.png" alt="Simply Us & U" className="h-12 mb-4" />
+              <img src="/logo-transparent.png" alt="Simply Us & U" className="h-12 mb-4" />
               <p className="text-sm leading-relaxed" style={{ color: gray }}>
                 The velocity growth engine behind brands that move fast. Marketing, operations, and automation deployed as one system.
               </p>

@@ -28,7 +28,7 @@ const services = [
     subtitle: "CAMPAIGNS & CONVERSIONS",
     desc: "Data-driven campaigns across paid search, display, email, and full-funnel channels. Every dollar is tracked, every conversion is measured, every opportunity is seized.",
     bullets: ["Google & Meta Ads Management", "Search Engine Optimization", "Email Marketing & Automation", "Analytics & Performance Tracking"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=90",
   },
   {
     num: "02",
@@ -36,7 +36,7 @@ const services = [
     subtitle: "CONTENT & COMMUNITY",
     desc: "We build scroll-stopping content, reels, graphics, and strategy across every platform. Your brand stays present, relevant, and impossible to scroll past.",
     bullets: ["Social Media Strategy & Planning", "Content Creation (Photos, Video, Reels)", "Community Management & Engagement", "Brand Voice Development"],
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=90",
   },
   {
     num: "03",
@@ -44,7 +44,7 @@ const services = [
     subtitle: "DESIGN & CONVERSION",
     desc: "Custom, conversion-focused websites engineered for performance. Beautiful interfaces that turn visitors into customers and browsers into buyers.",
     bullets: ["Custom UI/UX Design", "Mobile-First Responsive Layouts", "Landing Pages & Sales Funnels", "E-commerce Solutions"],
-    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=90",
   },
   {
     num: "04",
@@ -52,7 +52,7 @@ const services = [
     subtitle: "SPEED & RELIABILITY",
     desc: "Fast, secure, and reliable hosting that keeps your site online and performing at peak. No downtime, no excuses — just rock-solid infrastructure.",
     bullets: ["99.9% Uptime Guarantee", "SSL Certificates & Security", "Daily Backups & Monitoring", "Managed WordPress Hosting"],
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=90",
   },
   {
     num: "05",
@@ -60,7 +60,7 @@ const services = [
     subtitle: "TOOLS & INTEGRATIONS",
     desc: "Custom apps, CRM integrations, and automation solutions that eliminate manual work and supercharge your operational capacity.",
     bullets: ["Custom Web & Mobile Apps", "CRM Setup & Integration", "Workflow Automation", "API Development & Integrations"],
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=90",
   },
 ];
 
@@ -105,11 +105,11 @@ export default function ForgeConcept() {
         {/* Logo as company name — large, centered above headline */}
         <div className="pointer-events-none absolute inset-0 flex justify-center overflow-hidden">
           <motion.img
-            src="/logo.png"
+            src="/logo-transparent.png"
             alt=""
             aria-hidden="true"
             className="absolute top-[8%] sm:top-[10%] left-1/2 -translate-x-1/2 w-[400px] sm:w-[500px] md:w-[600px] lg:w-[700px] select-none"
-            style={{ mixBlendMode: "lighten" }}
+            
             initial={{ opacity: 0, y: -30, scale: 1.05 }}
             animate={{ opacity: 0.9, y: 0, scale: 1 }}
             transition={{ duration: 2, ease: "easeOut" }}
@@ -240,7 +240,7 @@ export default function ForgeConcept() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div>
-              <img src="/logo.png" alt="Simply Us & U" className="h-12 mb-4" />
+              <img src="/logo-transparent.png" alt="Simply Us & U" className="h-12 mb-4" />
               <p className="text-sm text-[#9CA3AF] leading-relaxed">
                 Industrial-strength marketing, operations, and automation — forged for businesses that refuse to settle.
               </p>

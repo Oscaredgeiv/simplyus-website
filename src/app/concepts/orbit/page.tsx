@@ -21,11 +21,11 @@ const stats = [
 ];
 
 const services = [
-  { num: "01", title: "Digital Marketing", subtitle: "Deploy Full-Funnel Campaigns", desc: "From paid media to organic search, we launch data-driven marketing campaigns that acquire, nurture, and convert your ideal audience. Our mission-control approach ensures every dollar spent generates measurable returns across every channel.", bullets: ["Google & Meta Ads Management", "Search Engine Optimization", "Email Marketing & Automation", "Analytics & Performance Tracking"], image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" },
-  { num: "02", title: "Social Content Creation", subtitle: "Command The Feed", desc: "We engineer scroll-stopping reels, graphics, and content strategies that dominate timelines and turn passive scrollers into loyal brand advocates. Every asset is mission-planned for maximum engagement and reach.", bullets: ["Social Media Strategy & Planning", "Content Creation (Photos, Video, Reels)", "Community Management & Engagement", "Brand Voice Development"], image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80" },
-  { num: "03", title: "Website Design", subtitle: "Architect Conversion Systems", desc: "We build custom, conversion-focused websites engineered for speed, clarity, and results. Every pixel is precision-placed, every interaction designed to guide visitors from landing to launch — turning browsers into buyers.", bullets: ["Custom UI/UX Design", "Mobile-First Responsive Layouts", "Landing Pages & Sales Funnels", "E-commerce Solutions"], image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80" },
-  { num: "04", title: "Website Hosting", subtitle: "Maintain Orbital Stability", desc: "Fast, secure, and bulletproof hosting infrastructure that keeps your digital presence online and performing at peak velocity. We handle the technical operations so you can focus on the mission ahead.", bullets: ["99.9% Uptime Guarantee", "SSL Certificates & Security", "Daily Backups & Monitoring", "Managed WordPress Hosting"], image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80" },
-  { num: "05", title: "Software & App Development", subtitle: "Engage Custom Systems", desc: "We build custom applications, CRM integrations, and automation pipelines that eliminate friction, connect your tech stack, and let your team focus on high-value mission-critical work.", bullets: ["Custom Web & Mobile Apps", "CRM Setup & Integration", "Workflow Automation", "API Development & Integrations"], image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80" },
+  { num: "01", title: "Digital Marketing", subtitle: "Deploy Full-Funnel Campaigns", desc: "From paid media to organic search, we launch data-driven marketing campaigns that acquire, nurture, and convert your ideal audience. Our mission-control approach ensures every dollar spent generates measurable returns across every channel.", bullets: ["Google & Meta Ads Management", "Search Engine Optimization", "Email Marketing & Automation", "Analytics & Performance Tracking"], image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=90" },
+  { num: "02", title: "Social Content Creation", subtitle: "Command The Feed", desc: "We engineer scroll-stopping reels, graphics, and content strategies that dominate timelines and turn passive scrollers into loyal brand advocates. Every asset is mission-planned for maximum engagement and reach.", bullets: ["Social Media Strategy & Planning", "Content Creation (Photos, Video, Reels)", "Community Management & Engagement", "Brand Voice Development"], image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=90" },
+  { num: "03", title: "Website Design", subtitle: "Architect Conversion Systems", desc: "We build custom, conversion-focused websites engineered for speed, clarity, and results. Every pixel is precision-placed, every interaction designed to guide visitors from landing to launch — turning browsers into buyers.", bullets: ["Custom UI/UX Design", "Mobile-First Responsive Layouts", "Landing Pages & Sales Funnels", "E-commerce Solutions"], image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=90" },
+  { num: "04", title: "Website Hosting", subtitle: "Maintain Orbital Stability", desc: "Fast, secure, and bulletproof hosting infrastructure that keeps your digital presence online and performing at peak velocity. We handle the technical operations so you can focus on the mission ahead.", bullets: ["99.9% Uptime Guarantee", "SSL Certificates & Security", "Daily Backups & Monitoring", "Managed WordPress Hosting"], image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=90" },
+  { num: "05", title: "Software & App Development", subtitle: "Engage Custom Systems", desc: "We build custom applications, CRM integrations, and automation pipelines that eliminate friction, connect your tech stack, and let your team focus on high-value mission-critical work.", bullets: ["Custom Web & Mobile Apps", "CRM Setup & Integration", "Workflow Automation", "API Development & Integrations"], image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=90" },
 ];
 
 const steps = [
@@ -61,11 +61,11 @@ export default function OrbitPage() {
         {/* Logo as company name — large, centered above headline */}
         <div className="pointer-events-none absolute inset-0 flex justify-center overflow-hidden">
           <motion.img
-            src="/logo.png"
+            src="/logo-transparent.png"
             alt=""
             aria-hidden="true"
             className="absolute top-[8%] sm:top-[10%] left-1/2 -translate-x-1/2 w-[400px] sm:w-[500px] md:w-[600px] lg:w-[700px] select-none"
-            style={{ mixBlendMode: "lighten" }}
+            
             initial={{ opacity: 0, y: -30, scale: 1.05 }}
             animate={{ opacity: 0.9, y: 0, scale: 1 }}
             transition={{ duration: 2, ease: "easeOut" }}
@@ -203,7 +203,7 @@ export default function OrbitPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
             {/* Col 1 — Logo */}
             <div>
-              <img src="/logo.png" alt="Simply Us & U" className="h-12 mb-4" />
+              <img src="/logo-transparent.png" alt="Simply Us & U" className="h-12 mb-4" />
               <p className="text-sm leading-relaxed text-[#9CA3AF]">Digital marketing systems engineered to launch, scale, and dominate your market.</p>
             </div>
             {/* Col 2 — Services */}

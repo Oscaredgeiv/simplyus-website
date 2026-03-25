@@ -28,7 +28,7 @@ const services = [
     subtitle: "ACQUISITION & GROWTH",
     desc: "Multi-channel campaigns engineered for measurable ROI. Paid ads, SEO, email funnels, and full-funnel campaigns — all calibrated by conversion data.",
     bullets: ["Google & Meta Ads Management", "Search Engine Optimization", "Email Marketing & Automation", "Analytics & Performance Tracking"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=90",
   },
   {
     num: "02",
@@ -36,7 +36,7 @@ const services = [
     subtitle: "CONTENT & AMPLIFICATION",
     desc: "Precision-targeted scroll-stopping content, reels, graphics, and strategy backed by real-time analytics. Every post is measured and optimized for maximum signal clarity.",
     bullets: ["Social Media Strategy & Planning", "Content Creation (Photos, Video, Reels)", "Community Management & Engagement", "Brand Voice Development"],
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=90",
   },
   {
     num: "03",
@@ -44,7 +44,7 @@ const services = [
     subtitle: "DESIGN & PERFORMANCE",
     desc: "Custom, conversion-focused websites built with surgical precision. Beautiful interfaces engineered for maximum throughput and minimum bounce.",
     bullets: ["Custom UI/UX Design", "Mobile-First Responsive Layouts", "Landing Pages & Sales Funnels", "E-commerce Solutions"],
-    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=90",
   },
   {
     num: "04",
@@ -52,7 +52,7 @@ const services = [
     subtitle: "INFRASTRUCTURE & UPTIME",
     desc: "Fast, secure, reliable hosting with data-grade accuracy. Your site stays online, protected, and performing at peak — tracked with full visibility at every stage.",
     bullets: ["99.9% Uptime Guarantee", "SSL Certificates & Security", "Daily Backups & Monitoring", "Managed WordPress Hosting"],
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=90",
   },
   {
     num: "05",
@@ -60,7 +60,7 @@ const services = [
     subtitle: "SYSTEMS & INTEGRATIONS",
     desc: "Custom-built apps, CRM integrations, and automation that eliminate repetitive tasks and connect your entire tech stack into one seamless signal flow.",
     bullets: ["Custom Web & Mobile Apps", "CRM Setup & Integration", "Workflow Automation", "API Development & Integrations"],
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=90",
   },
 ];
 
@@ -105,11 +105,11 @@ export default function SignalFlowConcept() {
         {/* Logo as company name — large, centered above headline */}
         <div className="pointer-events-none absolute inset-0 flex justify-center overflow-hidden">
           <motion.img
-            src="/logo.png"
+            src="/logo-transparent.png"
             alt=""
             aria-hidden="true"
             className="absolute top-[8%] sm:top-[10%] left-1/2 -translate-x-1/2 w-[400px] sm:w-[500px] md:w-[600px] lg:w-[700px] select-none"
-            style={{ mixBlendMode: "lighten" }}
+            
             initial={{ opacity: 0, y: -30, scale: 1.05 }}
             animate={{ opacity: 0.9, y: 0, scale: 1 }}
             transition={{ duration: 2, ease: "easeOut" }}
@@ -240,7 +240,7 @@ export default function SignalFlowConcept() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div>
-              <img src="/logo.png" alt="Simply Us & U" className="h-12 mb-4" />
+              <img src="/logo-transparent.png" alt="Simply Us & U" className="h-12 mb-4" />
               <p className="text-sm text-[#9CA3AF] leading-relaxed">
                 Data-driven marketing, operations, and automation. Every signal tracked, every result proven, every dollar accounted for.
               </p>

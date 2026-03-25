@@ -85,7 +85,7 @@ export default function ConceptsPage() {
       {/* ── Ambient logo watermark (brand-enforcer compliant) ── */}
       <div className="pointer-events-none fixed inset-0 z-0">
         <img
-          src="/logo.png"
+          src="/logo-transparent.png"
           alt=""
           aria-hidden="true"
           className="absolute -bottom-32 -right-24 w-[700px] select-none opacity-[0.035]"
@@ -103,7 +103,7 @@ export default function ConceptsPage() {
             ← Home
           </Link>
           <img
-            src="/logo.png"
+            src="/logo-transparent.png"
             alt="Simply Us & U"
             className="h-9"
           />

@@ -27,11 +27,11 @@ const stats = [
 ];
 
 const services = [
-  { num: "01", title: "Digital Marketing", subtitle: "Execute Targeted Campaigns", desc: "Paid ads, SEO, email funnels, and full-funnel campaigns engineered for measurable outcomes. Every dollar tracked, every conversion attributed, every strategy optimized in real time through our precision command center.", bullets: ["Google & Meta Ads Management", "Search Engine Optimization", "Email Marketing & Automation", "Analytics & Performance Tracking"], image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" },
-  { num: "02", title: "Social Content Creation", subtitle: "Deploy Scroll-Stopping Assets", desc: "Scroll-stopping content, reels, graphics, and strategy deployed with military-grade consistency. We operate your content pipeline with zero downtime and maximum impact across every platform.", bullets: ["Social Media Strategy & Planning", "Content Creation (Photos, Video, Reels)", "Community Management & Engagement", "Brand Voice Development"], image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80" },
-  { num: "03", title: "Website Design", subtitle: "Architect Conversion Systems", desc: "Custom, conversion-focused websites reverse-engineered from your goals. We build digital experiences with the precision of a command center — every pixel intentional, every interaction optimized.", bullets: ["Custom UI/UX Design", "Mobile-First Responsive Layouts", "Landing Pages & Sales Funnels", "E-commerce Solutions"], image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80" },
-  { num: "04", title: "Website Hosting", subtitle: "Deliver Enterprise-Grade Uptime", desc: "Fast, secure, reliable hosting with the infrastructure your operation demands. We maintain your digital foundation with 24/7 monitoring, automated backups, and zero-tolerance security protocols.", bullets: ["99.9% Uptime Guarantee", "SSL Certificates & Security", "Daily Backups & Monitoring", "Managed WordPress Hosting"], image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80" },
-  { num: "05", title: "Software & App Development", subtitle: "Integrate and Automate at Scale", desc: "Custom apps, CRM integrations, and automation that connect your entire tech stack into a unified command layer. We build the systems that eliminate manual work and give you total operational control.", bullets: ["Custom Web & Mobile Apps", "CRM Setup & Integration", "Workflow Automation", "API Development & Integrations"], image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80" },
+  { num: "01", title: "Digital Marketing", subtitle: "Execute Targeted Campaigns", desc: "Paid ads, SEO, email funnels, and full-funnel campaigns engineered for measurable outcomes. Every dollar tracked, every conversion attributed, every strategy optimized in real time through our precision command center.", bullets: ["Google & Meta Ads Management", "Search Engine Optimization", "Email Marketing & Automation", "Analytics & Performance Tracking"], image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=90" },
+  { num: "02", title: "Social Content Creation", subtitle: "Deploy Scroll-Stopping Assets", desc: "Scroll-stopping content, reels, graphics, and strategy deployed with military-grade consistency. We operate your content pipeline with zero downtime and maximum impact across every platform.", bullets: ["Social Media Strategy & Planning", "Content Creation (Photos, Video, Reels)", "Community Management & Engagement", "Brand Voice Development"], image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=90" },
+  { num: "03", title: "Website Design", subtitle: "Architect Conversion Systems", desc: "Custom, conversion-focused websites reverse-engineered from your goals. We build digital experiences with the precision of a command center — every pixel intentional, every interaction optimized.", bullets: ["Custom UI/UX Design", "Mobile-First Responsive Layouts", "Landing Pages & Sales Funnels", "E-commerce Solutions"], image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=90" },
+  { num: "04", title: "Website Hosting", subtitle: "Deliver Enterprise-Grade Uptime", desc: "Fast, secure, reliable hosting with the infrastructure your operation demands. We maintain your digital foundation with 24/7 monitoring, automated backups, and zero-tolerance security protocols.", bullets: ["99.9% Uptime Guarantee", "SSL Certificates & Security", "Daily Backups & Monitoring", "Managed WordPress Hosting"], image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=90" },
+  { num: "05", title: "Software & App Development", subtitle: "Integrate and Automate at Scale", desc: "Custom apps, CRM integrations, and automation that connect your entire tech stack into a unified command layer. We build the systems that eliminate manual work and give you total operational control.", bullets: ["Custom Web & Mobile Apps", "CRM Setup & Integration", "Workflow Automation", "API Development & Integrations"], image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=90" },
 ];
 
 const steps = [
@@ -63,11 +63,11 @@ export default function NexusPage() {
         {/* Logo as company name — large, centered above headline */}
         <div className="pointer-events-none absolute inset-0 flex justify-center overflow-hidden">
           <motion.img
-            src="/logo.png"
+            src="/logo-transparent.png"
             alt=""
             aria-hidden="true"
             className="absolute top-[8%] sm:top-[10%] left-1/2 -translate-x-1/2 w-[400px] sm:w-[500px] md:w-[600px] lg:w-[700px] select-none"
-            style={{ mixBlendMode: "lighten" }}
+            
             initial={{ opacity: 0, y: -30, scale: 1.05 }}
             animate={{ opacity: 0.9, y: 0, scale: 1 }}
             transition={{ duration: 2, ease: "easeOut" }}
@@ -200,7 +200,7 @@ export default function NexusPage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Logo + Tagline */}
           <div>
-            <img src="/logo.png" alt="Simply Us & U" className="h-12 mb-4" />
+            <img src="/logo-transparent.png" alt="Simply Us & U" className="h-12 mb-4" />
             <p className="text-sm leading-relaxed text-[#9CA3AF]">Plan. Execute. Win. Your integrated command center for digital growth and operational excellence.</p>
           </div>
           {/* Services */}

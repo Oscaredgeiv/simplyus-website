@@ -27,11 +27,11 @@ const stats = [
 ];
 
 const services = [
-  { num: "01", title: "Digital Marketing", subtitle: "Cultivate Targeted Growth", desc: "Paid ads, SEO, email funnels, and full-funnel campaigns rooted in data and designed to bloom. We plant the seeds of visibility across every channel and nurture leads until they blossom into loyal customers.", bullets: ["Google & Meta Ads Management", "Search Engine Optimization", "Email Marketing & Automation", "Analytics & Performance Tracking"], image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" },
-  { num: "02", title: "Social Content Creation", subtitle: "Grow Scroll-Stopping Content", desc: "Scroll-stopping content, reels, graphics, and strategy cultivated to captivate your audience. We tend to every post, every story, every reel — nurturing your brand voice into something your community can't ignore.", bullets: ["Social Media Strategy & Planning", "Content Creation (Photos, Video, Reels)", "Community Management & Engagement", "Brand Voice Development"], image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80" },
-  { num: "03", title: "Website Design", subtitle: "Design That Takes Root", desc: "Custom, conversion-focused websites built from the ground up. We design digital experiences that are rooted in strategy, bloom with personality, and guide every visitor toward action.", bullets: ["Custom UI/UX Design", "Mobile-First Responsive Layouts", "Landing Pages & Sales Funnels", "E-commerce Solutions"], image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80" },
-  { num: "04", title: "Website Hosting", subtitle: "Strengthen Your Digital Roots", desc: "Fast, secure, reliable hosting that keeps your online presence thriving year-round. We tend the soil beneath your site so it never wilts — with uptime guarantees, backups, and security that let you grow worry-free.", bullets: ["99.9% Uptime Guarantee", "SSL Certificates & Security", "Daily Backups & Monitoring", "Managed WordPress Hosting"], image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80" },
-  { num: "05", title: "Software & App Development", subtitle: "Harvest Efficiency at Scale", desc: "Custom apps, CRM integrations, and automation that eliminate manual tasks and let your business grow without growing your workload. We build the tools that turn effort into exponential output.", bullets: ["Custom Web & Mobile Apps", "CRM Setup & Integration", "Workflow Automation", "API Development & Integrations"], image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80" },
+  { num: "01", title: "Digital Marketing", subtitle: "Cultivate Targeted Growth", desc: "Paid ads, SEO, email funnels, and full-funnel campaigns rooted in data and designed to bloom. We plant the seeds of visibility across every channel and nurture leads until they blossom into loyal customers.", bullets: ["Google & Meta Ads Management", "Search Engine Optimization", "Email Marketing & Automation", "Analytics & Performance Tracking"], image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=90" },
+  { num: "02", title: "Social Content Creation", subtitle: "Grow Scroll-Stopping Content", desc: "Scroll-stopping content, reels, graphics, and strategy cultivated to captivate your audience. We tend to every post, every story, every reel — nurturing your brand voice into something your community can't ignore.", bullets: ["Social Media Strategy & Planning", "Content Creation (Photos, Video, Reels)", "Community Management & Engagement", "Brand Voice Development"], image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=90" },
+  { num: "03", title: "Website Design", subtitle: "Design That Takes Root", desc: "Custom, conversion-focused websites built from the ground up. We design digital experiences that are rooted in strategy, bloom with personality, and guide every visitor toward action.", bullets: ["Custom UI/UX Design", "Mobile-First Responsive Layouts", "Landing Pages & Sales Funnels", "E-commerce Solutions"], image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=90" },
+  { num: "04", title: "Website Hosting", subtitle: "Strengthen Your Digital Roots", desc: "Fast, secure, reliable hosting that keeps your online presence thriving year-round. We tend the soil beneath your site so it never wilts — with uptime guarantees, backups, and security that let you grow worry-free.", bullets: ["99.9% Uptime Guarantee", "SSL Certificates & Security", "Daily Backups & Monitoring", "Managed WordPress Hosting"], image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=90" },
+  { num: "05", title: "Software & App Development", subtitle: "Harvest Efficiency at Scale", desc: "Custom apps, CRM integrations, and automation that eliminate manual tasks and let your business grow without growing your workload. We build the tools that turn effort into exponential output.", bullets: ["Custom Web & Mobile Apps", "CRM Setup & Integration", "Workflow Automation", "API Development & Integrations"], image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=90" },
 ];
 
 const steps = [
@@ -63,11 +63,11 @@ export default function GreenfieldPage() {
         {/* Logo as company name — large, centered above headline */}
         <div className="pointer-events-none absolute inset-0 flex justify-center overflow-hidden">
           <motion.img
-            src="/logo.png"
+            src="/logo-transparent.png"
             alt=""
             aria-hidden="true"
             className="absolute top-[8%] sm:top-[10%] left-1/2 -translate-x-1/2 w-[400px] sm:w-[500px] md:w-[600px] lg:w-[700px] select-none"
-            style={{ mixBlendMode: "lighten" }}
+            
             initial={{ opacity: 0, y: -30, scale: 1.05 }}
             animate={{ opacity: 0.9, y: 0, scale: 1 }}
             transition={{ duration: 2, ease: "easeOut" }}
@@ -200,7 +200,7 @@ export default function GreenfieldPage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Logo + Tagline */}
           <div>
-            <img src="/logo.png" alt="Simply Us & U" className="h-12 mb-4" />
+            <img src="/logo-transparent.png" alt="Simply Us & U" className="h-12 mb-4" />
             <p className="text-sm leading-relaxed text-[#9CA3AF]">Plant. Nurture. Harvest. We grow businesses with strategy, creativity, and technology.</p>
           </div>
           {/* Services */}

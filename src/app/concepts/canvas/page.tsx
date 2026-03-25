@@ -21,11 +21,11 @@ const stats = [
 ];
 
 const services = [
-  { num: "01", title: "Digital Marketing", subtitle: "Paint The Market With Your Brand", desc: "From paid ads to organic funnels, we create marketing campaigns that are as creative as they are data-driven. We blend artistry with analytics to reach your audience where they live and convert them where it counts.", bullets: ["Google & Meta Ads Management", "Search Engine Optimization", "Email Marketing & Automation", "Analytics & Performance Tracking"], image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" },
-  { num: "02", title: "Social Content Creation", subtitle: "Craft Scroll-Stopping Stories", desc: "We design bold reels, striking graphics, and strategic content that stops thumbs and starts conversations. Every post is a brushstroke in your brand story, carefully composed for engagement, reach, and cultural relevance.", bullets: ["Social Media Strategy & Planning", "Content Creation (Photos, Video, Reels)", "Community Management & Engagement", "Brand Voice Development"], image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80" },
-  { num: "03", title: "Website Design", subtitle: "Design Experiences That Convert", desc: "We bring creative problem-solving to every pixel. Custom, conversion-focused websites built with bold aesthetics and intuitive UX — because great design isn't just beautiful, it's effective.", bullets: ["Custom UI/UX Design", "Mobile-First Responsive Layouts", "Landing Pages & Sales Funnels", "E-commerce Solutions"], image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80" },
-  { num: "04", title: "Website Hosting", subtitle: "Keep Your Canvas Online", desc: "Fast, secure, and reliable hosting that keeps your digital masterpiece performing at its peak. We handle the infrastructure so your creative work is always accessible, always protected, always live.", bullets: ["99.9% Uptime Guarantee", "SSL Certificates & Security", "Daily Backups & Monitoring", "Managed WordPress Hosting"], image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80" },
-  { num: "05", title: "Software & App Development", subtitle: "Automate The Mundane, Amplify The Creative", desc: "We build custom apps, CRM integrations, and automation pipelines that free your team from repetitive work. When machines handle the mundane, your people can focus on what humans do best: create, connect, and innovate.", bullets: ["Custom Web & Mobile Apps", "CRM Setup & Integration", "Workflow Automation", "API Development & Integrations"], image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80" },
+  { num: "01", title: "Digital Marketing", subtitle: "Paint The Market With Your Brand", desc: "From paid ads to organic funnels, we create marketing campaigns that are as creative as they are data-driven. We blend artistry with analytics to reach your audience where they live and convert them where it counts.", bullets: ["Google & Meta Ads Management", "Search Engine Optimization", "Email Marketing & Automation", "Analytics & Performance Tracking"], image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=90" },
+  { num: "02", title: "Social Content Creation", subtitle: "Craft Scroll-Stopping Stories", desc: "We design bold reels, striking graphics, and strategic content that stops thumbs and starts conversations. Every post is a brushstroke in your brand story, carefully composed for engagement, reach, and cultural relevance.", bullets: ["Social Media Strategy & Planning", "Content Creation (Photos, Video, Reels)", "Community Management & Engagement", "Brand Voice Development"], image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=90" },
+  { num: "03", title: "Website Design", subtitle: "Design Experiences That Convert", desc: "We bring creative problem-solving to every pixel. Custom, conversion-focused websites built with bold aesthetics and intuitive UX — because great design isn't just beautiful, it's effective.", bullets: ["Custom UI/UX Design", "Mobile-First Responsive Layouts", "Landing Pages & Sales Funnels", "E-commerce Solutions"], image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=90" },
+  { num: "04", title: "Website Hosting", subtitle: "Keep Your Canvas Online", desc: "Fast, secure, and reliable hosting that keeps your digital masterpiece performing at its peak. We handle the infrastructure so your creative work is always accessible, always protected, always live.", bullets: ["99.9% Uptime Guarantee", "SSL Certificates & Security", "Daily Backups & Monitoring", "Managed WordPress Hosting"], image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=90" },
+  { num: "05", title: "Software & App Development", subtitle: "Automate The Mundane, Amplify The Creative", desc: "We build custom apps, CRM integrations, and automation pipelines that free your team from repetitive work. When machines handle the mundane, your people can focus on what humans do best: create, connect, and innovate.", bullets: ["Custom Web & Mobile Apps", "CRM Setup & Integration", "Workflow Automation", "API Development & Integrations"], image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=90" },
 ];
 
 const steps = [
@@ -61,11 +61,11 @@ export default function CanvasPage() {
         {/* Logo as company name — large, centered above headline */}
         <div className="pointer-events-none absolute inset-0 flex justify-center overflow-hidden">
           <motion.img
-            src="/logo.png"
+            src="/logo-transparent.png"
             alt=""
             aria-hidden="true"
             className="absolute top-[8%] sm:top-[10%] left-1/2 -translate-x-1/2 w-[400px] sm:w-[500px] md:w-[600px] lg:w-[700px] select-none"
-            style={{ mixBlendMode: "lighten" }}
+            
             initial={{ opacity: 0, y: -30, scale: 1.05 }}
             animate={{ opacity: 0.9, y: 0, scale: 1 }}
             transition={{ duration: 2, ease: "easeOut" }}
@@ -203,7 +203,7 @@ export default function CanvasPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
             {/* Col 1 — Logo */}
             <div>
-              <img src="/logo.png" alt="Simply Us & U" className="h-12 mb-4" />
+              <img src="/logo-transparent.png" alt="Simply Us & U" className="h-12 mb-4" />
               <p className="text-sm leading-relaxed text-[#9CA3AF]">Bold creative vision meets strategic precision. We build brands that captivate and convert.</p>
             </div>
             {/* Col 2 — Services */}
