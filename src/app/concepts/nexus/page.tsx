@@ -50,7 +50,7 @@ export default function NexusPage() {
           <Link href="/concepts" className="flex items-center gap-2 text-sm font-medium text-[#9CA3AF] hover:text-white transition-colors">
             <ArrowLeft size={16} /> <span>&larr; Back to Concepts</span>
           </Link>
-          <img src="/logo.png" alt="Simply Us & U" className="h-10 sm:h-12" />
+          <img src="/logo.png" alt="Simply Us & U" className="h-12 sm:h-14 drop-shadow-[0_0_12px_rgba(232,129,26,0.3)]" />
         </div>
       </nav>
 
@@ -58,9 +58,18 @@ export default function NexusPage() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0A0A0A]" />
         <div className="absolute inset-0 opacity-20" style={{ background: "radial-gradient(ellipse at 50% 30%, #E8811A22, transparent 70%)" }} />
+        {/* Translucent logo backdrop */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <img
+            src="/logo.png"
+            alt=""
+            className="w-[600px] sm:w-[700px] md:w-[800px] lg:w-[900px] opacity-[0.06] select-none"
+            style={{ filter: "brightness(1.5)" }}
+          />
+        </div>
         <div className="relative z-10 max-w-5xl mx-auto text-center px-6 pt-24">
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }} className="uppercase tracking-[0.3em] text-sm mb-6 font-medium" style={{ color: orange }}>
-            CONCEPT 08 &middot; NEXUS COMMAND
+            SIMPLY US &amp; U &middot; NEXUS COMMAND
           </motion.p>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.7 }} className="text-5xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tight leading-[0.95] mb-8">
             PLAN. EXECUTE.<br /><span style={{ color: orange }}>WIN.</span>
@@ -204,6 +213,7 @@ export default function NexusPage() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/10 text-center">
+          <img src="/logo.png" alt="Simply Us & U" className="mx-auto mb-4 h-16 opacity-40" />
           <p className="text-xs" style={{ color: gray }}>&copy; {new Date().getFullYear()} Simply Us &amp; You. All rights reserved.</p>
           <p className="text-xs mt-1" style={{ color: "#555" }}>Concept 08 &middot; Nexus Command</p>
         </div>

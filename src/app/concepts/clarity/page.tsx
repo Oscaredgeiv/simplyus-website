@@ -96,7 +96,7 @@ export default function ClarityPage() {
           <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
           Back to Concepts
         </Link>
-        <img src="/logo.png" alt="Simply Us & U" className="h-10 sm:h-12" />
+        <img src="/logo.png" alt="Simply Us & U" className="h-12 sm:h-14 drop-shadow-[0_0_12px_rgba(232,129,26,0.3)]" />
         <a href="tel:+15551234567" className="flex items-center gap-2 text-sm font-bold" style={{ color: orange }}>
           <Phone size={14} /> (555) 123-4567
         </a>
@@ -106,14 +106,23 @@ export default function ClarityPage() {
       <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden">
         <div className="absolute inset-0" style={{ background: "linear-gradient(160deg, #111111 0%, #0A0A0A 40%, #0f0a00 100%)" }} />
         <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.6)" }} />
+        {/* Translucent logo backdrop */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <img
+            src="/logo.png"
+            alt=""
+            className="w-[600px] sm:w-[700px] md:w-[800px] lg:w-[900px] opacity-[0.06] select-none"
+            style={{ filter: "brightness(1.5)" }}
+          />
+        </div>
         <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
           <FadeUp>
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>SIMPLY US & YOU</p>
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>SIMPLY US & U</p>
           </FadeUp>
           <FadeUp delay={0.1}>
             <h1 className="text-4xl font-bold uppercase leading-none tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
-              STRATEGY. EXECUTION.{" "}
-              <span style={{ color: orange }}>RESULTS.</span>
+              CONTENT. DESIGN.{" "}
+              <span style={{ color: orange }}>DEVELOPMENT.</span>
             </h1>
           </FadeUp>
           <FadeUp delay={0.2}>
@@ -266,6 +275,7 @@ export default function ClarityPage() {
           </div>
         </div>
         <div className="mt-12 border-t pt-8" style={{ borderColor: "#1a1a1a" }}>
+          <img src="/logo.png" alt="Simply Us & U" className="mx-auto mb-4 h-16 opacity-40" />
           <p className="text-xs" style={{ color: gray }}>&copy; {new Date().getFullYear()} Simply Us & You. All rights reserved.</p>
         </div>
       </footer>

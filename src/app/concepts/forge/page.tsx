@@ -87,7 +87,7 @@ export default function ForgeConcept() {
           <Link href="/concepts" className="inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-[#9CA3AF] hover:text-white transition-colors">
             <ArrowLeft size={14} /> Back to Concepts
           </Link>
-          <img src="/logo.png" alt="Simply Us & U" className="h-10 sm:h-12" />
+          <img src="/logo.png" alt="Simply Us & U" className="h-12 sm:h-14 drop-shadow-[0_0_12px_rgba(232,129,26,0.3)]" />
           <div className="hidden md:flex items-center gap-6 text-xs text-[#9CA3AF]">
             <span className="flex items-center gap-2"><Phone size={12} className="text-[#E8811A]" /> (555) 123-4567</span>
             <span className="flex items-center gap-2"><Mail size={12} className="text-[#E8811A]" /> hello@simplyusandu.com</span>
@@ -99,12 +99,21 @@ export default function ForgeConcept() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0A0A0A]" />
         <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] to-[#0A0A0A]" />
+        {/* Translucent logo backdrop */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <img
+            src="/logo.png"
+            alt=""
+            className="w-[600px] sm:w-[700px] md:w-[800px] lg:w-[900px] opacity-[0.06] select-none"
+            style={{ filter: "brightness(1.5)" }}
+          />
+        </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 md:py-44 text-center">
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="text-xs tracking-[0.3em] uppercase text-[#E8811A] mb-6 font-bold">
-            Concept 03 — The Forge
+            SIMPLY US & U
           </motion.p>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.15 }} className="text-5xl sm:text-6xl md:text-8xl font-bold uppercase tracking-tight leading-[1.05]">
-            MARKETING. OPERATIONS.<br /><span className="text-[#E8811A]">GROWTH.</span>
+            MARKETING. DESIGN.<br /><span className="text-[#E8811A]">DEVELOPMENT.</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.35 }} className="mt-8 text-base md:text-lg text-[#9CA3AF] max-w-2xl mx-auto leading-relaxed">
             Industrial-strength marketing, operations consulting, and automation solutions forged for businesses that demand results.
@@ -260,11 +269,14 @@ export default function ForgeConcept() {
               </ul>
             </div>
           </div>
-          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-xs text-[#9CA3AF]">&copy; 2026 SimplyUs&amp;U. All rights reserved.</p>
-            <div className="flex gap-6 text-xs text-[#9CA3AF]">
-              <span className="hover:text-white transition-colors cursor-pointer">Privacy</span>
-              <span className="hover:text-white transition-colors cursor-pointer">Terms</span>
+          <div className="border-t border-white/10 pt-8 text-center">
+            <img src="/logo.png" alt="Simply Us & U" className="mx-auto mb-4 h-16 opacity-40" />
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-xs text-[#9CA3AF]">&copy; 2026 SimplyUs&amp;U. All rights reserved.</p>
+              <div className="flex gap-6 text-xs text-[#9CA3AF]">
+                <span className="hover:text-white transition-colors cursor-pointer">Privacy</span>
+                <span className="hover:text-white transition-colors cursor-pointer">Terms</span>
+              </div>
             </div>
           </div>
         </div>

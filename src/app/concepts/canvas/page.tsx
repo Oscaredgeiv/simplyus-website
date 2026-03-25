@@ -84,7 +84,7 @@ export default function CanvasPage() {
           <Link href="/concepts" className="inline-flex items-center gap-2 text-sm text-[#9CA3AF] hover:text-white transition-colors">
             <ArrowLeft size={16} /> <span>&larr; Back to Concepts</span>
           </Link>
-          <img src="/logo.png" alt="Simply Us & U" className="h-10 sm:h-12" />
+          <img src="/logo.png" alt="Simply Us & U" className="h-12 sm:h-14 drop-shadow-[0_0_12px_rgba(232,129,26,0.3)]" />
         </div>
       </nav>
 
@@ -92,9 +92,18 @@ export default function CanvasPage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0A0A0A]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-transparent to-[#0A0A0A]/80" />
+        {/* Translucent logo backdrop */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <img
+            src="/logo.png"
+            alt=""
+            className="w-[600px] sm:w-[700px] md:w-[800px] lg:w-[900px] opacity-[0.06] select-none"
+            style={{ filter: "brightness(1.5)" }}
+          />
+        </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-32 md:py-44 text-center">
           <FadeUp>
-            <p className="text-xs tracking-[0.3em] uppercase mb-6 font-semibold" style={{ color: orange }}>THE CANVAS COLLECTIVE</p>
+            <p className="text-xs tracking-[0.3em] uppercase mb-6 font-semibold" style={{ color: orange }}>SIMPLY US & U</p>
           </FadeUp>
           <FadeUp delay={0.1}>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tight leading-[0.95] mb-8">
@@ -260,6 +269,7 @@ export default function CanvasPage() {
             </div>
           </div>
           <div className="border-t border-white/10 mt-12 pt-8 text-center">
+            <img src="/logo.png" alt="Simply Us & U" className="mx-auto mb-4 h-16 opacity-40" />
             <p className="text-xs" style={{ color: gray }}>&copy; 2026 Simply Us & You. All rights reserved.</p>
           </div>
         </div>
