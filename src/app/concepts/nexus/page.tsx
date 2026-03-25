@@ -50,7 +50,7 @@ export default function NexusPage() {
           <Link href="/concepts" className="flex items-center gap-2 text-sm font-medium text-[#9CA3AF] hover:text-white transition-colors">
             <ArrowLeft size={16} /> <span>&larr; Back to Concepts</span>
           </Link>
-          <img src="/logo.svg" alt="Simply Us & U" className="h-8" />
+          <img src="/logo.png" alt="Simply Us & U" className="h-10 sm:h-12" />
         </div>
       </nav>
 

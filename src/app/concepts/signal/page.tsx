@@ -87,7 +87,7 @@ export default function SignalFlowConcept() {
           <Link href="/concepts" className="inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-[#9CA3AF] hover:text-white transition-colors">
             <ArrowLeft size={14} /> Back to Concepts
           </Link>
-          <img src="/logo.svg" alt="Simply Us & U" className="h-8" />
+          <img src="/logo.png" alt="Simply Us & U" className="h-10 sm:h-12" />
           <div className="hidden md:flex items-center gap-6 text-xs text-[#9CA3AF]">
             <span className="flex items-center gap-2"><Phone size={12} className="text-[#E8811A]" /> (555) 123-4567</span>
             <span className="flex items-center gap-2"><Mail size={12} className="text-[#E8811A]" /> hello@simplyusandu.com</span>

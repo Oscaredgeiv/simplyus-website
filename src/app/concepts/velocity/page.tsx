@@ -96,7 +96,7 @@ export default function VelocityPage() {
           <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
           Back to Concepts
         </Link>
-        <img src="/logo.svg" alt="Simply Us & U" className="h-8" />
+        <img src="/logo.png" alt="Simply Us & U" className="h-10 sm:h-12" />
         <a href="tel:+15551234567" className="flex items-center gap-2 text-sm font-bold" style={{ color: orange }}>
           <Phone size={14} /> (555) 123-4567
         </a>

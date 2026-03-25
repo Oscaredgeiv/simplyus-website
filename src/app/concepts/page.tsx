@@ -81,7 +81,7 @@ export default function ConceptsPage() {
             <Link href="/" className="text-sm text-gray-400 hover:text-white transition-colors">
               ← Back to Home
             </Link>
-            <img src="/logo.svg" alt="Simply Us & U" className="h-8" />
+            <img src="/logo.png" alt="Simply Us & U" className="h-10 sm:h-12" />
           </div>
         </div>
       </div>
