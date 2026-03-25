@@ -5,15 +5,15 @@ import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { ArrowLeft, ArrowRight, Phone } from "lucide-react";
 
-function FadeUp({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-60px" });
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 32 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.65, ease: "easeOut", delay }}
+      initial={{ opacity: 0, y: 24, filter: "blur(4px)" }}
+      animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+      transition={{ duration: 0.7, ease: [0.25, 0.4, 0, 1], delay }}
       className={className}
     >
       {children}
@@ -23,7 +23,7 @@ function FadeUp({ children, className = "", delay = 0 }: { children: React.React
 
 const orange = "#E8811A";
 const gray = "#9CA3AF";
-const bg = "#0A0A0A";
+const bg = "#0B0B0D";
 
 const stats = [
   { value: "50+", label: "BRANDS SCALED" },
@@ -89,62 +89,60 @@ const steps = [
 
 export default function ClarityPage() {
   return (
-    <div className="min-h-screen font-sans" style={{ background: bg, color: "#FFFFFF" }}>
+    <div className="min-h-screen font-sans" style={{ background: "#0B0B0D", color: "#FFFFFF" }}>
       {/* Sticky top bar */}
-      <nav className="sticky top-0 z-50 flex items-center justify-between px-6 py-3" style={{ background: "rgba(10,10,10,0.95)", borderBottom: "1px solid #1a1a1a" }}>
+      <nav className="sticky top-0 z-50 flex items-center justify-between px-6 py-3 backdrop-blur-md" style={{ background: "rgba(11,11,13,0.85)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         <Link href="/concepts" className="group flex items-center gap-2 text-sm" style={{ color: gray }}>
           <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
-          Back to Concepts
+          Concepts
         </Link>
-        <img src="/logo.png" alt="Simply Us & U" className="h-12 sm:h-14 drop-shadow-[0_0_12px_rgba(232,129,26,0.3)]" />
-        <a href="tel:+15551234567" className="flex items-center gap-2 text-sm font-bold" style={{ color: orange }}>
-          <Phone size={14} /> (555) 123-4567
-        </a>
+        <img src="/logo.png" alt="Simply Us & U" className="h-9" />
+        <div className="w-[88px]" />
       </nav>
 
       {/* Hero */}
       <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden">
-        <div className="absolute inset-0" style={{ background: "linear-gradient(160deg, #111111 0%, #0A0A0A 40%, #0f0a00 100%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(160deg, #111111 0%, #0B0B0D 40%, #0f0a00 100%)" }} />
         <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.6)" }} />
-        {/* Translucent logo backdrop */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        {/* Subtle watermark — bottom-right, cropped off-screen */}
+        <div className="absolute bottom-0 right-0 translate-x-[20%] translate-y-[20%] pointer-events-none">
           <img
             src="/logo.png"
             alt=""
-            className="w-[600px] sm:w-[700px] md:w-[800px] lg:w-[900px] opacity-[0.06] select-none"
-            style={{ filter: "brightness(1.5)" }}
+            className="w-[500px] sm:w-[600px] md:w-[700px] opacity-[0.035] select-none"
+            style={{ filter: "blur(28px)" }}
           />
         </div>
         <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-          <FadeUp>
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>SIMPLY US & U</p>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <h1 className="text-4xl font-bold uppercase leading-none tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
-              CONTENT. DESIGN.{" "}
-              <span style={{ color: orange }}>DEVELOPMENT.</span>
+          <Reveal>
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>Simply Us & U</p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h1 className="text-5xl font-bold leading-none tracking-tight sm:text-6xl md:text-7xl">
+              Content. Design.{" "}
+              <span style={{ color: orange }}>Development.</span>
             </h1>
-          </FadeUp>
-          <FadeUp delay={0.2}>
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed md:text-lg" style={{ color: gray }}>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed md:text-lg" style={{ color: "#9CA3AF" }}>
               We bring clarity to your marketing, operations, and growth. No noise, no guesswork — just clear strategy and measurable outcomes.
             </p>
-          </FadeUp>
-          <FadeUp delay={0.3}>
+          </Reveal>
+          <Reveal delay={0.3}>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <Link href="#" className="inline-flex items-center gap-2 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-opacity hover:opacity-90" style={{ background: orange }}>
+              <Link href="#" className="inline-flex items-center gap-2 rounded-lg px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:opacity-90" style={{ background: orange }}>
                 GET A FREE QUOTE
               </Link>
-              <Link href="#" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider transition-opacity hover:opacity-80" style={{ color: orange }}>
+              <Link href="#" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:text-white" style={{ color: orange }}>
                 OR EMAIL US <ArrowRight size={16} />
               </Link>
             </div>
-          </FadeUp>
+          </Reveal>
         </div>
       </section>
 
       {/* Stats Bar */}
-      <section className="border-y" style={{ borderColor: "#1a1a1a", background: "#111111" }}>
+      <section className="border-y" style={{ borderColor: "rgba(255,255,255,0.06)", background: "#111111" }}>
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center divide-x" style={{ divideColor: "#2a2a2a" } as React.CSSProperties}>
           {stats.map((s) => (
             <div key={s.label} className="flex flex-1 flex-col items-center gap-1 px-6 py-8 sm:flex-row sm:gap-3">
@@ -157,11 +155,11 @@ export default function ClarityPage() {
 
       {/* Services Intro */}
       <section className="mx-auto max-w-6xl px-6 pt-24 pb-8">
-        <FadeUp>
+        <Reveal>
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>WHAT WE DO</p>
           <h2 className="text-3xl font-bold uppercase tracking-tight sm:text-4xl md:text-5xl">OUR SERVICES</h2>
           <div className="mt-4 h-1 w-16" style={{ background: orange }} />
-        </FadeUp>
+        </Reveal>
       </section>
 
       {/* Service Split Sections */}
@@ -169,10 +167,10 @@ export default function ClarityPage() {
         const reversed = i % 2 === 1;
         return (
           <section key={s.num} className="mx-auto max-w-6xl px-6 py-16">
-            <FadeUp>
+            <Reveal>
               <div className={`flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-16 ${reversed ? "lg:flex-row-reverse" : ""}`}>
                 {/* Image */}
-                <div className="h-72 w-full overflow-hidden lg:h-96 lg:w-1/2" style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}>
+                <div className="h-72 w-full rounded-lg overflow-hidden lg:h-96 lg:w-1/2" style={{ background: "#1a1a1a", border: "1px solid rgba(255,255,255,0.06)" }}>
                   <img src={s.imgSrc} alt={s.img} className="w-full h-full object-cover" />
                 </div>
                 {/* Content */}
@@ -189,40 +187,40 @@ export default function ClarityPage() {
                       </li>
                     ))}
                   </ul>
-                  <Link href="#" className="mt-8 inline-flex items-center gap-2 border-2 px-6 py-3 text-sm font-bold uppercase tracking-wider transition-colors hover:bg-white/5" style={{ borderColor: orange, color: orange }}>
+                  <Link href="#" className="mt-8 inline-flex items-center gap-2 rounded-lg border-2 px-6 py-3 text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:bg-white/5" style={{ borderColor: orange, color: orange }}>
                     GET A FREE QUOTE <ArrowRight size={16} />
                   </Link>
                 </div>
               </div>
-            </FadeUp>
+            </Reveal>
           </section>
         );
       })}
 
       {/* Process / How It Works */}
       <section className="mx-auto max-w-6xl px-6 py-24">
-        <FadeUp>
+        <Reveal>
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>HOW IT WORKS</p>
           <h2 className="text-3xl font-bold uppercase tracking-tight sm:text-4xl md:text-5xl">OUR PROCESS</h2>
           <div className="mt-4 h-1 w-16" style={{ background: orange }} />
-        </FadeUp>
+        </Reveal>
         <div className="mt-16 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((s, i) => (
-            <FadeUp key={s.num} delay={i * 0.1}>
+            <Reveal key={s.num} delay={i * 0.1}>
               <div>
                 <span className="text-4xl font-bold" style={{ color: orange }}>{s.num}</span>
                 <h3 className="mt-3 text-lg font-bold uppercase tracking-wide">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed" style={{ color: gray }}>{s.desc}</p>
               </div>
-            </FadeUp>
+            </Reveal>
           ))}
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24" style={{ background: "#111111", borderTop: "1px solid #1a1a1a", borderBottom: "1px solid #1a1a1a" }}>
+      <section className="py-24" style={{ background: "#111111", borderTop: "1px solid rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <FadeUp>
+          <Reveal>
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>FREE ESTIMATES</p>
             <h2 className="text-3xl font-bold uppercase tracking-tight sm:text-4xl md:text-5xl">READY TO GET IT DONE?</h2>
             <div className="mx-auto mt-4 h-1 w-16" style={{ background: orange }} />
@@ -231,10 +229,10 @@ export default function ClarityPage() {
             </p>
             <p className="mt-8 text-3xl font-bold md:text-4xl" style={{ color: orange }}>(555) 123-4567</p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <Link href="tel:+15551234567" className="inline-flex items-center gap-2 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-opacity hover:opacity-90" style={{ background: orange }}>
+              <Link href="tel:+15551234567" className="inline-flex items-center gap-2 rounded-lg px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:opacity-90" style={{ background: orange }}>
                 <Phone size={16} /> CALL NOW
               </Link>
-              <Link href="#" className="inline-flex items-center gap-2 border-2 px-8 py-4 text-sm font-bold uppercase tracking-wider transition-colors hover:bg-white/5" style={{ borderColor: orange, color: orange }}>
+              <Link href="#" className="inline-flex items-center gap-2 rounded-lg border-2 px-8 py-4 text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:bg-white/5" style={{ borderColor: orange, color: orange }}>
                 EMAIL US
               </Link>
             </div>
@@ -242,7 +240,7 @@ export default function ClarityPage() {
               <span>info@simplyusandyou.com</span>
               <span>Mon - Fri: 9AM - 6PM</span>
             </div>
-          </FadeUp>
+          </Reveal>
         </div>
       </section>
 
@@ -274,8 +272,7 @@ export default function ClarityPage() {
             </div>
           </div>
         </div>
-        <div className="mt-12 border-t pt-8" style={{ borderColor: "#1a1a1a" }}>
-          <img src="/logo.png" alt="Simply Us & U" className="mx-auto mb-4 h-16 opacity-40" />
+        <div className="mt-12 border-t pt-8" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
           <p className="text-xs" style={{ color: gray }}>&copy; {new Date().getFullYear()} Simply Us & You. All rights reserved.</p>
         </div>
       </footer>
