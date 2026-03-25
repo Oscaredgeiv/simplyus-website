@@ -1,10 +1,11 @@
 export const SITE_CONFIG = {
-  name: "Simply Us & You",
+  name: "Simply Us & U",
   tagline: "Your Growth. Our Obsession.",
   description:
-    "We help service-based businesses grow through social media management, digital marketing, operations consulting, and software automation.",
+    "We help businesses grow through digital marketing, social content creation, website design, hosting, and software development.",
   url: "https://simplyusandyou.com",
   email: "hello@simplyusandyou.com",
+  phone: "(555) 123-4567",
   socials: {
     linkedin: "https://linkedin.com/company/simplyusandyou",
     instagram: "https://instagram.com/simplyusandyou",
@@ -14,28 +15,51 @@ export const SITE_CONFIG = {
 
 export const SERVICES = [
   {
-    title: "Social Media Management",
-    slug: "social-media-management",
-    shortDescription: "Strategy, content, and community management that grows your brand.",
-  },
-  {
     title: "Digital Marketing",
     slug: "digital-marketing",
-    shortDescription: "Paid and organic campaigns that deliver measurable ROI.",
+    shortDescription:
+      "Paid ads, SEO, email funnels, and full-funnel campaigns that deliver measurable ROI.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
   },
   {
-    title: "Operations Consulting",
-    slug: "operations-consulting",
-    shortDescription: "Streamline workflows and scale your business efficiently.",
+    title: "Social Content Creation",
+    slug: "social-content-creation",
+    shortDescription:
+      "Scroll-stopping content, reels, graphics, and social strategy that grows your audience.",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
   },
   {
-    title: "Project Management",
-    slug: "project-management",
-    shortDescription: "Keep every initiative on track, on time, and on budget.",
+    title: "Website Design",
+    slug: "website-design",
+    shortDescription:
+      "Custom, conversion-focused websites that look premium and perform even better.",
+    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
   },
   {
-    title: "Software & Automation",
-    slug: "automation",
-    shortDescription: "CRM setup, workflow automation, and tech stack management.",
+    title: "Website Hosting",
+    slug: "website-hosting",
+    shortDescription:
+      "Fast, secure, and reliable hosting with 99.9% uptime and hands-free management.",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+  },
+  {
+    title: "Software & App Development",
+    slug: "software-development",
+    shortDescription:
+      "Custom apps, CRM integrations, workflow automation, and scalable software solutions.",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
   },
 ] as const;
+
+export const SERVICE_IMAGES = {
+  "digital-marketing":
+    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+  "social-content-creation":
+    "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
+  "website-design":
+    "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
+  "website-hosting":
+    "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+  "software-development":
+    "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
+} as const;

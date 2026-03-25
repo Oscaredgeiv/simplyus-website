@@ -27,11 +27,11 @@ const stats = [
 ];
 
 const services = [
-  { num: "01", title: "SOCIAL MEDIA MANAGEMENT", subtitle: "Cultivate Your Digital Presence", desc: "We plant the seeds of engagement across every platform. From content calendars to community management, we nurture your social channels into thriving ecosystems that attract, engage, and convert your ideal audience organically.", bullets: ["Content strategy & scheduling", "Community engagement", "Analytics & growth tracking", "Platform optimization"] },
-  { num: "02", title: "DIGITAL MARKETING", subtitle: "Grow Targeted Campaigns", desc: "Data-driven campaigns rooted in research and designed to bloom. We cultivate paid and organic strategies that attract the right audience, nurture leads through the funnel, and harvest measurable results season after season.", bullets: ["SEO & content marketing", "PPC & paid social", "Email nurture sequences", "Conversion optimization"] },
-  { num: "03", title: "OPERATIONS CONSULTING", subtitle: "Strengthen Your Roots", desc: "A thriving business needs strong roots. We dig into your operations, identify inefficiencies, and design streamlined processes that let your team focus on growth instead of getting tangled in daily chaos.", bullets: ["Process mapping & optimization", "SOP development", "Team workflow design", "Performance benchmarking"] },
-  { num: "04", title: "PROJECT MANAGEMENT", subtitle: "Nurture Every Initiative", desc: "Every project is a garden that needs tending. We bring structure, timelines, and accountability to your initiatives so nothing falls through the cracks and every effort bears fruit on schedule.", bullets: ["Agile & waterfall frameworks", "Timeline & milestone tracking", "Cross-team coordination", "Risk mitigation planning"] },
-  { num: "05", title: "SOFTWARE & AUTOMATION", subtitle: "Harvest Efficiency at Scale", desc: "Automate the repetitive so you can focus on the creative. We build and integrate software solutions that eliminate manual tasks, connect your tools, and let your business grow without growing your workload.", bullets: ["Workflow automation", "CRM & tool integrations", "Custom software solutions", "Data pipeline design"] },
+  { num: "01", title: "DIGITAL MARKETING", subtitle: "Cultivate Targeted Growth", desc: "Paid ads, SEO, email funnels, and full-funnel campaigns rooted in data and designed to bloom. We plant the seeds of visibility across every channel and nurture leads until they blossom into loyal customers.", bullets: ["Google & Meta Ads Management", "Search Engine Optimization", "Email Marketing & Automation", "Analytics & Performance Tracking"], image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" },
+  { num: "02", title: "SOCIAL CONTENT CREATION", subtitle: "Grow Scroll-Stopping Content", desc: "Scroll-stopping content, reels, graphics, and strategy cultivated to captivate your audience. We tend to every post, every story, every reel — nurturing your brand voice into something your community can't ignore.", bullets: ["Social Media Strategy & Planning", "Content Creation (Photos, Video, Reels)", "Community Management & Engagement", "Brand Voice Development"], image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80" },
+  { num: "03", title: "WEBSITE DESIGN", subtitle: "Design That Takes Root", desc: "Custom, conversion-focused websites built from the ground up. We design digital experiences that are rooted in strategy, bloom with personality, and guide every visitor toward action.", bullets: ["Custom UI/UX Design", "Mobile-First Responsive Layouts", "Landing Pages & Sales Funnels", "E-commerce Solutions"], image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80" },
+  { num: "04", title: "WEBSITE HOSTING", subtitle: "Strengthen Your Digital Roots", desc: "Fast, secure, reliable hosting that keeps your online presence thriving year-round. We tend the soil beneath your site so it never wilts — with uptime guarantees, backups, and security that let you grow worry-free.", bullets: ["99.9% Uptime Guarantee", "SSL Certificates & Security", "Daily Backups & Monitoring", "Managed WordPress Hosting"], image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80" },
+  { num: "05", title: "SOFTWARE & APP DEVELOPMENT", subtitle: "Harvest Efficiency at Scale", desc: "Custom apps, CRM integrations, and automation that eliminate manual tasks and let your business grow without growing your workload. We build the tools that turn effort into exponential output.", bullets: ["Custom Web & Mobile Apps", "CRM Setup & Integration", "Workflow Automation", "API Development & Integrations"], image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80" },
 ];
 
 const process = [
@@ -50,7 +50,7 @@ export default function GreenfieldPage() {
           <Link href="/concepts" className="flex items-center gap-2 text-sm font-medium text-[#9CA3AF] hover:text-white transition-colors">
             <ArrowLeft size={16} /> <span>&larr; Back to Concepts</span>
           </Link>
-          <span className="text-sm font-bold uppercase tracking-wider">Simply Us &amp; You</span>
+          <img src="/logo.svg" alt="Simply Us & U" className="h-8" />
         </div>
       </nav>
 
@@ -66,7 +66,7 @@ export default function GreenfieldPage() {
             PLANT. NURTURE.<br /><span style={{ color: orange }}>HARVEST.</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.6 }} className="text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style={{ color: gray }}>
-            We blend social media, digital marketing, operations, and automation into a growth system that compounds over time. No gimmicks. No burnout. Just results that last.
+            We blend digital marketing, content creation, web design, hosting, and custom development into a growth system that compounds over time. No gimmicks. No burnout. Just results that last.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.6 }} className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="#contact" className="inline-block text-sm font-bold uppercase tracking-wider px-10 py-4 transition-all hover:brightness-110" style={{ background: orange, color: "#fff" }}>
@@ -106,12 +106,10 @@ export default function GreenfieldPage() {
       {services.map((s, i) => (
         <section key={s.num} className="py-20 px-6 border-t border-white/10">
           <div className={`max-w-7xl mx-auto flex flex-col ${i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} items-center gap-12 lg:gap-20`}>
-            {/* Image placeholder */}
+            {/* Image */}
             <FadeUp className="w-full lg:w-1/2">
-              <div className="aspect-[4/3] rounded-sm overflow-hidden" style={{ background: `linear-gradient(135deg, #1a1a1a, #2a2a2a, #1a1a1a)` }}>
-                <div className="w-full h-full flex items-center justify-center">
-                  <span className="text-6xl font-bold opacity-10" style={{ color: orange }}>{s.num}</span>
-                </div>
+              <div className="aspect-[4/3] rounded-sm overflow-hidden">
+                <img src={s.image} alt={s.title} className="w-full h-full object-cover" />
               </div>
             </FadeUp>
             {/* Content */}
@@ -189,7 +187,7 @@ export default function GreenfieldPage() {
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4" style={{ color: orange }}>SERVICES</p>
             <ul className="space-y-2 text-xs" style={{ color: gray }}>
-              <li>Social Media Management</li><li>Digital Marketing</li><li>Operations Consulting</li><li>Project Management</li><li>Software &amp; Automation</li>
+              <li>Digital Marketing</li><li>Social Content Creation</li><li>Website Design</li><li>Website Hosting</li><li>Software &amp; App Development</li>
             </ul>
           </div>
           <div>

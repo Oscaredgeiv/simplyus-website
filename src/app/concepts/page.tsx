@@ -9,7 +9,7 @@ const concepts = [
     id: "01",
     name: "Velocity Growth Engine",
     slug: "velocity",
-    headline: "SOCIAL MEDIA. DIGITAL MARKETING. AUTOMATION.",
+    headline: "DIGITAL MARKETING. CONTENT. DEVELOPMENT.",
     description: "Speed and data-driven. Metric counters, split-layout services, and a relentless focus on ROI.",
     stats: "100+ Clients · 312% Avg ROI",
   },
@@ -25,7 +25,7 @@ const concepts = [
     id: "03",
     name: "The Forge",
     slug: "forge",
-    headline: "MARKETING. OPERATIONS. GROWTH.",
+    headline: "MARKETING. DESIGN. DEVELOPMENT.",
     description: "Industrial power. Bold copy, heavy metrics, and a no-nonsense approach to scaling businesses.",
     stats: "200+ Campaigns · 10M+ Revenue",
   },
@@ -81,9 +81,7 @@ export default function ConceptsPage() {
             <Link href="/" className="text-sm text-gray-400 hover:text-white transition-colors">
               ← Back to Home
             </Link>
-            <span className="text-sm font-bold uppercase tracking-wider" style={{ color: "#E8811A" }}>
-              Simply Us & You
-            </span>
+            <img src="/logo.svg" alt="Simply Us & U" className="h-8" />
           </div>
         </div>
       </div>
@@ -169,7 +167,7 @@ export default function ConceptsPage() {
       <footer className="border-t border-white/10 py-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm text-gray-500">
-            © {new Date().getFullYear()} Simply Us & You. All rights reserved.
+            © {new Date().getFullYear()} Simply Us & U. All rights reserved.
           </p>
         </div>
       </footer>

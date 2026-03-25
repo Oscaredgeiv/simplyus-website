@@ -27,11 +27,11 @@ const stats = [
 ];
 
 const services = [
-  { num: "01", title: "SOCIAL MEDIA MANAGEMENT", subtitle: "Command Your Digital Channels", desc: "Precision-scheduled content, real-time community monitoring, and engagement analytics operating with military-grade consistency. We deploy your social presence across every platform with zero downtime and maximum impact.", bullets: ["Strategic content deployment", "Real-time engagement ops", "Performance analytics dashboard", "Platform-specific targeting"] },
-  { num: "02", title: "DIGITAL MARKETING", subtitle: "Execute Targeted Campaigns", desc: "Data-driven campaigns engineered for measurable outcomes. Every dollar tracked, every conversion attributed, every strategy optimized in real time. We run your marketing machine with the precision of a command center.", bullets: ["SEO & search dominance", "Paid media management", "Email campaign execution", "Funnel optimization & CRO"] },
-  { num: "03", title: "OPERATIONS CONSULTING", subtitle: "Architect Efficient Systems", desc: "We reverse-engineer your operations to eliminate waste and maximize throughput. From process mapping to SOP development, we build the infrastructure that lets your team execute at peak capacity without the friction.", bullets: ["Process audit & redesign", "SOP & playbook creation", "Team structure optimization", "KPI framework design"] },
-  { num: "04", title: "PROJECT MANAGEMENT", subtitle: "Deliver On Time, Every Time", desc: "Every project is a mission with clear objectives, milestones, and accountability. We deploy proven frameworks to keep your initiatives on track, on budget, and aligned with your strategic goals from kickoff to completion.", bullets: ["Agile & hybrid frameworks", "Resource allocation planning", "Milestone & deadline tracking", "Stakeholder communication"] },
-  { num: "05", title: "SOFTWARE & AUTOMATION", subtitle: "Integrate and Automate at Scale", desc: "Connect your entire tech stack into a unified command layer. We build automations that eliminate manual work, integrate your tools seamlessly, and give you a single source of truth across every system in your operation.", bullets: ["Workflow automation engines", "API & system integrations", "Custom tool development", "Data sync & pipeline design"] },
+  { num: "01", title: "DIGITAL MARKETING", subtitle: "Execute Targeted Campaigns", desc: "Paid ads, SEO, email funnels, and full-funnel campaigns engineered for measurable outcomes. Every dollar tracked, every conversion attributed, every strategy optimized in real time through our precision command center.", bullets: ["Google & Meta Ads Management", "Search Engine Optimization", "Email Marketing & Automation", "Analytics & Performance Tracking"], image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" },
+  { num: "02", title: "SOCIAL CONTENT CREATION", subtitle: "Deploy Scroll-Stopping Assets", desc: "Scroll-stopping content, reels, graphics, and strategy deployed with military-grade consistency. We operate your content pipeline with zero downtime and maximum impact across every platform.", bullets: ["Social Media Strategy & Planning", "Content Creation (Photos, Video, Reels)", "Community Management & Engagement", "Brand Voice Development"], image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80" },
+  { num: "03", title: "WEBSITE DESIGN", subtitle: "Architect Conversion Systems", desc: "Custom, conversion-focused websites reverse-engineered from your goals. We build digital experiences with the precision of a command center — every pixel intentional, every interaction optimized.", bullets: ["Custom UI/UX Design", "Mobile-First Responsive Layouts", "Landing Pages & Sales Funnels", "E-commerce Solutions"], image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80" },
+  { num: "04", title: "WEBSITE HOSTING", subtitle: "Deliver Enterprise-Grade Uptime", desc: "Fast, secure, reliable hosting with the infrastructure your operation demands. We maintain your digital foundation with 24/7 monitoring, automated backups, and zero-tolerance security protocols.", bullets: ["99.9% Uptime Guarantee", "SSL Certificates & Security", "Daily Backups & Monitoring", "Managed WordPress Hosting"], image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80" },
+  { num: "05", title: "SOFTWARE & APP DEVELOPMENT", subtitle: "Integrate and Automate at Scale", desc: "Custom apps, CRM integrations, and automation that connect your entire tech stack into a unified command layer. We build the systems that eliminate manual work and give you total operational control.", bullets: ["Custom Web & Mobile Apps", "CRM Setup & Integration", "Workflow Automation", "API Development & Integrations"], image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80" },
 ];
 
 const process = [
@@ -50,7 +50,7 @@ export default function NexusPage() {
           <Link href="/concepts" className="flex items-center gap-2 text-sm font-medium text-[#9CA3AF] hover:text-white transition-colors">
             <ArrowLeft size={16} /> <span>&larr; Back to Concepts</span>
           </Link>
-          <span className="text-sm font-bold uppercase tracking-wider">Simply Us &amp; You</span>
+          <img src="/logo.svg" alt="Simply Us & U" className="h-8" />
         </div>
       </nav>
 
@@ -66,7 +66,7 @@ export default function NexusPage() {
             PLAN. EXECUTE.<br /><span style={{ color: orange }}>WIN.</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.6 }} className="text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style={{ color: gray }}>
-            Simply Us &amp; You integrates social media, digital marketing, operations, and automation into a single command center built for precision and results.
+            Simply Us &amp; You integrates digital marketing, content creation, web design, hosting, and custom development into a single command center built for precision and results.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.6 }} className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="#contact" className="inline-block text-sm font-bold uppercase tracking-wider px-10 py-4 transition-all hover:brightness-110" style={{ background: orange, color: "#fff" }}>
@@ -106,12 +106,10 @@ export default function NexusPage() {
       {services.map((s, i) => (
         <section key={s.num} className="py-20 px-6 border-t border-white/10">
           <div className={`max-w-7xl mx-auto flex flex-col ${i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} items-center gap-12 lg:gap-20`}>
-            {/* Image placeholder */}
+            {/* Image */}
             <FadeUp className="w-full lg:w-1/2">
-              <div className="aspect-[4/3] rounded-sm overflow-hidden" style={{ background: `linear-gradient(135deg, #1a1a1a, #2a2a2a, #1a1a1a)` }}>
-                <div className="w-full h-full flex items-center justify-center">
-                  <span className="text-6xl font-bold opacity-10" style={{ color: orange }}>{s.num}</span>
-                </div>
+              <div className="aspect-[4/3] rounded-sm overflow-hidden">
+                <img src={s.image} alt={s.title} className="w-full h-full object-cover" />
               </div>
             </FadeUp>
             {/* Content */}
@@ -189,7 +187,7 @@ export default function NexusPage() {
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.2em] mb-4" style={{ color: orange }}>SERVICES</p>
             <ul className="space-y-2 text-xs" style={{ color: gray }}>
-              <li>Social Media Management</li><li>Digital Marketing</li><li>Operations Consulting</li><li>Project Management</li><li>Software &amp; Automation</li>
+              <li>Digital Marketing</li><li>Social Content Creation</li><li>Website Design</li><li>Website Hosting</li><li>Software &amp; App Development</li>
             </ul>
           </div>
           <div>

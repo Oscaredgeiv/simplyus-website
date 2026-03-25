@@ -35,43 +35,48 @@ const stats = [
 const services = [
   {
     num: "01",
-    title: "SOCIAL MEDIA MANAGEMENT",
-    subtitle: "STRATEGY & GROWTH",
-    desc: "Consistent brand presence across every platform. We handle strategy, content creation, community management, and analytics so your brand never goes quiet.",
-    bullets: ["Brand Voice Development", "Content Calendar & Creation", "Community Management", "Performance Analytics"],
-    img: "Social Media Management",
+    title: "DIGITAL MARKETING",
+    subtitle: "REACH & REVENUE",
+    desc: "Paid ads, SEO, email funnels, and full-funnel campaigns grounded in data and aimed at measurable business growth — not vanity metrics.",
+    bullets: ["Google & Meta Ads Management", "Search Engine Optimization", "Email Marketing & Automation", "Analytics & Performance Tracking"],
+    img: "Digital Marketing",
+    imgSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
   },
   {
     num: "02",
-    title: "DIGITAL MARKETING",
-    subtitle: "REACH & REVENUE",
-    desc: "Paid search, social advertising, SEO, and email campaigns grounded in data and aimed at measurable business growth — not vanity metrics.",
-    bullets: ["Paid Search & Social Ads", "SEO & Content Strategy", "Email Campaign Automation", "Funnel Optimization"],
-    img: "Digital Marketing",
+    title: "SOCIAL CONTENT CREATION",
+    subtitle: "STRATEGY & GROWTH",
+    desc: "Scroll-stopping content, reels, graphics, and strategy that build consistent brand presence and turn followers into loyal customers.",
+    bullets: ["Social Media Strategy & Planning", "Content Creation (Photos, Video, Reels)", "Community Management & Engagement", "Brand Voice Development"],
+    img: "Social Content Creation",
+    imgSrc: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
   },
   {
     num: "03",
-    title: "OPERATIONS CONSULTING",
-    subtitle: "CLARITY & EFFICIENCY",
-    desc: "We audit your workflows, find the friction, and redesign processes so your team can focus on the work that actually moves the needle.",
-    bullets: ["Workflow Audit & Redesign", "Standard Operating Procedures", "Team Efficiency Optimization", "Tool & System Selection"],
-    img: "Operations Consulting",
+    title: "WEBSITE DESIGN",
+    subtitle: "CLARITY & CONVERSIONS",
+    desc: "Custom, conversion-focused websites designed with clarity in mind — clean layouts, intuitive UX, and zero template shortcuts.",
+    bullets: ["Custom UI/UX Design", "Mobile-First Responsive Layouts", "Landing Pages & Sales Funnels", "E-commerce Solutions"],
+    img: "Website Design",
+    imgSrc: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
   },
   {
     num: "04",
-    title: "PROJECT MANAGEMENT",
-    subtitle: "STRUCTURE & DELIVERY",
-    desc: "Clear timelines, accountable milestones, and transparent reporting from kickoff to completion. No micromanagement required.",
-    bullets: ["End-to-End Project Delivery", "Milestone & Timeline Planning", "Stakeholder Reporting", "Quality Assurance"],
-    img: "Project Management",
+    title: "WEBSITE HOSTING",
+    subtitle: "STRUCTURE & RELIABILITY",
+    desc: "Fast, secure, reliable hosting with transparent reporting and zero surprises — your site stays online, protected, and performing at peak.",
+    bullets: ["99.9% Uptime Guarantee", "SSL Certificates & Security", "Daily Backups & Monitoring", "Managed WordPress Hosting"],
+    img: "Website Hosting",
+    imgSrc: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
   },
   {
     num: "05",
-    title: "SOFTWARE & AUTOMATION",
+    title: "SOFTWARE & APP DEVELOPMENT",
     subtitle: "SYSTEMS & INTELLIGENCE",
-    desc: "Custom integrations, CRM workflows, and intelligent automation that remove repetitive tasks and free your team for high-value work.",
-    bullets: ["CRM & Pipeline Automation", "Custom API Integrations", "AI Workflow Design", "Automated Reporting"],
-    img: "Software & Automation",
+    desc: "Custom apps, CRM integrations, and intelligent automation that remove repetitive tasks and free your team for high-value work.",
+    bullets: ["Custom Web & Mobile Apps", "CRM Setup & Integration", "Workflow Automation", "API Development & Integrations"],
+    img: "Software & App Development",
+    imgSrc: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
   },
 ];
 
@@ -91,6 +96,7 @@ export default function ClarityPage() {
           <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
           Back to Concepts
         </Link>
+        <img src="/logo.svg" alt="Simply Us & U" className="h-8" />
         <a href="tel:+15551234567" className="flex items-center gap-2 text-sm font-bold" style={{ color: orange }}>
           <Phone size={14} /> (555) 123-4567
         </a>
@@ -156,9 +162,9 @@ export default function ClarityPage() {
           <section key={s.num} className="mx-auto max-w-6xl px-6 py-16">
             <FadeUp>
               <div className={`flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-16 ${reversed ? "lg:flex-row-reverse" : ""}`}>
-                {/* Image placeholder */}
-                <div className="flex h-72 w-full items-center justify-center lg:h-96 lg:w-1/2" style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}>
-                  <span className="text-sm font-medium uppercase tracking-wider" style={{ color: gray }}>{s.img}</span>
+                {/* Image */}
+                <div className="h-72 w-full overflow-hidden lg:h-96 lg:w-1/2" style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}>
+                  <img src={s.imgSrc} alt={s.img} className="w-full h-full object-cover" />
                 </div>
                 {/* Content */}
                 <div className="w-full lg:w-1/2">
@@ -251,11 +257,11 @@ export default function ClarityPage() {
           <div>
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>SERVICES</p>
             <div className="space-y-2 text-sm" style={{ color: gray }}>
-              <p>Social Media Management</p>
               <p>Digital Marketing</p>
-              <p>Operations Consulting</p>
-              <p>Project Management</p>
-              <p>Software & Automation</p>
+              <p>Social Content Creation</p>
+              <p>Website Design</p>
+              <p>Website Hosting</p>
+              <p>Software & App Development</p>
             </div>
           </div>
         </div>

@@ -29,38 +29,43 @@ const stats = [
 const services = [
   {
     num: "01",
-    title: "SOCIAL MEDIA MANAGEMENT",
-    subtitle: "Command Your Digital Presence",
-    desc: "We take full control of your social channels, engineering content calendars, community engagement, and growth strategies that turn passive audiences into loyal brand advocates. Every post is mission-planned for maximum impact.",
-    bullets: ["Content Strategy & Scheduling", "Community Management", "Platform-Specific Growth Tactics", "Performance Analytics & Reporting"],
+    title: "DIGITAL MARKETING",
+    subtitle: "Deploy Full-Funnel Campaigns",
+    desc: "From paid media to organic search, we launch data-driven marketing campaigns that acquire, nurture, and convert your ideal audience. Our mission-control approach ensures every dollar spent generates measurable returns across every channel.",
+    bullets: ["Google & Meta Ads Management", "Search Engine Optimization", "Email Marketing & Automation", "Analytics & Performance Tracking"],
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
   },
   {
     num: "02",
-    title: "DIGITAL MARKETING",
-    subtitle: "Launch Targeted Campaigns",
-    desc: "From paid media to organic funnels, we deploy data-driven marketing campaigns that reach your ideal audience at the right time. Our mission-control approach ensures every dollar spent generates measurable returns.",
-    bullets: ["PPC & Paid Social Campaigns", "SEO & Content Marketing", "Email Marketing Automation", "Conversion Rate Optimization"],
+    title: "SOCIAL CONTENT CREATION",
+    subtitle: "Command The Feed",
+    desc: "We engineer scroll-stopping reels, graphics, and content strategies that dominate timelines and turn passive scrollers into loyal brand advocates. Every asset is mission-planned for maximum engagement and reach.",
+    bullets: ["Social Media Strategy & Planning", "Content Creation (Photos, Video, Reels)", "Community Management & Engagement", "Brand Voice Development"],
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
   },
   {
     num: "03",
-    title: "OPERATIONS CONSULTING",
-    subtitle: "Streamline Your Mission Systems",
-    desc: "We analyze your internal operations, identify inefficiencies, and architect streamlined workflows that reduce overhead and accelerate output. Think of us as ground control for your business infrastructure.",
-    bullets: ["Process Mapping & Optimization", "Team Workflow Design", "KPI Dashboard Implementation", "Vendor & Resource Management"],
+    title: "WEBSITE DESIGN",
+    subtitle: "Architect Conversion Systems",
+    desc: "We build custom, conversion-focused websites engineered for speed, clarity, and results. Every pixel is precision-placed, every interaction designed to guide visitors from landing to launch — turning browsers into buyers.",
+    bullets: ["Custom UI/UX Design", "Mobile-First Responsive Layouts", "Landing Pages & Sales Funnels", "E-commerce Solutions"],
+    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
   },
   {
     num: "04",
-    title: "PROJECT MANAGEMENT",
-    subtitle: "Navigate Complex Missions",
-    desc: "Every initiative needs a flight plan. We provide dedicated project management that keeps timelines tight, stakeholders aligned, and deliverables on target from launch to landing.",
-    bullets: ["Agile & Waterfall Methodologies", "Stakeholder Communication", "Risk Assessment & Mitigation", "Timeline & Budget Tracking"],
+    title: "WEBSITE HOSTING",
+    subtitle: "Maintain Orbital Stability",
+    desc: "Fast, secure, and bulletproof hosting infrastructure that keeps your digital presence online and performing at peak velocity. We handle the technical operations so you can focus on the mission ahead.",
+    bullets: ["99.9% Uptime Guarantee", "SSL Certificates & Security", "Daily Backups & Monitoring", "Managed WordPress Hosting"],
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
   },
   {
     num: "05",
-    title: "SOFTWARE & AUTOMATION",
-    subtitle: "Engage Autopilot Systems",
-    desc: "We build custom automation pipelines and software integrations that eliminate repetitive tasks, connect your tech stack, and let your team focus on high-value mission-critical work.",
-    bullets: ["CRM & Workflow Automation", "Custom Software Solutions", "API Integrations & Data Sync", "AI-Powered Process Optimization"],
+    title: "SOFTWARE & APP DEVELOPMENT",
+    subtitle: "Engage Custom Systems",
+    desc: "We build custom applications, CRM integrations, and automation pipelines that eliminate friction, connect your tech stack, and let your team focus on high-value mission-critical work.",
+    bullets: ["Custom Web & Mobile Apps", "CRM Setup & Integration", "Workflow Automation", "API Development & Integrations"],
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
   },
 ];
 
@@ -80,7 +85,7 @@ export default function OrbitPage() {
           <Link href="/concepts" className="inline-flex items-center gap-2 text-sm text-[#9CA3AF] hover:text-white transition-colors">
             <ArrowLeft size={16} /> <span>&larr; Back to Concepts</span>
           </Link>
-          <span className="text-sm font-bold tracking-wider uppercase">Simply Us & You</span>
+          <img src="/logo.svg" alt="Simply Us & U" className="h-8" />
         </div>
       </nav>
 
@@ -146,11 +151,9 @@ export default function OrbitPage() {
           <section key={s.num} className="max-w-7xl mx-auto px-6 md:px-12 py-16">
             <FadeUp>
               <div className={`flex flex-col ${isEven ? "md:flex-row" : "md:flex-row-reverse"} gap-10 md:gap-16 items-center`}>
-                {/* Image placeholder */}
+                {/* Image */}
                 <div className="w-full md:w-1/2 aspect-[4/3] rounded-sm overflow-hidden" style={{ background: "linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%)" }}>
-                  <div className="w-full h-full flex items-center justify-center">
-                    <span className="text-6xl font-bold opacity-10" style={{ color: orange }}>{s.num}</span>
-                  </div>
+                  <img src={s.image} alt={s.title} className="w-full h-full object-cover" />
                 </div>
                 {/* Content */}
                 <div className="w-full md:w-1/2">
@@ -234,11 +237,11 @@ export default function OrbitPage() {
             <div>
               <p className="text-xs font-bold uppercase tracking-wider mb-4" style={{ color: orange }}>SERVICES</p>
               <div className="space-y-2 text-sm" style={{ color: gray }}>
-                <p>Social Media Management</p>
                 <p>Digital Marketing</p>
-                <p>Operations Consulting</p>
-                <p>Project Management</p>
-                <p>Software & Automation</p>
+                <p>Social Content Creation</p>
+                <p>Website Design</p>
+                <p>Website Hosting</p>
+                <p>Software & App Development</p>
               </div>
             </div>
             <div>

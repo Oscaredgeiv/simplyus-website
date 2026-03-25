@@ -10,11 +10,11 @@ export const mainNavItems: NavItem[] = [
 
 export const footerNavItems = {
   services: [
-    { label: "Social Media Management", href: "/services/social-media-management" },
     { label: "Digital Marketing", href: "/services/digital-marketing" },
-    { label: "Operations Consulting", href: "/services/operations-consulting" },
-    { label: "Project Management", href: "/services/project-management" },
-    { label: "Software & Automation", href: "/services/automation" },
+    { label: "Social Content Creation", href: "/services/social-content-creation" },
+    { label: "Website Design", href: "/services/website-design" },
+    { label: "Website Hosting", href: "/services/website-hosting" },
+    { label: "Software & App Development", href: "/services/software-development" },
   ],
   company: [
     { label: "About", href: "/about" },

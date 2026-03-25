@@ -24,38 +24,43 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
 const services = [
   {
     num: "01",
-    title: "SOCIAL MEDIA MANAGEMENT",
-    subtitle: "CONTENT & AMPLIFICATION",
-    desc: "Precision-targeted social strategies backed by real-time analytics. Every post, every story, every engagement is measured and optimized for maximum signal clarity.",
-    bullets: ["Data-driven content calendars", "Audience segmentation & targeting", "Performance dashboards & reporting"],
+    title: "DIGITAL MARKETING",
+    subtitle: "ACQUISITION & GROWTH",
+    desc: "Multi-channel campaigns engineered for measurable ROI. Paid ads, SEO, email funnels, and full-funnel campaigns — all calibrated by conversion data.",
+    bullets: ["Google & Meta Ads Management", "Search Engine Optimization", "Email Marketing & Automation", "Analytics & Performance Tracking"],
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
   },
   {
     num: "02",
-    title: "DIGITAL MARKETING",
-    subtitle: "ACQUISITION & GROWTH",
-    desc: "Multi-channel campaigns engineered for measurable ROI. Paid search, programmatic display, email sequences — all calibrated by conversion data.",
-    bullets: ["PPC & paid media optimization", "Conversion rate optimization", "Marketing attribution modeling"],
+    title: "SOCIAL CONTENT CREATION",
+    subtitle: "CONTENT & AMPLIFICATION",
+    desc: "Precision-targeted scroll-stopping content, reels, graphics, and strategy backed by real-time analytics. Every post is measured and optimized for maximum signal clarity.",
+    bullets: ["Social Media Strategy & Planning", "Content Creation (Photos, Video, Reels)", "Community Management & Engagement", "Brand Voice Development"],
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
   },
   {
     num: "03",
-    title: "OPERATIONS CONSULTING",
-    subtitle: "PROCESS & PERFORMANCE",
-    desc: "We diagnose operational inefficiencies with surgical precision and rebuild your workflows for maximum throughput and minimum waste.",
-    bullets: ["Operational audits & diagnostics", "Process mapping & redesign", "KPI frameworks & scorecards"],
+    title: "WEBSITE DESIGN",
+    subtitle: "DESIGN & PERFORMANCE",
+    desc: "Custom, conversion-focused websites built with surgical precision. Beautiful interfaces engineered for maximum throughput and minimum bounce.",
+    bullets: ["Custom UI/UX Design", "Mobile-First Responsive Layouts", "Landing Pages & Sales Funnels", "E-commerce Solutions"],
+    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
   },
   {
     num: "04",
-    title: "PROJECT MANAGEMENT",
-    subtitle: "PLANNING & EXECUTION",
-    desc: "Systematic project delivery with full visibility at every stage. Timelines, dependencies, and deliverables tracked with data-grade accuracy.",
-    bullets: ["Agile & waterfall methodologies", "Resource planning & allocation", "Stakeholder communication systems"],
+    title: "WEBSITE HOSTING",
+    subtitle: "INFRASTRUCTURE & UPTIME",
+    desc: "Fast, secure, reliable hosting with data-grade accuracy. Your site stays online, protected, and performing at peak — tracked with full visibility at every stage.",
+    bullets: ["99.9% Uptime Guarantee", "SSL Certificates & Security", "Daily Backups & Monitoring", "Managed WordPress Hosting"],
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
   },
   {
     num: "05",
-    title: "SOFTWARE & AUTOMATION",
+    title: "SOFTWARE & APP DEVELOPMENT",
     subtitle: "SYSTEMS & INTEGRATIONS",
-    desc: "Custom-built automations that eliminate repetitive tasks and connect your entire tech stack into one seamless signal flow.",
-    bullets: ["API integrations & middleware", "Workflow automation design", "Custom software solutions"],
+    desc: "Custom-built apps, CRM integrations, and automation that eliminate repetitive tasks and connect your entire tech stack into one seamless signal flow.",
+    bullets: ["Custom Web & Mobile Apps", "CRM Setup & Integration", "Workflow Automation", "API Development & Integrations"],
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
   },
 ];
 
@@ -82,6 +87,7 @@ export default function SignalFlowConcept() {
           <Link href="/concepts" className="inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-[#9CA3AF] hover:text-white transition-colors">
             <ArrowLeft size={14} /> Back to Concepts
           </Link>
+          <img src="/logo.svg" alt="Simply Us & U" className="h-8" />
           <div className="hidden md:flex items-center gap-6 text-xs text-[#9CA3AF]">
             <span className="flex items-center gap-2"><Phone size={12} className="text-[#E8811A]" /> (555) 123-4567</span>
             <span className="flex items-center gap-2"><Mail size={12} className="text-[#E8811A]" /> hello@simplyusandu.com</span>
@@ -147,10 +153,10 @@ export default function SignalFlowConcept() {
             <div className="max-w-7xl mx-auto px-6">
               <Reveal>
                 <div className={`flex flex-col ${imgLeft ? "md:flex-row" : "md:flex-row-reverse"} gap-10 md:gap-16 items-center`}>
-                  {/* Image placeholder */}
+                  {/* Image */}
                   <div className="w-full md:w-1/2">
-                    <div className="aspect-[4/3] bg-gradient-to-br from-[#1a1a1a] to-[#111] border border-white/5 flex items-center justify-center">
-                      <span className="text-6xl font-bold text-[#E8811A]/10">{s.num}</span>
+                    <div className="aspect-[4/3] bg-gradient-to-br from-[#1a1a1a] to-[#111] border border-white/5 overflow-hidden">
+                      <img src={s.image} alt={s.title} className="w-full h-full object-cover" />
                     </div>
                   </div>
                   {/* Content */}
@@ -238,11 +244,11 @@ export default function SignalFlowConcept() {
             <div>
               <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-[#E8811A] mb-4">SERVICES</h4>
               <ul className="space-y-2 text-sm text-[#9CA3AF]">
-                <li className="hover:text-white transition-colors cursor-pointer">Social Media</li>
                 <li className="hover:text-white transition-colors cursor-pointer">Digital Marketing</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Operations</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Project Management</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Software &amp; Automation</li>
+                <li className="hover:text-white transition-colors cursor-pointer">Social Content Creation</li>
+                <li className="hover:text-white transition-colors cursor-pointer">Website Design</li>
+                <li className="hover:text-white transition-colors cursor-pointer">Website Hosting</li>
+                <li className="hover:text-white transition-colors cursor-pointer">Software &amp; App Development</li>
               </ul>
             </div>
             <div>

@@ -24,38 +24,43 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
 const services = [
   {
     num: "01",
-    title: "SOCIAL MEDIA MANAGEMENT",
-    subtitle: "CONTENT & COMMUNITY",
-    desc: "We build and execute high-impact social strategies across every platform. From content calendars to community engagement, we keep your brand present, relevant, and impossible to scroll past.",
-    bullets: ["Platform strategy & content creation", "Community management & engagement", "Analytics reporting & growth tracking"],
+    title: "DIGITAL MARKETING",
+    subtitle: "CAMPAIGNS & CONVERSIONS",
+    desc: "Data-driven campaigns across paid search, display, email, and full-funnel channels. Every dollar is tracked, every conversion is measured, every opportunity is seized.",
+    bullets: ["Google & Meta Ads Management", "Search Engine Optimization", "Email Marketing & Automation", "Analytics & Performance Tracking"],
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
   },
   {
     num: "02",
-    title: "DIGITAL MARKETING",
-    subtitle: "CAMPAIGNS & CONVERSIONS",
-    desc: "Data-driven campaigns across paid search, display, email, and organic channels. Every dollar is tracked, every conversion is measured, every opportunity is seized.",
-    bullets: ["Paid media & PPC management", "SEO & organic growth strategy", "Email marketing & automation"],
+    title: "SOCIAL CONTENT CREATION",
+    subtitle: "CONTENT & COMMUNITY",
+    desc: "We build scroll-stopping content, reels, graphics, and strategy across every platform. Your brand stays present, relevant, and impossible to scroll past.",
+    bullets: ["Social Media Strategy & Planning", "Content Creation (Photos, Video, Reels)", "Community Management & Engagement", "Brand Voice Development"],
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
   },
   {
     num: "03",
-    title: "OPERATIONS CONSULTING",
-    subtitle: "SYSTEMS & EFFICIENCY",
-    desc: "We tear down operational bottlenecks and rebuild your backend for speed and scale. SOPs, workflows, and systems designed to run like a machine.",
-    bullets: ["Process audit & optimization", "SOP development & documentation", "Team alignment & workflow design"],
+    title: "WEBSITE DESIGN",
+    subtitle: "DESIGN & CONVERSION",
+    desc: "Custom, conversion-focused websites engineered for performance. Beautiful interfaces that turn visitors into customers and browsers into buyers.",
+    bullets: ["Custom UI/UX Design", "Mobile-First Responsive Layouts", "Landing Pages & Sales Funnels", "E-commerce Solutions"],
+    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
   },
   {
     num: "04",
-    title: "PROJECT MANAGEMENT",
-    subtitle: "EXECUTION & DELIVERY",
-    desc: "From kickoff to completion, we manage projects with precision. Clear timelines, accountable milestones, and relentless execution so nothing falls through the cracks.",
-    bullets: ["End-to-end project planning", "Milestone tracking & reporting", "Cross-functional team coordination"],
+    title: "WEBSITE HOSTING",
+    subtitle: "SPEED & RELIABILITY",
+    desc: "Fast, secure, and reliable hosting that keeps your site online and performing at peak. No downtime, no excuses — just rock-solid infrastructure.",
+    bullets: ["99.9% Uptime Guarantee", "SSL Certificates & Security", "Daily Backups & Monitoring", "Managed WordPress Hosting"],
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
   },
   {
     num: "05",
-    title: "SOFTWARE & AUTOMATION",
+    title: "SOFTWARE & APP DEVELOPMENT",
     subtitle: "TOOLS & INTEGRATIONS",
-    desc: "Custom automations, CRM integrations, and software solutions that eliminate manual work and supercharge your operational capacity.",
-    bullets: ["CRM setup & integration", "Workflow automation & Zapier builds", "Custom tool development"],
+    desc: "Custom apps, CRM integrations, and automation solutions that eliminate manual work and supercharge your operational capacity.",
+    bullets: ["Custom Web & Mobile Apps", "CRM Setup & Integration", "Workflow Automation", "API Development & Integrations"],
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
   },
 ];
 
@@ -82,6 +87,7 @@ export default function ForgeConcept() {
           <Link href="/concepts" className="inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-[#9CA3AF] hover:text-white transition-colors">
             <ArrowLeft size={14} /> Back to Concepts
           </Link>
+          <img src="/logo.svg" alt="Simply Us & U" className="h-8" />
           <div className="hidden md:flex items-center gap-6 text-xs text-[#9CA3AF]">
             <span className="flex items-center gap-2"><Phone size={12} className="text-[#E8811A]" /> (555) 123-4567</span>
             <span className="flex items-center gap-2"><Mail size={12} className="text-[#E8811A]" /> hello@simplyusandu.com</span>
@@ -147,10 +153,10 @@ export default function ForgeConcept() {
             <div className="max-w-7xl mx-auto px-6">
               <Reveal>
                 <div className={`flex flex-col ${imgLeft ? "md:flex-row" : "md:flex-row-reverse"} gap-10 md:gap-16 items-center`}>
-                  {/* Image placeholder */}
+                  {/* Image */}
                   <div className="w-full md:w-1/2">
-                    <div className="aspect-[4/3] bg-gradient-to-br from-[#1a1a1a] to-[#111] border border-white/5 flex items-center justify-center">
-                      <span className="text-6xl font-bold text-[#E8811A]/10">{s.num}</span>
+                    <div className="aspect-[4/3] bg-gradient-to-br from-[#1a1a1a] to-[#111] border border-white/5 overflow-hidden">
+                      <img src={s.image} alt={s.title} className="w-full h-full object-cover" />
                     </div>
                   </div>
                   {/* Content */}
@@ -238,11 +244,11 @@ export default function ForgeConcept() {
             <div>
               <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-[#E8811A] mb-4">SERVICES</h4>
               <ul className="space-y-2 text-sm text-[#9CA3AF]">
-                <li className="hover:text-white transition-colors cursor-pointer">Social Media</li>
                 <li className="hover:text-white transition-colors cursor-pointer">Digital Marketing</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Operations</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Project Management</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Software &amp; Automation</li>
+                <li className="hover:text-white transition-colors cursor-pointer">Social Content Creation</li>
+                <li className="hover:text-white transition-colors cursor-pointer">Website Design</li>
+                <li className="hover:text-white transition-colors cursor-pointer">Website Hosting</li>
+                <li className="hover:text-white transition-colors cursor-pointer">Software &amp; App Development</li>
               </ul>
             </div>
             <div>
