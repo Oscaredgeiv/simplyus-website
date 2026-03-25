@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import { ArrowLeft, ArrowRight, Phone } from "lucide-react";
+import { ArrowLeft, ArrowRight, Phone, Mail } from "lucide-react";
 
 function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef(null);
@@ -21,9 +21,8 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
   );
 }
 
-const orange = "#E8811A";
+const orange = "#F97316";
 const gray = "#9CA3AF";
-const bg = "#0B0B0D";
 
 const stats = [
   { value: "100+", label: "CLIENTS SERVED" },
@@ -90,54 +89,86 @@ const steps = [
 export default function VelocityPage() {
   return (
     <div className="min-h-screen font-sans" style={{ background: "#0B0B0D", color: "#FFFFFF" }}>
-      {/* Sticky top bar */}
-      <nav className="sticky top-0 z-50 flex items-center justify-between px-6 py-3 backdrop-blur-md" style={{ background: "rgba(11,11,13,0.85)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-        <Link href="/concepts" className="group flex items-center gap-2 text-sm" style={{ color: gray }}>
-          <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
-          Concepts
-        </Link>
-        <img src="/logo.png" alt="Simply Us & U" className="h-9" />
-        <div className="w-[88px]" />
+      {/* Premium Navbar */}
+      <nav className="fixed top-0 left-0 right-0 z-50" style={{ background: "rgba(11,11,13,0.9)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+          <Link href="/concepts" className="group flex items-center gap-2 text-sm text-[#9CA3AF] hover:text-white transition-colors">
+            <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" /> Concepts
+          </Link>
+          <img src="/logo.png" alt="Simply Us & U" className="h-14 sm:h-16" />
+          <Link href="#contact" className="hidden sm:inline-flex items-center gap-2 rounded-full bg-[#F97316] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#ea6c0e] hover:shadow-[0_0_20px_rgba(249,115,22,0.3)]">
+            Get Started
+          </Link>
+          <div className="sm:hidden w-16" />
+        </div>
       </nav>
 
-      {/* Hero */}
-      <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden">
-        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #1a1a1a 0%, #0B0B0D 50%, #1a0f00 100%)" }} />
-        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.6)" }} />
-        {/* Subtle watermark — bottom-right, cropped off-screen */}
-        <div className="absolute bottom-0 right-0 translate-x-[20%] translate-y-[20%] pointer-events-none">
-          <img
+      {/* Hero — Cinematic */}
+      <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
+        {/* Animated gradient bg */}
+        <div className="absolute inset-0" style={{
+          background: "radial-gradient(ellipse at 20% 50%, rgba(249,115,22,0.08) 0%, transparent 50%), radial-gradient(ellipse at 80% 50%, rgba(249,115,22,0.04) 0%, transparent 50%), #0B0B0D",
+        }} />
+
+        {/* Logo watermark — large, centered, tasteful */}
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <motion.img
             src="/logo.png"
             alt=""
-            className="w-[500px] sm:w-[600px] md:w-[700px] opacity-[0.035] select-none"
-            style={{ filter: "blur(28px)" }}
+            aria-hidden="true"
+            className="w-[500px] sm:w-[600px] md:w-[700px] lg:w-[800px] select-none"
+            style={{ filter: "blur(2px)" }}
+            initial={{ scale: 1.1, opacity: 0 }}
+            animate={{ scale: 1, opacity: 0.07 }}
+            transition={{ duration: 2, ease: "easeOut" }}
           />
         </div>
+
+        {/* Grain texture */}
+        <div className="pointer-events-none absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")" }} />
+
+        {/* Content */}
         <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-          <Reveal>
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>Simply Us & U</p>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <h1 className="text-5xl font-bold leading-none tracking-tight sm:text-6xl md:text-7xl">
-              Digital Marketing. Web Design.{" "}
-              <span style={{ color: orange }}>Software Development.</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed md:text-lg" style={{ color: "#9CA3AF" }}>
-              The velocity growth engine behind brands that move fast. We deploy marketing, operations, and automation as one integrated system.
-            </p>
-          </Reveal>
-          <Reveal delay={0.3}>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <Link href="#" className="inline-flex items-center gap-2 rounded-lg px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:opacity-90" style={{ background: orange }}>
-                GET A FREE QUOTE
-              </Link>
-              <Link href="#" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:text-white" style={{ color: orange }}>
-                OR EMAIL US <ArrowRight size={16} />
-              </Link>
-            </div>
-          </Reveal>
+          <motion.p
+            className="mb-4 text-sm font-bold uppercase tracking-[0.3em]"
+            style={{ color: orange }}
+            initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Simply Us & U
+          </motion.p>
+          <motion.h1
+            className="text-5xl font-bold leading-[0.95] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
+            initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.9, delay: 0.4 }}
+          >
+            Digital Marketing. Web Design.{" "}
+            <span style={{ color: orange }}>Software Development.</span>
+          </motion.h1>
+          <motion.p
+            className="mx-auto mt-6 max-w-2xl text-base leading-relaxed md:text-lg"
+            style={{ color: gray }}
+            initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+          >
+            The velocity growth engine behind brands that move fast. We deploy marketing, operations, and automation as one integrated system.
+          </motion.p>
+          <motion.div
+            className="mt-10 flex flex-wrap items-center justify-center gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.0 }}
+          >
+            <Link href="#contact" className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(249,115,22,0.3)]" style={{ background: orange }}>
+              GET A FREE QUOTE
+            </Link>
+            <Link href="mailto:info@simplyusandyou.com" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:text-white" style={{ color: orange }}>
+              OR EMAIL US <ArrowRight size={16} />
+            </Link>
+          </motion.div>
         </div>
       </section>
 
@@ -146,7 +177,7 @@ export default function VelocityPage() {
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center divide-x" style={{ divideColor: "#2a2a2a" } as React.CSSProperties}>
           {stats.map((s) => (
             <div key={s.label} className="flex flex-1 flex-col items-center gap-1 px-6 py-8 sm:flex-row sm:gap-3">
-              <span className="text-2xl font-bold md:text-3xl" style={{ color: orange }}>{s.value}</span>
+              <span className="text-4xl font-bold md:text-5xl drop-shadow-[0_0_20px_rgba(249,115,22,0.15)]" style={{ color: orange }}>{s.value}</span>
               <span className="text-xs font-medium uppercase tracking-wider" style={{ color: gray }}>{s.label}</span>
             </div>
           ))}
@@ -154,7 +185,7 @@ export default function VelocityPage() {
       </section>
 
       {/* Services Intro */}
-      <section className="mx-auto max-w-6xl px-6 pt-24 pb-8">
+      <section className="mx-auto max-w-6xl px-6 pt-28 pb-8">
         <Reveal>
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>WHAT WE DO</p>
           <h2 className="text-3xl font-bold uppercase tracking-tight sm:text-4xl md:text-5xl">OUR SERVICES</h2>
@@ -168,26 +199,26 @@ export default function VelocityPage() {
         return (
           <section key={s.num} className="mx-auto max-w-6xl px-6 py-16">
             <Reveal>
-              <div className={`flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-16 ${reversed ? "lg:flex-row-reverse" : ""}`}>
+              <div className={`group flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-16 ${reversed ? "lg:flex-row-reverse" : ""}`}>
                 {/* Image */}
-                <div className="h-72 w-full rounded-lg overflow-hidden lg:h-96 lg:w-1/2" style={{ background: "#1a1a1a", border: "1px solid rgba(255,255,255,0.06)" }}>
-                  <img src={s.imgSrc} alt={s.img} className="w-full h-full object-cover" />
+                <div className="relative h-72 w-full overflow-hidden rounded-lg lg:h-96 lg:w-1/2" style={{ background: "#1a1a1a", border: "1px solid rgba(255,255,255,0.06)" }}>
+                  <img src={s.imgSrc} alt={s.img} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 {/* Content */}
-                <div className="w-full lg:w-1/2">
-                  <span className="text-4xl font-bold" style={{ color: orange }}>{s.num}</span>
+                <div className="relative w-full border-l-4 border-[#F97316] pl-8 lg:w-1/2">
+                  <span className="absolute -top-6 -left-2 text-7xl font-bold opacity-10" style={{ color: orange }}>{s.num}</span>
                   <h3 className="mt-2 text-2xl font-bold uppercase tracking-tight sm:text-3xl">{s.title}</h3>
                   <p className="mt-1 text-xs font-bold uppercase tracking-[0.2em]" style={{ color: orange }}>{s.subtitle}</p>
                   <p className="mt-4 text-base leading-relaxed" style={{ color: gray }}>{s.desc}</p>
                   <ul className="mt-6 space-y-2">
                     {s.bullets.map((b) => (
                       <li key={b} className="flex items-start gap-3">
-                        <span className="mt-1.5 block h-2 w-2 flex-shrink-0" style={{ background: orange }} />
+                        <span className="mt-1.5 block h-2 w-2 flex-shrink-0 rounded-full" style={{ background: orange }} />
                         <span className="text-sm font-semibold" style={{ color: gray }}>{b}</span>
                       </li>
                     ))}
                   </ul>
-                  <Link href="#" className="mt-8 inline-flex items-center gap-2 rounded-lg border-2 px-6 py-3 text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:bg-white/5" style={{ borderColor: orange, color: orange }}>
+                  <Link href="#contact" className="mt-8 inline-flex items-center gap-2 rounded-full border-2 px-6 py-3 text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:bg-white/5" style={{ borderColor: orange, color: orange }}>
                     GET A FREE QUOTE <ArrowRight size={16} />
                   </Link>
                 </div>
@@ -197,17 +228,23 @@ export default function VelocityPage() {
         );
       })}
 
-      {/* Process / How It Works */}
-      <section className="mx-auto max-w-6xl px-6 py-24">
+      {/* Process / How It Works — Timeline */}
+      <section className="mx-auto max-w-6xl px-6 py-28">
         <Reveal>
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>HOW IT WORKS</p>
           <h2 className="text-3xl font-bold uppercase tracking-tight sm:text-4xl md:text-5xl">OUR PROCESS</h2>
           <div className="mt-4 h-1 w-16" style={{ background: orange }} />
         </Reveal>
-        <div className="mt-16 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="relative mt-16 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Vertical/horizontal connector line */}
+          <div className="pointer-events-none absolute top-8 left-0 right-0 hidden h-0.5 lg:block" style={{ background: `linear-gradient(90deg, ${orange}33, ${orange}, ${orange}33)` }} />
           {steps.map((s, i) => (
-            <Reveal key={s.num} delay={i * 0.1}>
-              <div>
+            <Reveal key={s.num} delay={i * 0.15}>
+              <div className="relative pt-4">
+                {/* Connector dot */}
+                <div className="absolute -top-1.5 left-6 hidden h-5 w-5 items-center justify-center rounded-full lg:flex" style={{ background: "#0B0B0D", border: `3px solid ${orange}` }}>
+                  <div className="h-2 w-2 rounded-full" style={{ background: orange }} />
+                </div>
                 <span className="text-4xl font-bold" style={{ color: orange }}>{s.num}</span>
                 <h3 className="mt-3 text-lg font-bold uppercase tracking-wide">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed" style={{ color: gray }}>{s.desc}</p>
@@ -217,63 +254,82 @@ export default function VelocityPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24" style={{ background: "#111111", borderTop: "1px solid rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-        <div className="mx-auto max-w-4xl px-6 text-center">
+      {/* CTA Section — Compelling */}
+      <section id="contact" className="relative overflow-hidden py-28" style={{ background: "#0a0a0c" }}>
+        {/* Radial orange glow */}
+        <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(249,115,22,0.08) 0%, transparent 60%)" }} />
+        <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
           <Reveal>
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>FREE ESTIMATES</p>
-            <h2 className="text-3xl font-bold uppercase tracking-tight sm:text-4xl md:text-5xl">READY TO GET IT DONE?</h2>
+            <h2 className="text-4xl font-bold uppercase tracking-tight sm:text-5xl md:text-6xl">READY TO ACCELERATE?</h2>
             <div className="mx-auto mt-4 h-1 w-16" style={{ background: orange }} />
-            <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed" style={{ color: gray }}>
+            <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed md:text-lg" style={{ color: gray }}>
               Book a free 30-minute strategy call. No sales deck — just a candid conversation about where you are and where you want to go.
             </p>
             <p className="mt-8 text-3xl font-bold md:text-4xl" style={{ color: orange }}>(555) 123-4567</p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <Link href="tel:+15551234567" className="inline-flex items-center gap-2 rounded-lg px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:opacity-90" style={{ background: orange }}>
+              <Link href="tel:+15551234567" className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(249,115,22,0.3)]" style={{ background: orange }}>
                 <Phone size={16} /> CALL NOW
               </Link>
-              <Link href="#" className="inline-flex items-center gap-2 rounded-lg border-2 px-8 py-4 text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:bg-white/5" style={{ borderColor: orange, color: orange }}>
-                EMAIL US
+              <Link href="mailto:info@simplyusandyou.com" className="inline-flex items-center gap-2 rounded-full border-2 px-8 py-4 text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:bg-white/5" style={{ borderColor: orange, color: orange }}>
+                <Mail size={16} /> EMAIL US
               </Link>
-            </div>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm" style={{ color: gray }}>
-              <span>info@simplyusandyou.com</span>
-              <span>Mon - Fri: 9AM - 6PM</span>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-3">
-          <div>
-            <h3 className="text-lg font-bold uppercase tracking-wide">Simply Us & You</h3>
-            <p className="mt-3 text-sm leading-relaxed" style={{ color: gray }}>
-              The velocity growth engine behind brands that move fast. Marketing, operations, and automation deployed as one system.
-            </p>
-          </div>
-          <div>
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>CONTACT</p>
-            <div className="space-y-2 text-sm" style={{ color: gray }}>
-              <p>(555) 123-4567</p>
-              <p>info@simplyusandyou.com</p>
-              <p>Mon - Fri: 9AM - 6PM</p>
+      {/* Footer — 4 Column */}
+      <footer className="border-t" style={{ borderColor: "rgba(255,255,255,0.06)", background: "#0B0B0D" }}>
+        <div className="mx-auto max-w-7xl px-6 py-16">
+          <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
+            {/* Logo + Tagline */}
+            <div>
+              <img src="/logo.png" alt="Simply Us & U" className="h-12 mb-4" />
+              <p className="text-sm leading-relaxed" style={{ color: gray }}>
+                The velocity growth engine behind brands that move fast. Marketing, operations, and automation deployed as one system.
+              </p>
             </div>
-          </div>
-          <div>
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>SERVICES</p>
-            <div className="space-y-2 text-sm" style={{ color: gray }}>
-              <p>Digital Marketing</p>
-              <p>Social Content Creation</p>
-              <p>Website Design</p>
-              <p>Website Hosting</p>
-              <p>Software & App Development</p>
+            {/* Services */}
+            <div>
+              <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>SERVICES</p>
+              <div className="space-y-2 text-sm" style={{ color: gray }}>
+                <p>Digital Marketing</p>
+                <p>Social Content Creation</p>
+                <p>Website Design</p>
+                <p>Website Hosting</p>
+                <p>Software & App Development</p>
+              </div>
+            </div>
+            {/* Company */}
+            <div>
+              <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>COMPANY</p>
+              <div className="space-y-2 text-sm" style={{ color: gray }}>
+                <p>About Us</p>
+                <p>Our Process</p>
+                <p>Case Studies</p>
+                <p>Careers</p>
+              </div>
+            </div>
+            {/* Contact */}
+            <div>
+              <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>CONTACT</p>
+              <div className="space-y-2 text-sm" style={{ color: gray }}>
+                <p>(555) 123-4567</p>
+                <p>info@simplyusandyou.com</p>
+                <p>Mon - Fri: 9AM - 6PM</p>
+              </div>
             </div>
           </div>
         </div>
-        <div className="mt-12 border-t pt-8" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
-          <p className="text-xs" style={{ color: gray }}>&copy; {new Date().getFullYear()} Simply Us & You. All rights reserved.</p>
+        <div className="border-t" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+          <div className="mx-auto max-w-7xl px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-2">
+            <p className="text-xs" style={{ color: gray }}>&copy; {new Date().getFullYear()} Simply Us & You. All rights reserved.</p>
+            <div className="flex gap-6 text-xs" style={{ color: gray }}>
+              <span>Privacy Policy</span>
+              <span>Terms of Service</span>
+            </div>
+          </div>
         </div>
       </footer>
     </div>

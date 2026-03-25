@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ArrowLeft, Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 
-const orange = "#E8811A";
+const orange = "#F97316";
 const dark = "#0B0B0D";
 const gray = "#9CA3AF";
 
@@ -34,7 +34,7 @@ const services = [
   { num: "05", title: "Software & App Development", subtitle: "Integrate and Automate at Scale", desc: "Custom apps, CRM integrations, and automation that connect your entire tech stack into a unified command layer. We build the systems that eliminate manual work and give you total operational control.", bullets: ["Custom Web & Mobile Apps", "CRM Setup & Integration", "Workflow Automation", "API Development & Integrations"], image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80" },
 ];
 
-const process = [
+const steps = [
   { num: "01", title: "Recon", desc: "Deep audit of your systems, channels, market position, and operational gaps." },
   { num: "02", title: "Architect", desc: "Custom strategy blueprint mapped to your goals, timeline, and budget." },
   { num: "03", title: "Deploy", desc: "Systems go live, campaigns launch, and automation begins executing." },
@@ -44,53 +44,55 @@ const process = [
 export default function NexusPage() {
   return (
     <main className="bg-[#0B0B0D] text-white" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
-      {/* Subtle watermark logo — offset bottom-right, blurred, partially cropped */}
-      <div className="pointer-events-none fixed inset-0 z-0">
-        <img src="/logo.png" alt="" aria-hidden="true" className="absolute -bottom-32 -right-24 w-[700px] select-none opacity-[0.035]" style={{ filter: "blur(28px)" }} />
-      </div>
-
-      {/* STICKY TOP BAR */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-[#0B0B0D]/85 backdrop-blur-md border-b border-white/10">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-          <Link href="/concepts" className="flex items-center gap-2 text-sm font-medium text-[#9CA3AF] hover:text-white transition-colors">
-            <ArrowLeft size={16} /> <span>&larr; Back to Concepts</span>
+      {/* NAVBAR */}
+      <nav className="fixed top-0 left-0 w-full z-50 h-20 flex items-center backdrop-blur-xl border-b border-white/10" style={{ background: "rgba(11,11,13,0.9)" }}>
+        <div className="max-w-7xl mx-auto w-full flex items-center justify-between px-6">
+          <Link href="/concepts">
+            <img src="/logo.png" alt="Simply Us & U" className="h-14 sm:h-16" />
           </Link>
-          <img src="/logo.png" alt="Simply Us & U" className="h-9" />
+          <Link href="#contact" className="text-sm font-bold uppercase tracking-wider px-6 py-2.5 rounded-full bg-[#F97316] text-white transition-all duration-300 hover:shadow-[0_0_25px_rgba(249,115,22,0.4)]">
+            Get Started
+          </Link>
         </div>
       </nav>
 
       {/* HERO */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0B0B0D]" />
-        <div className="absolute inset-0 opacity-20" style={{ background: "radial-gradient(ellipse at 50% 30%, #E8811A22, transparent 70%)" }} />
+        {/* Radial orange glows */}
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 30% 20%, rgba(249,115,22,0.06), transparent 60%), radial-gradient(ellipse at 70% 80%, rgba(249,115,22,0.04), transparent 60%)" }} />
+        {/* Grain overlay */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E\")", backgroundRepeat: "repeat", backgroundSize: "128px 128px" }} />
+        {/* Animated logo watermark */}
+        <motion.img src="/logo.png" alt="" aria-hidden="true" initial={{ scale: 1.1, opacity: 0 }} animate={{ scale: 1, opacity: 0.07 }} transition={{ duration: 2, ease: "easeOut" }} className="pointer-events-none select-none absolute w-[500px] md:w-[650px] lg:w-[800px]" />
+        {/* Content */}
         <div className="relative z-10 max-w-5xl mx-auto text-center px-6 pt-24">
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }} className="uppercase tracking-[0.3em] text-sm mb-6 font-medium" style={{ color: orange }}>
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.6 }} className="uppercase tracking-[0.3em] text-sm mb-6 font-medium text-[#F97316]">
             Simply Us &amp; U &middot; Nexus Command
           </motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.7 }} className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] mb-8">
-            Plan. Execute.<br /><span style={{ color: orange }}>Win.</span>
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.7 }} className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] mb-8">
+            Plan. Execute.<br /><span className="text-[#F97316]">Win.</span>
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.6 }} className="text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style={{ color: gray }}>
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.6 }} className="text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed text-[#9CA3AF]">
             Simply Us &amp; You integrates digital marketing, content creation, web design, hosting, and custom development into a single command center built for precision and results.
           </motion.p>
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.6 }} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="#contact" className="inline-block text-sm font-bold uppercase tracking-wider px-10 py-4 rounded-lg transition-all duration-300 hover:brightness-110" style={{ background: orange, color: "#fff" }}>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, duration: 0.6 }} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href="#contact" className="inline-block text-sm font-bold uppercase tracking-wider px-10 py-4 rounded-lg bg-[#F97316] text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(249,115,22,0.3)]">
               Initialize Consultation
             </Link>
-            <Link href="#services" className="inline-block text-sm font-bold uppercase tracking-wider px-10 py-4 rounded-lg transition-all duration-300 hover:bg-white/5" style={{ border: `2px solid ${orange}`, color: orange }}>
+            <Link href="#services" className="inline-block text-sm font-bold uppercase tracking-wider px-10 py-4 rounded-lg border-2 border-[#F97316] text-[#F97316] transition-all duration-300 hover:bg-white/5">
               View Capabilities
             </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* STATS BAR */}
+      {/* STATS */}
       <section className="border-y border-white/[0.06]" style={{ background: "#111" }}>
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4">
           {stats.map((s, i) => (
             <Reveal key={s.label} delay={i * 0.1} className={`text-center py-10 px-4 ${i < stats.length - 1 ? "md:border-r md:border-white/[0.06]" : ""}`}>
-              <p className="text-4xl md:text-5xl font-bold mb-2" style={{ color: orange }}>{s.value}</p>
-              <p className="text-xs uppercase tracking-[0.2em] font-medium" style={{ color: gray }}>{s.label}</p>
+              <p className="text-4xl md:text-5xl font-bold mb-2 text-[#F97316]" style={{ filter: "drop-shadow(0 0 12px rgba(249,115,22,0.4))" }}>{s.value}</p>
+              <p className="text-xs uppercase tracking-[0.2em] font-medium text-[#9CA3AF]">{s.label}</p>
             </Reveal>
           ))}
         </div>
@@ -99,59 +101,66 @@ export default function NexusPage() {
       {/* SERVICES INTRO */}
       <section id="services" className="py-24 px-6">
         <Reveal className="max-w-4xl mx-auto text-center">
-          <p className="uppercase tracking-[0.3em] text-sm mb-4 font-medium" style={{ color: orange }}>Operational Capabilities</p>
+          <p className="uppercase tracking-[0.3em] text-sm mb-4 font-medium text-[#F97316]">Operational Capabilities</p>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">Precision-Engineered Services</h2>
-          <p className="text-lg leading-relaxed max-w-2xl mx-auto" style={{ color: gray }}>
+          <p className="text-lg leading-relaxed max-w-2xl mx-auto text-[#9CA3AF]">
             Five integrated service modules working in concert. Each one is battle-tested, data-driven, and designed to deliver measurable outcomes with zero guesswork.
           </p>
         </Reveal>
       </section>
 
-      {/* 5 ALTERNATING SERVICE SECTIONS */}
+      {/* SERVICES */}
       {services.map((s, i) => (
         <section key={s.num} className="py-20 px-6 border-t border-white/[0.06]">
           <div className={`max-w-7xl mx-auto flex flex-col ${i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} items-center gap-12 lg:gap-20`}>
-            {/* Image */}
-            <Reveal className="w-full lg:w-1/2">
+            <Reveal className="w-full lg:w-1/2 group">
               <div className="aspect-[4/3] rounded-lg overflow-hidden">
-                <img src={s.image} alt={s.title} className="w-full h-full object-cover" />
+                <img src={s.image} alt={s.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
               </div>
             </Reveal>
-            {/* Content */}
             <Reveal delay={0.15} className="w-full lg:w-1/2">
-              <p className="text-6xl font-bold mb-4 opacity-20" style={{ color: orange }}>{s.num}</p>
-              <h3 className="text-2xl md:text-4xl font-bold tracking-tight mb-3">{s.title}</h3>
-              <p className="text-base font-semibold uppercase tracking-wider mb-4" style={{ color: orange }}>{s.subtitle}</p>
-              <p className="text-base leading-relaxed mb-6" style={{ color: gray }}>{s.desc}</p>
-              <ul className="space-y-2 mb-8">
-                {s.bullets.map((b) => (
-                  <li key={b} className="flex items-center gap-3 text-sm" style={{ color: gray }}>
-                    <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: orange }} />
-                    {b}
-                  </li>
-                ))}
-              </ul>
-              <Link href="#contact" className="inline-block text-sm font-bold uppercase tracking-wider px-8 py-3 rounded-lg transition-all duration-300 hover:bg-white/5" style={{ border: `2px solid ${orange}`, color: orange }}>
-                Learn More
-              </Link>
+              <div className="border-l-4 border-[#F97316] pl-6">
+                <p className="text-6xl font-bold mb-4 opacity-20 text-[#F97316]">{s.num}</p>
+                <h3 className="text-2xl md:text-4xl font-bold tracking-tight mb-3">{s.title}</h3>
+                <p className="text-base font-semibold uppercase tracking-wider mb-4 text-[#F97316]">{s.subtitle}</p>
+                <p className="text-base leading-relaxed mb-6 text-[#9CA3AF]">{s.desc}</p>
+                <ul className="space-y-2 mb-8">
+                  {s.bullets.map((b) => (
+                    <li key={b} className="flex items-center gap-3 text-sm text-[#9CA3AF]">
+                      <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#F97316]" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                <Link href="#contact" className="inline-block text-sm font-bold uppercase tracking-wider px-8 py-3 rounded-lg border-2 border-[#F97316] text-[#F97316] transition-all duration-300 hover:bg-white/5">
+                  Learn More
+                </Link>
+              </div>
             </Reveal>
           </div>
         </section>
       ))}
 
-      {/* PROCESS */}
+      {/* PROCESS — Vertical Timeline */}
       <section className="py-24 px-6 border-t border-white/[0.06]" style={{ background: "#111" }}>
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <Reveal className="text-center mb-20">
-            <p className="uppercase tracking-[0.3em] text-sm mb-4 font-medium" style={{ color: orange }}>Execution Protocol</p>
+            <p className="uppercase tracking-[0.3em] text-sm mb-4 font-medium text-[#F97316]">Execution Protocol</p>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Deployment Protocol</h2>
           </Reveal>
-          <div className="grid md:grid-cols-4 gap-10">
-            {process.map((p, i) => (
-              <Reveal key={p.num} delay={i * 0.12} className="text-center">
-                <p className="text-5xl font-bold mb-4" style={{ color: orange }}>{p.num}</p>
-                <h3 className="text-xl font-bold uppercase tracking-wider mb-3">{p.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: gray }}>{p.desc}</p>
+          <div className="relative">
+            {/* Orange vertical line */}
+            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-[#F97316]/30 -translate-x-1/2" />
+            {steps.map((p, i) => (
+              <Reveal key={p.num} delay={i * 0.15} className={`relative flex items-start gap-8 mb-16 last:mb-0 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
+                {/* Dot */}
+                <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[#F97316] border-4 border-[#111] z-10 mt-1" style={{ boxShadow: "0 0 12px rgba(249,115,22,0.5)" }} />
+                {/* Content */}
+                <div className={`ml-14 md:ml-0 md:w-[calc(50%-2rem)] ${i % 2 === 0 ? "md:text-right md:pr-8" : "md:text-left md:pl-8 md:ml-auto"}`}>
+                  <p className="text-4xl font-bold text-[#F97316] mb-2">{p.num}</p>
+                  <h3 className="text-xl font-bold uppercase tracking-wider mb-2">{p.title}</h3>
+                  <p className="text-sm leading-relaxed text-[#9CA3AF]">{p.desc}</p>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -159,33 +168,70 @@ export default function NexusPage() {
       </section>
 
       {/* CTA */}
-      <section id="contact" className="py-24 px-6 border-t border-white/[0.06]">
-        <Reveal className="max-w-4xl mx-auto text-center">
-          <p className="uppercase tracking-[0.3em] text-sm mb-4 font-medium" style={{ color: orange }}>Ready to Take Command?</p>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">Launch Your Operation Today</h2>
-          <p className="text-lg leading-relaxed mb-10 max-w-2xl mx-auto" style={{ color: gray }}>
-            Stop juggling tools and start orchestrating growth. One system. One team. Total clarity. Total control.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
-            <Link href="#" className="inline-block text-sm font-bold uppercase tracking-wider px-10 py-4 rounded-lg transition-all duration-300 hover:brightness-110" style={{ background: orange, color: "#fff" }}>
-              Book a Strategy Session
-            </Link>
-            <Link href="#" className="inline-block text-sm font-bold uppercase tracking-wider px-10 py-4 rounded-lg transition-all duration-300 hover:bg-white/5" style={{ border: `2px solid ${orange}`, color: orange }}>
-              View Case Studies
-            </Link>
-          </div>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-sm" style={{ color: gray }}>
-            <span className="flex items-center gap-2"><Mail size={16} style={{ color: orange }} /> hello@simplyusandyou.com</span>
-            <span className="flex items-center gap-2"><MapPin size={16} style={{ color: orange }} /> Charlotte, NC</span>
-          </div>
-        </Reveal>
+      <section id="contact" className="relative py-24 px-6 border-t border-white/[0.06] overflow-hidden">
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(249,115,22,0.08), transparent 70%)" }} />
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <Reveal>
+            <p className="uppercase tracking-[0.3em] text-sm mb-4 font-medium text-[#F97316]">Ready to Take Command?</p>
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">Launch Your Operation Today</h2>
+            <p className="text-lg leading-relaxed mb-10 max-w-2xl mx-auto text-[#9CA3AF]">
+              Stop juggling tools and start orchestrating growth. One system. One team. Total clarity. Total control.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
+              <Link href="#" className="inline-block text-sm font-bold uppercase tracking-wider px-10 py-4 rounded-lg bg-[#F97316] text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(249,115,22,0.4)]">
+                Book a Strategy Session
+              </Link>
+              <Link href="#" className="inline-block text-sm font-bold uppercase tracking-wider px-10 py-4 rounded-lg border-2 border-[#F97316] text-[#F97316] transition-all duration-300 hover:bg-white/5">
+                View Case Studies
+              </Link>
+            </div>
+          </Reveal>
+        </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="py-10 px-6 border-t border-white/[0.06]" style={{ background: "#080808" }}>
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-xs" style={{ color: gray }}>&copy; {new Date().getFullYear()} Simply Us &amp; You. All rights reserved.</p>
-          <p className="text-xs mt-1" style={{ color: "#555" }}>Concept 08 &middot; Nexus Command</p>
+      {/* FOOTER — 4 Column */}
+      <footer className="py-16 px-6 border-t border-white/[0.06]" style={{ background: "#080808" }}>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+          {/* Logo + Tagline */}
+          <div>
+            <img src="/logo.png" alt="Simply Us & U" className="h-12 mb-4" />
+            <p className="text-sm leading-relaxed text-[#9CA3AF]">Plan. Execute. Win. Your integrated command center for digital growth and operational excellence.</p>
+          </div>
+          {/* Services */}
+          <div>
+            <h4 className="text-sm font-bold uppercase tracking-wider mb-4 text-white">Services</h4>
+            <ul className="space-y-2 text-sm text-[#9CA3AF]">
+              <li>Digital Marketing</li>
+              <li>Social Content Creation</li>
+              <li>Website Design</li>
+              <li>Website Hosting</li>
+              <li>Software Development</li>
+            </ul>
+          </div>
+          {/* Company */}
+          <div>
+            <h4 className="text-sm font-bold uppercase tracking-wider mb-4 text-white">Company</h4>
+            <ul className="space-y-2 text-sm text-[#9CA3AF]">
+              <li>About Us</li>
+              <li>Our Process</li>
+              <li>Case Studies</li>
+              <li>Careers</li>
+            </ul>
+          </div>
+          {/* Contact */}
+          <div>
+            <h4 className="text-sm font-bold uppercase tracking-wider mb-4 text-white">Contact</h4>
+            <ul className="space-y-3 text-sm text-[#9CA3AF]">
+              <li className="flex items-center gap-2"><Mail size={14} className="text-[#F97316]" /> hello@simplyusandyou.com</li>
+              <li className="flex items-center gap-2"><Phone size={14} className="text-[#F97316]" /> (704) 555-0123</li>
+              <li className="flex items-center gap-2"><MapPin size={14} className="text-[#F97316]" /> Charlotte, NC</li>
+            </ul>
+          </div>
+        </div>
+        {/* Copyright bar */}
+        <div className="border-t border-white/[0.06] pt-6 text-center">
+          <p className="text-xs text-[#9CA3AF]">&copy; {new Date().getFullYear()} Simply Us &amp; You. All rights reserved.</p>
+          <p className="text-xs mt-1 text-[#555]">Concept 08 &middot; Nexus Command</p>
         </div>
       </footer>
     </main>

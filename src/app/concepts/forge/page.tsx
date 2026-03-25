@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import { ArrowLeft, ArrowRight, Phone, Mail } from "lucide-react";
+import { ArrowRight, Phone, Mail, MapPin } from "lucide-react";
 
 function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -81,58 +81,69 @@ const steps = [
 export default function ForgeConcept() {
   return (
     <div className="min-h-screen bg-[#0B0B0D] text-white">
-      {/* STICKY TOP BAR */}
-      <div className="sticky top-0 z-50 bg-[#0B0B0D]/85 backdrop-blur-md border-b border-white/[0.06]">
-        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-          <Link href="/concepts" className="inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-[#9CA3AF] hover:text-white transition-colors">
-            <ArrowLeft size={14} /> Concepts
+      {/* NAVBAR */}
+      <nav className="fixed top-0 left-0 right-0 z-50 h-20 bg-[#0B0B0D]/90 backdrop-blur-xl border-b border-white/[0.06]">
+        <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+          <Link href="/concepts">
+            <img src="/logo.png" alt="Simply Us & U" className="h-14 sm:h-16" />
           </Link>
-          <img src="/logo.png" alt="Simply Us & U" className="h-9" />
-          <div className="w-[100px]" />
+          <div className="flex items-center gap-6">
+            <Link href="#services" className="hidden md:block text-sm text-[#9CA3AF] hover:text-white transition-colors">Services</Link>
+            <Link href="#process" className="hidden md:block text-sm text-[#9CA3AF] hover:text-white transition-colors">Process</Link>
+            <button className="px-6 py-2.5 bg-[#F97316] text-white text-sm font-bold tracking-wide uppercase rounded-full hover:shadow-[0_0_20px_rgba(249,115,22,0.3)] transition-all duration-300">
+              Get Started
+            </button>
+          </div>
         </div>
-      </div>
+      </nav>
 
       {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0B0B0D]" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] to-[#0B0B0D]" />
-        {/* Subtle watermark — offset bottom-right, blurred, partially cropped */}
-        <div className="absolute bottom-[-15%] right-[-10%] pointer-events-none">
-          <img
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-[#0B0B0D]" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#F97316]/[0.06] blur-[120px]" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-[#F97316]/[0.04] blur-[100px]" />
+        {/* Grain overlay */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E\")", backgroundRepeat: "repeat", backgroundSize: "256px" }} />
+        {/* Animated logo watermark */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <motion.img
             src="/logo.png"
             alt=""
-            className="w-[500px] sm:w-[600px] md:w-[700px] opacity-[0.035] select-none"
-            style={{ filter: "blur(28px)" }}
+            className="w-[500px] sm:w-[600px] md:w-[800px] opacity-[0.07] select-none"
+            initial={{ scale: 1.1, opacity: 0 }}
+            animate={{ scale: 1, opacity: 0.07 }}
+            transition={{ duration: 2, ease: "easeOut" }}
           />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 md:py-44 text-center">
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="text-xs tracking-[0.3em] uppercase text-[#E8811A] mb-6 font-bold">
+        {/* Hero content */}
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-20">
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="text-xs tracking-[0.3em] uppercase text-[#F97316] mb-6 font-bold">
             Simply Us & U
           </motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.15 }} className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.05]">
-            Marketing. Design.<br /><span className="text-[#E8811A]">Development.</span>
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.35 }} className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.05]">
+            Marketing. Design.<br /><span className="text-[#F97316]">Development.</span>
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.35 }} className="mt-8 text-base md:text-lg text-[#9CA3AF] max-w-2xl mx-auto leading-relaxed">
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.55 }} className="mt-8 text-base md:text-lg text-[#9CA3AF] max-w-2xl mx-auto leading-relaxed">
             Industrial-strength marketing, operations consulting, and automation solutions forged for businesses that demand results.
           </motion.p>
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.55 }} className="mt-10 flex flex-wrap justify-center gap-4">
-            <button className="px-8 py-4 bg-[#E8811A] text-white text-sm font-bold tracking-[0.15em] uppercase rounded-lg hover:bg-[#d0740f] transition-all duration-300">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.75 }} className="mt-10 flex flex-wrap justify-center gap-4">
+            <button className="px-8 py-4 bg-[#F97316] text-white text-sm font-bold tracking-[0.15em] uppercase rounded-lg hover:shadow-[0_0_20px_rgba(249,115,22,0.3)] transition-all duration-300">
               START BUILDING <ArrowRight size={16} className="inline ml-2 -mt-0.5" />
             </button>
-            <button className="px-8 py-4 border-2 border-[#E8811A] text-[#E8811A] text-sm font-bold tracking-[0.15em] uppercase rounded-lg hover:bg-[#E8811A]/10 transition-all duration-300">
+            <button className="px-8 py-4 border-2 border-[#F97316] text-[#F97316] text-sm font-bold tracking-[0.15em] uppercase rounded-lg hover:bg-[#F97316]/10 transition-all duration-300">
               VIEW OUR WORK
             </button>
           </motion.div>
         </div>
       </section>
 
-      {/* STATS BAR */}
+      {/* STATS */}
       <section className="border-y border-white/[0.06] bg-[#111111]">
-        <div className="max-w-7xl mx-auto px-6 py-10">
+        <div className="max-w-7xl mx-auto px-6 py-14">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map((s, i) => (
               <Reveal key={s.label} delay={i * 0.08}>
-                <p className="text-3xl md:text-4xl font-bold text-[#E8811A]">{s.value}</p>
+                <p className="text-4xl md:text-5xl font-bold text-[#F97316] drop-shadow-[0_0_20px_rgba(249,115,22,0.15)]">{s.value}</p>
                 <p className="text-[10px] tracking-[0.2em] uppercase text-[#9CA3AF] mt-2">{s.label}</p>
               </Reveal>
             ))}
@@ -141,45 +152,43 @@ export default function ForgeConcept() {
       </section>
 
       {/* SERVICES INTRO */}
-      <section className="py-20 md:py-28">
+      <section id="services" className="py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <Reveal>
-            <p className="text-xs tracking-[0.3em] uppercase text-[#E8811A] font-bold mb-4">WHAT WE BUILD</p>
+            <p className="text-xs tracking-[0.3em] uppercase text-[#F97316] font-bold mb-4">WHAT WE BUILD</p>
             <h2 className="text-3xl md:text-5xl font-bold uppercase">OUR CORE SERVICES</h2>
             <p className="mt-4 text-[#9CA3AF] max-w-2xl mx-auto">Five disciplines, one unified force. We handle every lever of your growth engine.</p>
           </Reveal>
         </div>
       </section>
 
-      {/* 5 SERVICE SPLIT SECTIONS */}
+      {/* SERVICES */}
       {services.map((s, i) => {
         const imgLeft = i % 2 === 0;
         return (
           <section key={s.num} className="py-16 md:py-24 border-t border-white/[0.06]">
             <div className="max-w-7xl mx-auto px-6">
               <Reveal>
-                <div className={`flex flex-col ${imgLeft ? "md:flex-row" : "md:flex-row-reverse"} gap-10 md:gap-16 items-center`}>
-                  {/* Image */}
-                  <div className="w-full md:w-1/2">
+                <div className={`group flex flex-col ${imgLeft ? "md:flex-row" : "md:flex-row-reverse"} gap-10 md:gap-16 items-center`}>
+                  <div className="w-full md:w-1/2 relative">
+                    <span className="absolute -top-6 -left-2 text-[120px] md:text-[160px] font-bold text-[#F97316]/[0.06] leading-none select-none pointer-events-none">{s.num}</span>
                     <div className="aspect-[4/3] bg-gradient-to-br from-[#1a1a1a] to-[#111] border border-white/[0.06] rounded-lg overflow-hidden">
-                      <img src={s.image} alt={s.title} className="w-full h-full object-cover" />
+                      <img src={s.image} alt={s.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     </div>
                   </div>
-                  {/* Content */}
-                  <div className="w-full md:w-1/2">
-                    <span className="text-5xl md:text-6xl font-bold text-[#E8811A]">{s.num}</span>
-                    <h3 className="text-2xl md:text-3xl font-bold uppercase mt-4">{s.title}</h3>
-                    <p className="text-xs tracking-[0.25em] uppercase text-[#E8811A] font-bold mt-2">{s.subtitle}</p>
+                  <div className="w-full md:w-1/2 border-l-4 border-[#F97316] pl-6">
+                    <h3 className="text-2xl md:text-3xl font-bold uppercase">{s.title}</h3>
+                    <p className="text-xs tracking-[0.25em] uppercase text-[#F97316] font-bold mt-2">{s.subtitle}</p>
                     <p className="text-[#9CA3AF] mt-4 leading-relaxed">{s.desc}</p>
                     <ul className="mt-5 space-y-2">
                       {s.bullets.map((b) => (
                         <li key={b} className="flex items-start gap-3 text-[#9CA3AF] text-sm">
-                          <span className="w-2 h-2 bg-[#E8811A] rounded-lg mt-1.5 flex-shrink-0" />
+                          <span className="w-2 h-2 bg-[#F97316] rounded-full mt-1.5 flex-shrink-0" />
                           {b}
                         </li>
                       ))}
                     </ul>
-                    <button className="mt-6 px-6 py-3 border-2 border-[#E8811A] text-[#E8811A] text-xs font-bold tracking-[0.15em] uppercase rounded-lg hover:bg-[#E8811A] hover:text-white transition-all duration-300">
+                    <button className="mt-6 px-6 py-3 border-2 border-[#F97316] text-[#F97316] text-xs font-bold tracking-[0.15em] uppercase rounded-lg hover:bg-[#F97316] hover:text-white transition-all duration-300">
                       LEARN MORE <ArrowRight size={14} className="inline ml-1 -mt-0.5" />
                     </button>
                   </div>
@@ -190,21 +199,22 @@ export default function ForgeConcept() {
         );
       })}
 
-      {/* PROCESS */}
-      <section className="py-20 md:py-28 bg-[#111111]">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* PROCESS — Vertical Timeline */}
+      <section id="process" className="py-20 md:py-28 bg-[#111111]">
+        <div className="max-w-3xl mx-auto px-6">
           <Reveal>
-            <p className="text-xs tracking-[0.3em] uppercase text-[#E8811A] font-bold mb-4">THE METHOD</p>
-            <h2 className="text-3xl md:text-5xl font-bold uppercase mb-16">HOW WE FORGE RESULTS</h2>
+            <p className="text-xs tracking-[0.3em] uppercase text-[#F97316] font-bold mb-4 text-center">THE METHOD</p>
+            <h2 className="text-3xl md:text-5xl font-bold uppercase mb-16 text-center">HOW WE FORGE RESULTS</h2>
           </Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="relative">
+            <div className="absolute left-4 md:left-6 top-0 bottom-0 w-0.5 bg-[#F97316]/30" />
             {steps.map((s, i) => (
-              <Reveal key={s.num} delay={i * 0.1}>
-                <div className="rounded-lg">
-                  <span className="text-4xl font-bold text-[#E8811A]">{s.num}</span>
-                  <div className="w-10 h-1 bg-[#E8811A] my-4" />
-                  <h3 className="text-lg font-bold uppercase tracking-wide mb-3">{s.title}</h3>
-                  <p className="text-sm text-[#9CA3AF] leading-relaxed">{s.desc}</p>
+              <Reveal key={s.num} delay={i * 0.12}>
+                <div className="relative pl-14 md:pl-20 pb-14 last:pb-0">
+                  <div className="absolute left-2 md:left-4 top-1 w-5 h-5 rounded-full bg-[#F97316] border-4 border-[#111111]" />
+                  <span className="text-sm font-bold text-[#F97316] tracking-[0.2em]">STEP {s.num}</span>
+                  <h3 className="text-xl md:text-2xl font-bold uppercase mt-1">{s.title}</h3>
+                  <p className="text-sm text-[#9CA3AF] leading-relaxed mt-2">{s.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -213,26 +223,17 @@ export default function ForgeConcept() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 md:py-28">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+      <section className="relative py-24 md:py-32 overflow-hidden">
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, rgba(249,115,22,0.08), transparent 70%)" }} />
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <Reveal>
-            <p className="text-xs tracking-[0.3em] uppercase text-[#E8811A] font-bold mb-4">GET STARTED</p>
             <h2 className="text-3xl md:text-5xl font-bold uppercase mb-6">
-              READY TO BUILD SOMETHING<br /><span className="text-[#E8811A]">UNBREAKABLE?</span>
+              READY TO BUILD SOMETHING<br /><span className="text-[#F97316]">UNBREAKABLE?</span>
             </h2>
-            <p className="text-[#9CA3AF] max-w-xl mx-auto mb-6">Book a free strategy session and get a custom blueprint for your brand&apos;s next chapter.</p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-[#9CA3AF] mb-8">
-              <span className="flex items-center gap-2"><Phone size={14} className="text-[#E8811A]" /> (555) 123-4567</span>
-              <span className="flex items-center gap-2"><Mail size={14} className="text-[#E8811A]" /> hello@simplyusandu.com</span>
-            </div>
-            <div className="flex flex-wrap justify-center gap-4">
-              <button className="px-10 py-4 bg-[#E8811A] text-white text-sm font-bold tracking-[0.15em] uppercase rounded-lg hover:bg-[#d0740f] transition-all duration-300">
-                BOOK A STRATEGY CALL
-              </button>
-              <button className="px-10 py-4 border-2 border-[#E8811A] text-[#E8811A] text-sm font-bold tracking-[0.15em] uppercase rounded-lg hover:bg-[#E8811A]/10 transition-all duration-300">
-                SEND US A MESSAGE
-              </button>
-            </div>
+            <p className="text-lg text-[#9CA3AF] max-w-xl mx-auto mb-10">Book a free strategy session and get a custom blueprint for your brand&apos;s next chapter.</p>
+            <button className="px-10 py-4 bg-[#F97316] text-white text-sm font-bold tracking-[0.15em] uppercase rounded-lg hover:shadow-[0_0_20px_rgba(249,115,22,0.3)] transition-all duration-300">
+              BOOK A STRATEGY CALL
+            </button>
           </Reveal>
         </div>
       </section>
@@ -241,28 +242,37 @@ export default function ForgeConcept() {
       <footer className="bg-[#111111] border-t border-white/[0.06] py-16">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
-            <div className="md:col-span-2">
-              <h3 className="text-xl font-bold uppercase mb-3">SIMPLYUS&amp;U</h3>
-              <p className="text-sm text-[#9CA3AF] leading-relaxed max-w-sm">
+            <div>
+              <img src="/logo.png" alt="Simply Us & U" className="h-12 mb-4" />
+              <p className="text-sm text-[#9CA3AF] leading-relaxed">
                 Industrial-strength marketing, operations, and automation — forged for businesses that refuse to settle.
               </p>
             </div>
             <div>
-              <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-[#E8811A] mb-4">SERVICES</h4>
+              <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-[#F97316] mb-4">SERVICES</h4>
               <ul className="space-y-2 text-sm text-[#9CA3AF]">
                 <li className="hover:text-white transition-colors cursor-pointer">Digital Marketing</li>
                 <li className="hover:text-white transition-colors cursor-pointer">Social Content Creation</li>
                 <li className="hover:text-white transition-colors cursor-pointer">Website Design</li>
                 <li className="hover:text-white transition-colors cursor-pointer">Website Hosting</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Software &amp; App Development</li>
+                <li className="hover:text-white transition-colors cursor-pointer">Software &amp; App Dev</li>
               </ul>
             </div>
             <div>
-              <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-[#E8811A] mb-4">CONNECT</h4>
+              <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-[#F97316] mb-4">COMPANY</h4>
               <ul className="space-y-2 text-sm text-[#9CA3AF]">
-                <li className="hover:text-white transition-colors cursor-pointer">Instagram</li>
-                <li className="hover:text-white transition-colors cursor-pointer">LinkedIn</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Email Us</li>
+                <li className="hover:text-white transition-colors cursor-pointer">About Us</li>
+                <li className="hover:text-white transition-colors cursor-pointer">Our Work</li>
+                <li className="hover:text-white transition-colors cursor-pointer">Careers</li>
+                <li className="hover:text-white transition-colors cursor-pointer">Blog</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-[#F97316] mb-4">CONTACT</h4>
+              <ul className="space-y-3 text-sm text-[#9CA3AF]">
+                <li className="flex items-center gap-2"><Phone size={14} className="text-[#F97316]" /> (555) 123-4567</li>
+                <li className="flex items-center gap-2"><Mail size={14} className="text-[#F97316]" /> hello@simplyusandu.com</li>
+                <li className="flex items-start gap-2"><MapPin size={14} className="text-[#F97316] mt-0.5" /> Dallas, TX</li>
               </ul>
             </div>
           </div>
@@ -270,8 +280,8 @@ export default function ForgeConcept() {
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-xs text-[#9CA3AF]">&copy; 2026 SimplyUs&amp;U. All rights reserved.</p>
               <div className="flex gap-6 text-xs text-[#9CA3AF]">
-                <span className="hover:text-white transition-colors cursor-pointer">Privacy</span>
-                <span className="hover:text-white transition-colors cursor-pointer">Terms</span>
+                <span className="hover:text-white transition-colors cursor-pointer">Privacy Policy</span>
+                <span className="hover:text-white transition-colors cursor-pointer">Terms of Service</span>
               </div>
             </div>
           </div>
