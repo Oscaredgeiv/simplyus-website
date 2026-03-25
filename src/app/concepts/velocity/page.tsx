@@ -1,50 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import {
-  ArrowLeft,
-  ArrowRight,
-  BarChart3,
-  Cpu,
-  Eye,
-  Layers,
-  Rocket,
-  Share2,
-  Zap,
-} from "lucide-react";
+import { ArrowLeft, ArrowRight, Phone } from "lucide-react";
 
-/* ------------------------------------------------------------------ */
-/*  Animated counter hook                                              */
-/* ------------------------------------------------------------------ */
-function useCounter(target: number, duration = 2000) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
-
-  useEffect(() => {
-    if (!inView) return;
-    let start = 0;
-    const step = target / (duration / 16);
-    const id = setInterval(() => {
-      start += step;
-      if (start >= target) {
-        setCount(target);
-        clearInterval(id);
-      } else {
-        setCount(Math.floor(start));
-      }
-    }, 16);
-    return () => clearInterval(id);
-  }, [inView, target, duration]);
-
-  return { count, ref };
-}
-
-/* ------------------------------------------------------------------ */
-/*  Fade-in animation wrapper                                          */
-/* ------------------------------------------------------------------ */
 function FadeUp({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
@@ -61,238 +21,248 @@ function FadeUp({ children, className = "", delay = 0 }: { children: React.React
   );
 }
 
-/* ------------------------------------------------------------------ */
-/*  Color tokens                                                       */
-/* ------------------------------------------------------------------ */
-const c = {
-  bg: "#0A0A0F",
-  surface: "#111118",
-  border: "#1E1E2E",
-  muted: "#6B7280",
-  white: "#FFFFFF",
-  blue: "#3B82F6",
-  purple: "#8B5CF6",
-};
+const orange = "#E8811A";
+const gray = "#9CA3AF";
+const bg = "#0A0A0A";
 
-/* ------------------------------------------------------------------ */
-/*  Data                                                               */
-/* ------------------------------------------------------------------ */
+const stats = [
+  { value: "100+", label: "CLIENTS SERVED" },
+  { value: "312%", label: "AVG ROI" },
+  { value: "4.2M+", label: "IMPRESSIONS" },
+  { value: "5-STAR", label: "RATING" },
+];
+
 const services = [
-  { icon: Share2, title: "Social Media Management", desc: "Content strategy, scheduling, community engagement, and analytics across every platform that matters to your audience." },
-  { icon: BarChart3, title: "Digital Marketing", desc: "Paid media, SEO, email funnels, and conversion optimization — all measured against real revenue outcomes." },
-  { icon: Layers, title: "Operations Consulting", desc: "Process mapping, workflow redesign, and systems integration so your team stops fighting friction." },
-  { icon: Cpu, title: "Project Management", desc: "End-to-end delivery management with clear milestones, transparent reporting, and zero surprises." },
-  { icon: Zap, title: "Software & Automation", desc: "Custom integrations, CRM pipelines, and intelligent automation that eliminate repetitive human work." },
+  {
+    num: "01",
+    title: "SOCIAL MEDIA MANAGEMENT",
+    subtitle: "CONTENT & COMMUNITY",
+    desc: "We build and execute social strategies that grow audiences, drive engagement, and turn followers into customers across every platform that matters.",
+    bullets: ["Content Strategy & Scheduling", "Community Engagement", "Analytics & Reporting", "Platform Optimization"],
+    img: "Social Media Management",
+  },
+  {
+    num: "02",
+    title: "DIGITAL MARKETING",
+    subtitle: "PAID MEDIA & SEO",
+    desc: "Data-driven campaigns across paid search, social ads, email funnels, and SEO — all measured against real revenue outcomes, not vanity metrics.",
+    bullets: ["PPC & Paid Social", "Search Engine Optimization", "Email Marketing Funnels", "Conversion Rate Optimization"],
+    img: "Digital Marketing",
+  },
+  {
+    num: "03",
+    title: "OPERATIONS CONSULTING",
+    subtitle: "PROCESS & SYSTEMS",
+    desc: "We map your workflows, identify bottlenecks, and redesign your operations so your team stops fighting friction and starts scaling with confidence.",
+    bullets: ["Process Mapping & Redesign", "Systems Integration", "Team Workflow Optimization", "KPI Dashboard Setup"],
+    img: "Operations Consulting",
+  },
+  {
+    num: "04",
+    title: "PROJECT MANAGEMENT",
+    subtitle: "DELIVERY & ACCOUNTABILITY",
+    desc: "End-to-end delivery management with clear milestones, transparent reporting, and zero surprises from kickoff to completion.",
+    bullets: ["Timeline & Milestone Planning", "Resource Allocation", "Stakeholder Communication", "Risk Management"],
+    img: "Project Management",
+  },
+  {
+    num: "05",
+    title: "SOFTWARE & AUTOMATION",
+    subtitle: "INTEGRATIONS & AI",
+    desc: "Custom integrations, CRM pipelines, and intelligent automation that eliminate repetitive tasks and let your team focus on high-value work.",
+    bullets: ["CRM Pipeline Automation", "Custom Software Integrations", "AI-Powered Workflows", "Data Sync & Reporting"],
+    img: "Software & Automation",
+  },
 ];
 
 const steps = [
-  { num: "01", label: "Audit", desc: "Deep-dive into your current stack, channels, and metrics." },
-  { num: "02", label: "Strategy", desc: "Custom growth blueprint aligned to your goals and budget." },
-  { num: "03", label: "Execute", desc: "We deploy, manage, and iterate — fast." },
-  { num: "04", label: "Scale", desc: "Double down on what works; automate the rest." },
+  { num: "01", title: "DISCOVERY", desc: "Deep audit of your current channels, tech stack, and key performance metrics." },
+  { num: "02", title: "STRATEGY", desc: "Custom growth blueprint aligned to your goals, timeline, and budget." },
+  { num: "03", title: "EXECUTION", desc: "We deploy, manage, and iterate fast — with weekly reporting and full transparency." },
+  { num: "04", title: "SCALE", desc: "Double down on what works, automate the rest, and accelerate growth." },
 ];
 
-/* ------------------------------------------------------------------ */
-/*  Page                                                               */
-/* ------------------------------------------------------------------ */
 export default function VelocityPage() {
-  const roi = useCounter(312);
-  const impressions = useCounter(42, 1800);
-  const clients = useCounter(89, 1600);
-
   return (
-    <div className="min-h-screen font-sans" style={{ background: c.bg, color: c.white }}>
-      {/* Dot-grid background */}
-      <div
-        className="pointer-events-none fixed inset-0 z-0"
-        style={{
-          backgroundImage: `radial-gradient(${c.border} 1px, transparent 1px)`,
-          backgroundSize: "24px 24px",
-        }}
-      />
+    <div className="min-h-screen font-sans" style={{ background: bg, color: "#FFFFFF" }}>
+      {/* Sticky top bar */}
+      <nav className="sticky top-0 z-50 flex items-center justify-between px-6 py-3" style={{ background: "rgba(10,10,10,0.95)", borderBottom: "1px solid #1a1a1a" }}>
+        <Link href="/concepts" className="group flex items-center gap-2 text-sm" style={{ color: gray }}>
+          <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
+          Back to Concepts
+        </Link>
+        <a href="tel:+15551234567" className="flex items-center gap-2 text-sm font-bold" style={{ color: orange }}>
+          <Phone size={14} /> (555) 123-4567
+        </a>
+      </nav>
 
-      <div className="relative z-10">
-        {/* ---- Nav / back ---- */}
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-          <Link href="/concepts" className="group flex items-center gap-2 text-sm" style={{ color: c.muted }}>
-            <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
-            Back to Concepts
-          </Link>
-          <span className="rounded-full px-3 py-1 text-xs font-medium tracking-wider uppercase" style={{ background: c.surface, border: `1px solid ${c.border}`, color: c.muted }}>
-            Concept 01
-          </span>
-        </nav>
-
-        {/* ---- Hero ---- */}
-        <section className="mx-auto max-w-6xl px-6 pb-24 pt-16 md:pt-24">
+      {/* Hero */}
+      <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden">
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #1a1a1a 0%, #0A0A0A 50%, #1a0f00 100%)" }} />
+        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.6)" }} />
+        <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
           <FadeUp>
-            <p className="mb-4 font-mono text-xs tracking-widest uppercase" style={{ color: c.blue }}>
-              Simply Us &amp; You
-            </p>
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>SIMPLY US & YOU</p>
           </FadeUp>
           <FadeUp delay={0.1}>
-            <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-              Ship Growth.{" "}
-              <span style={{ color: c.muted }}>Not Busywork.</span>
+            <h1 className="text-4xl font-bold uppercase leading-none tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
+              SOCIAL MEDIA. DIGITAL MARKETING.{" "}
+              <span style={{ color: orange }}>AUTOMATION.</span>
             </h1>
           </FadeUp>
           <FadeUp delay={0.2}>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed md:text-lg" style={{ color: c.muted }}>
-              Simply Us &amp; You is the growth engine behind brands that move fast. Social media, digital marketing, operations, and automation — deployed as one integrated system.
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed md:text-lg" style={{ color: gray }}>
+              The velocity growth engine behind brands that move fast. We deploy marketing, operations, and automation as one integrated system.
             </p>
           </FadeUp>
           <FadeUp delay={0.3}>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <Link
-                href="#"
-                className="inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-                style={{ background: `linear-gradient(135deg, ${c.blue}, ${c.purple})` }}
-              >
-                Launch Your Growth Engine <Rocket size={16} />
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+              <Link href="#" className="inline-flex items-center gap-2 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-opacity hover:opacity-90" style={{ background: orange }}>
+                GET A FREE QUOTE
               </Link>
-              <Link href="#" className="inline-flex items-center gap-2 rounded-lg border px-6 py-3 text-sm font-medium transition-colors hover:bg-white/5" style={{ borderColor: c.border, color: c.muted }}>
-                See how it works <ArrowRight size={16} />
+              <Link href="#" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider transition-opacity hover:opacity-80" style={{ color: orange }}>
+                OR EMAIL US <ArrowRight size={16} />
               </Link>
             </div>
           </FadeUp>
+        </div>
+      </section>
 
-          {/* Metrics */}
-          <FadeUp delay={0.4}>
-            <div className="mt-20 grid grid-cols-1 gap-6 sm:grid-cols-3">
-              {[
-                { ref: roi.ref, value: `${roi.count}%`, label: "Avg. Client ROI" },
-                { ref: impressions.ref, value: `${impressions.count / 10}M`, label: "Impressions Managed" },
-                { ref: clients.ref, value: `${clients.count}`, label: "Active Clients" },
-              ].map((m, i) => (
-                <div key={i} className="rounded-xl p-6" style={{ background: c.surface, border: `1px solid ${c.border}` }}>
-                  <span ref={m.ref} className="block font-mono text-3xl font-bold md:text-4xl" style={{ color: c.blue }}>
-                    {m.value}
-                  </span>
-                  <span className="mt-1 block text-xs uppercase tracking-wider" style={{ color: c.muted }}>
-                    {m.label}
-                  </span>
-                </div>
-              ))}
+      {/* Stats Bar */}
+      <section className="border-y" style={{ borderColor: "#1a1a1a", background: "#111111" }}>
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center divide-x" style={{ divideColor: "#2a2a2a" } as React.CSSProperties}>
+          {stats.map((s) => (
+            <div key={s.label} className="flex flex-1 flex-col items-center gap-1 px-6 py-8 sm:flex-row sm:gap-3">
+              <span className="text-2xl font-bold md:text-3xl" style={{ color: orange }}>{s.value}</span>
+              <span className="text-xs font-medium uppercase tracking-wider" style={{ color: gray }}>{s.label}</span>
             </div>
-          </FadeUp>
-        </section>
+          ))}
+        </div>
+      </section>
 
-        {/* ---- Services ---- */}
-        <section className="mx-auto max-w-6xl px-6 py-24">
-          <FadeUp>
-            <p className="mb-2 font-mono text-xs tracking-widest uppercase" style={{ color: c.purple }}>Services</p>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">One system. Five capabilities.</h2>
-          </FadeUp>
+      {/* Services Intro */}
+      <section className="mx-auto max-w-6xl px-6 pt-24 pb-8">
+        <FadeUp>
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>WHAT WE DO</p>
+          <h2 className="text-3xl font-bold uppercase tracking-tight sm:text-4xl md:text-5xl">OUR SERVICES</h2>
+          <div className="mt-4 h-1 w-16" style={{ background: orange }} />
+        </FadeUp>
+      </section>
 
-          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((s, i) => (
-              <FadeUp key={s.title} delay={i * 0.08}>
-                <div
-                  className="group relative overflow-hidden rounded-2xl p-6 transition-colors hover:border-blue-500/40"
-                  style={{
-                    background: "rgba(17,17,24,0.6)",
-                    backdropFilter: "blur(12px)",
-                    WebkitBackdropFilter: "blur(12px)",
-                    border: `1px solid ${c.border}`,
-                  }}
-                >
-                  <s.icon size={28} strokeWidth={1.5} style={{ color: c.blue }} className="mb-4" />
-                  <h3 className="text-lg font-semibold">{s.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed" style={{ color: c.muted }}>{s.desc}</p>
+      {/* Service Split Sections */}
+      {services.map((s, i) => {
+        const reversed = i % 2 === 1;
+        return (
+          <section key={s.num} className="mx-auto max-w-6xl px-6 py-16">
+            <FadeUp>
+              <div className={`flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-16 ${reversed ? "lg:flex-row-reverse" : ""}`}>
+                {/* Image placeholder */}
+                <div className="flex h-72 w-full items-center justify-center lg:h-96 lg:w-1/2" style={{ background: "#1a1a1a", border: "1px solid #2a2a2a" }}>
+                  <span className="text-sm font-medium uppercase tracking-wider" style={{ color: gray }}>{s.img}</span>
                 </div>
-              </FadeUp>
-            ))}
-          </div>
-        </section>
-
-        {/* ---- Process ---- */}
-        <section className="mx-auto max-w-6xl px-6 py-24">
-          <FadeUp>
-            <p className="mb-2 font-mono text-xs tracking-widest uppercase" style={{ color: c.purple }}>Process</p>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">From zero to scale in four moves.</h2>
-          </FadeUp>
-
-          <div className="relative mt-16">
-            {/* Timeline line */}
-            <div className="absolute left-0 top-6 hidden h-px w-full lg:block" style={{ background: `linear-gradient(90deg, ${c.blue}, ${c.purple})` }} />
-
-            <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
-              {steps.map((s, i) => (
-                <FadeUp key={s.num} delay={i * 0.12}>
-                  <div className="relative">
-                    {/* Dot */}
-                    <div className="mb-6 hidden h-3 w-3 rounded-full lg:block" style={{ background: c.blue, boxShadow: `0 0 12px ${c.blue}` }} />
-                    <span className="font-mono text-xs" style={{ color: c.blue }}>{s.num}</span>
-                    <h3 className="mt-1 text-xl font-bold">{s.label}</h3>
-                    <p className="mt-2 text-sm leading-relaxed" style={{ color: c.muted }}>{s.desc}</p>
-                  </div>
-                </FadeUp>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ---- Testimonial ---- */}
-        <section className="mx-auto max-w-6xl px-6 py-24">
-          <FadeUp>
-            <div className="rounded-2xl p-8 md:p-12" style={{ background: c.surface, border: `1px solid ${c.border}` }}>
-              <Eye size={32} strokeWidth={1.5} style={{ color: c.purple }} className="mb-6" />
-              <blockquote className="max-w-2xl text-xl leading-relaxed md:text-2xl" style={{ color: "#D1D5DB" }}>
-                &ldquo;We tried hiring in-house, then we tried three agencies. Simply Us &amp; You was the first partner that actually understood our full picture — marketing, ops, and tech — and made them work together.&rdquo;
-              </blockquote>
-              <div className="mt-8 flex items-center gap-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full font-bold" style={{ background: `linear-gradient(135deg, ${c.blue}, ${c.purple})` }}>
-                  JM
-                </div>
-                <div>
-                  <p className="text-sm font-semibold">Jordan Mitchell</p>
-                  <p className="text-xs" style={{ color: c.muted }}>COO, Brightly Health</p>
+                {/* Content */}
+                <div className="w-full lg:w-1/2">
+                  <span className="text-4xl font-bold" style={{ color: orange }}>{s.num}</span>
+                  <h3 className="mt-2 text-2xl font-bold uppercase tracking-tight sm:text-3xl">{s.title}</h3>
+                  <p className="mt-1 text-xs font-bold uppercase tracking-[0.2em]" style={{ color: orange }}>{s.subtitle}</p>
+                  <p className="mt-4 text-base leading-relaxed" style={{ color: gray }}>{s.desc}</p>
+                  <ul className="mt-6 space-y-2">
+                    {s.bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-3">
+                        <span className="mt-1.5 block h-2 w-2 flex-shrink-0" style={{ background: orange }} />
+                        <span className="text-sm font-semibold" style={{ color: gray }}>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link href="#" className="mt-8 inline-flex items-center gap-2 border-2 px-6 py-3 text-sm font-bold uppercase tracking-wider transition-colors hover:bg-white/5" style={{ borderColor: orange, color: orange }}>
+                    GET A FREE QUOTE <ArrowRight size={16} />
+                  </Link>
                 </div>
               </div>
-            </div>
-          </FadeUp>
-        </section>
+            </FadeUp>
+          </section>
+        );
+      })}
 
-        {/* ---- CTA ---- */}
-        <section className="mx-auto max-w-6xl px-6 py-24">
+      {/* Process / How It Works */}
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <FadeUp>
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>HOW IT WORKS</p>
+          <h2 className="text-3xl font-bold uppercase tracking-tight sm:text-4xl md:text-5xl">OUR PROCESS</h2>
+          <div className="mt-4 h-1 w-16" style={{ background: orange }} />
+        </FadeUp>
+        <div className="mt-16 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          {steps.map((s, i) => (
+            <FadeUp key={s.num} delay={i * 0.1}>
+              <div>
+                <span className="text-4xl font-bold" style={{ color: orange }}>{s.num}</span>
+                <h3 className="mt-3 text-lg font-bold uppercase tracking-wide">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed" style={{ color: gray }}>{s.desc}</p>
+              </div>
+            </FadeUp>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24" style={{ background: "#111111", borderTop: "1px solid #1a1a1a", borderBottom: "1px solid #1a1a1a" }}>
+        <div className="mx-auto max-w-4xl px-6 text-center">
           <FadeUp>
-            <div
-              className="relative overflow-hidden rounded-2xl p-10 text-center md:p-16"
-              style={{
-                background: c.surface,
-                border: "double 2px transparent",
-                backgroundImage: `linear-gradient(${c.surface}, ${c.surface}), linear-gradient(135deg, ${c.blue}, ${c.purple})`,
-                backgroundOrigin: "border-box",
-                backgroundClip: "padding-box, border-box",
-              }}
-            >
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Ready to stop guessing?</h2>
-              <p className="mx-auto mt-4 max-w-xl text-base" style={{ color: c.muted }}>
-                Book a free 30-minute strategy call. No sales deck — just a candid conversation about where you are and where you want to go.
-              </p>
-              <Link
-                href="#"
-                className="mt-8 inline-flex items-center gap-2 rounded-lg px-8 py-3.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-                style={{ background: `linear-gradient(135deg, ${c.blue}, ${c.purple})` }}
-              >
-                Launch Your Growth Engine <Rocket size={16} />
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>FREE ESTIMATES</p>
+            <h2 className="text-3xl font-bold uppercase tracking-tight sm:text-4xl md:text-5xl">READY TO GET IT DONE?</h2>
+            <div className="mx-auto mt-4 h-1 w-16" style={{ background: orange }} />
+            <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed" style={{ color: gray }}>
+              Book a free 30-minute strategy call. No sales deck — just a candid conversation about where you are and where you want to go.
+            </p>
+            <p className="mt-8 text-3xl font-bold md:text-4xl" style={{ color: orange }}>(555) 123-4567</p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <Link href="tel:+15551234567" className="inline-flex items-center gap-2 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-opacity hover:opacity-90" style={{ background: orange }}>
+                <Phone size={16} /> CALL NOW
+              </Link>
+              <Link href="#" className="inline-flex items-center gap-2 border-2 px-8 py-4 text-sm font-bold uppercase tracking-wider transition-colors hover:bg-white/5" style={{ borderColor: orange, color: orange }}>
+                EMAIL US
               </Link>
             </div>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm" style={{ color: gray }}>
+              <span>info@simplyusandyou.com</span>
+              <span>Mon - Fri: 9AM - 6PM</span>
+            </div>
           </FadeUp>
-        </section>
+        </div>
+      </section>
 
-        {/* ---- Footer ---- */}
-        <footer className="mx-auto max-w-6xl px-6 py-12" style={{ borderTop: `1px solid ${c.border}` }}>
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="font-mono text-xs" style={{ color: c.muted }}>&copy; {new Date().getFullYear()} Simply Us &amp; You. All rights reserved.</p>
-            <div className="flex gap-6 text-xs" style={{ color: c.muted }}>
-              <Link href="#" className="transition-colors hover:text-white">Privacy</Link>
-              <Link href="#" className="transition-colors hover:text-white">Terms</Link>
-              <Link href="#" className="transition-colors hover:text-white">Contact</Link>
+      {/* Footer */}
+      <footer className="mx-auto max-w-6xl px-6 py-16">
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-3">
+          <div>
+            <h3 className="text-lg font-bold uppercase tracking-wide">Simply Us & You</h3>
+            <p className="mt-3 text-sm leading-relaxed" style={{ color: gray }}>
+              The velocity growth engine behind brands that move fast. Marketing, operations, and automation deployed as one system.
+            </p>
+          </div>
+          <div>
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>CONTACT</p>
+            <div className="space-y-2 text-sm" style={{ color: gray }}>
+              <p>(555) 123-4567</p>
+              <p>info@simplyusandyou.com</p>
+              <p>Mon - Fri: 9AM - 6PM</p>
             </div>
           </div>
-        </footer>
-      </div>
+          <div>
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>SERVICES</p>
+            <div className="space-y-2 text-sm" style={{ color: gray }}>
+              <p>Social Media Management</p>
+              <p>Digital Marketing</p>
+              <p>Operations Consulting</p>
+              <p>Project Management</p>
+              <p>Software & Automation</p>
+            </div>
+          </div>
+        </div>
+        <div className="mt-12 border-t pt-8" style={{ borderColor: "#1a1a1a" }}>
+          <p className="text-xs" style={{ color: gray }}>&copy; {new Date().getFullYear()} Simply Us & You. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 }

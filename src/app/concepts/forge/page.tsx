@@ -3,20 +3,8 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import { ArrowLeft, ArrowRight, Shield, BarChart3, Megaphone, Settings, CheckSquare } from "lucide-react";
+import { ArrowLeft, ArrowRight, Phone, Mail } from "lucide-react";
 
-/* ─── palette ─── */
-const C = {
-  bg: "#0A0A0A",
-  steel: "#141414",
-  graphite: "#1E1E1E",
-  ash: "#6B6B6B",
-  cloud: "#F0F0F0",
-  orange: "#FF5E1A",
-  amber: "#FFB800",
-};
-
-/* ─── reusable scroll-reveal wrapper ─── */
 function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
@@ -33,198 +21,178 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
   );
 }
 
-/* ─── services data ─── */
 const services = [
-  { icon: Megaphone, title: "SOCIAL MEDIA MANAGEMENT", desc: "Strategic content creation, community management, and platform growth engineered for maximum impact across every channel." },
-  { icon: BarChart3, title: "DIGITAL MARKETING", desc: "Data-driven campaigns across paid, organic, and email channels. Every dollar tracked, every conversion counted." },
-  { icon: Settings, title: "OPERATIONAL SYSTEMS", desc: "Backend workflows, automations, and SOPs that eliminate bottleneck and scale with your ambition." },
-  { icon: Shield, title: "BRAND STRATEGY", desc: "Identity systems, messaging frameworks, and positioning that make your brand impossible to ignore." },
+  {
+    num: "01",
+    title: "SOCIAL MEDIA MANAGEMENT",
+    subtitle: "CONTENT & COMMUNITY",
+    desc: "We build and execute high-impact social strategies across every platform. From content calendars to community engagement, we keep your brand present, relevant, and impossible to scroll past.",
+    bullets: ["Platform strategy & content creation", "Community management & engagement", "Analytics reporting & growth tracking"],
+  },
+  {
+    num: "02",
+    title: "DIGITAL MARKETING",
+    subtitle: "CAMPAIGNS & CONVERSIONS",
+    desc: "Data-driven campaigns across paid search, display, email, and organic channels. Every dollar is tracked, every conversion is measured, every opportunity is seized.",
+    bullets: ["Paid media & PPC management", "SEO & organic growth strategy", "Email marketing & automation"],
+  },
+  {
+    num: "03",
+    title: "OPERATIONS CONSULTING",
+    subtitle: "SYSTEMS & EFFICIENCY",
+    desc: "We tear down operational bottlenecks and rebuild your backend for speed and scale. SOPs, workflows, and systems designed to run like a machine.",
+    bullets: ["Process audit & optimization", "SOP development & documentation", "Team alignment & workflow design"],
+  },
+  {
+    num: "04",
+    title: "PROJECT MANAGEMENT",
+    subtitle: "EXECUTION & DELIVERY",
+    desc: "From kickoff to completion, we manage projects with precision. Clear timelines, accountable milestones, and relentless execution so nothing falls through the cracks.",
+    bullets: ["End-to-end project planning", "Milestone tracking & reporting", "Cross-functional team coordination"],
+  },
+  {
+    num: "05",
+    title: "SOFTWARE & AUTOMATION",
+    subtitle: "TOOLS & INTEGRATIONS",
+    desc: "Custom automations, CRM integrations, and software solutions that eliminate manual work and supercharge your operational capacity.",
+    bullets: ["CRM setup & integration", "Workflow automation & Zapier builds", "Custom tool development"],
+  },
 ];
 
-/* ─── process steps ─── */
+const stats = [
+  { value: "200+", label: "CAMPAIGNS LAUNCHED" },
+  { value: "95%", label: "CLIENT SATISFACTION" },
+  { value: "10M+", label: "REVENUE GENERATED" },
+  { value: "50+", label: "INDUSTRIES SERVED" },
+];
+
 const steps = [
-  { num: "01", label: "AUDIT", desc: "Deep-dive analysis of your current digital footprint, gaps, and competitive landscape." },
-  { num: "02", label: "ARCHITECT", desc: "Custom strategy blueprints with clear timelines, KPIs, and deliverable roadmaps." },
-  { num: "03", label: "DEPLOY", desc: "Rapid execution across all channels with real-time monitoring and iteration." },
-  { num: "04", label: "OPTIMIZE", desc: "Continuous refinement driven by performance data and emerging opportunities." },
-];
-
-/* ─── testimonials ─── */
-const testimonials = [
-  { quote: "SimplyUs&U didn't just rebrand us — they rebuilt our entire digital infrastructure from the ground up.", author: "Morgan T.", role: "CEO, Helix Ventures" },
-  { quote: "The results speak for themselves: 340% growth in qualified leads within six months.", author: "Priya S.", role: "Marketing Director, Arcline" },
-  { quote: "Finally, a team that treats operational efficiency with the same seriousness as creative output.", author: "James K.", role: "Founder, Stonebridge Co." },
+  { num: "01", title: "ASSESS", desc: "Deep-dive audit of your current operations, marketing, and digital footprint." },
+  { num: "02", title: "ARCHITECT", desc: "Custom strategy blueprints with clear KPIs, timelines, and deliverable roadmaps." },
+  { num: "03", title: "FORGE", desc: "Rapid execution across all channels with real-time monitoring and iteration." },
+  { num: "04", title: "HARDEN", desc: "Continuous refinement driven by performance data and emerging opportunity." },
 ];
 
 export default function ForgeConcept() {
   return (
-    <div style={{ background: C.bg, color: C.cloud, fontFamily: "system-ui, -apple-system, sans-serif" }} className="min-h-screen">
-
-      {/* ── back link ── */}
-      <div className="max-w-7xl mx-auto px-6 pt-6">
-        <Link href="/concepts" className="inline-flex items-center gap-2 text-sm tracking-widest uppercase hover:opacity-80 transition-opacity" style={{ color: C.ash, fontFamily: "monospace" }}>
-          <ArrowLeft size={14} /> Back to Concepts
-        </Link>
+    <div className="min-h-screen bg-[#0A0A0A] text-white">
+      {/* STICKY TOP BAR */}
+      <div className="sticky top-0 z-50 bg-[#0A0A0A]/90 backdrop-blur-md border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+          <Link href="/concepts" className="inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-[#9CA3AF] hover:text-white transition-colors">
+            <ArrowLeft size={14} /> Back to Concepts
+          </Link>
+          <div className="hidden md:flex items-center gap-6 text-xs text-[#9CA3AF]">
+            <span className="flex items-center gap-2"><Phone size={12} className="text-[#E8811A]" /> (555) 123-4567</span>
+            <span className="flex items-center gap-2"><Mail size={12} className="text-[#E8811A]" /> hello@simplyusandu.com</span>
+          </div>
+        </div>
       </div>
 
-      {/* ══════════════ HERO ══════════════ */}
+      {/* HERO */}
       <section className="relative overflow-hidden">
-        {/* decorative geometries */}
-        <div className="absolute top-16 right-12 w-32 h-32 border-4 opacity-10 hidden lg:block" style={{ borderColor: C.orange }} />
-        <div className="absolute bottom-24 left-8 w-16 h-64 opacity-5 hidden lg:block" style={{ background: C.amber }} />
-        <div className="absolute top-1/2 right-1/3 w-96 h-1 opacity-10 hidden lg:block" style={{ background: C.orange }} />
-
-        <div className="max-w-7xl mx-auto px-6 pt-24 pb-32 md:pt-36 md:pb-44 relative z-10">
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="text-xs tracking-[0.35em] uppercase mb-6"
-            style={{ color: C.orange, fontFamily: "monospace" }}
-          >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0A0A0A]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] to-[#0A0A0A]" />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 md:py-44 text-center">
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="text-xs tracking-[0.3em] uppercase text-[#E8811A] mb-6 font-bold">
             Concept 03 — The Forge
           </motion.p>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl sm:text-5xl md:text-7xl font-extrabold leading-[1.05] max-w-4xl"
-          >
-            We don&apos;t just manage your digital presence.{" "}
-            <span style={{ color: C.orange }}>We forge it.</span>
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.15 }} className="text-5xl sm:text-6xl md:text-8xl font-bold uppercase tracking-tight leading-[1.05]">
+            MARKETING. OPERATIONS.<br /><span className="text-[#E8811A]">GROWTH.</span>
           </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.35 }}
-            className="mt-8 text-base md:text-lg max-w-2xl leading-relaxed"
-            style={{ color: C.ash }}
-          >
-            Social media management, digital marketing, and operational systems engineered to outlast trends and outperform benchmarks.
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.35 }} className="mt-8 text-base md:text-lg text-[#9CA3AF] max-w-2xl mx-auto leading-relaxed">
+            Industrial-strength marketing, operations consulting, and automation solutions forged for businesses that demand results.
           </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.55 }}
-            className="mt-12 flex flex-wrap gap-4"
-          >
-            <button
-              className="px-8 py-4 text-sm font-bold tracking-widest uppercase border-[3px] transition-colors duration-300 hover:bg-[#FF5E1A] hover:text-black"
-              style={{ borderColor: C.orange, color: C.orange, background: "transparent" }}
-            >
-              Start Building
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.55 }} className="mt-10 flex flex-wrap justify-center gap-4">
+            <button className="px-8 py-4 bg-[#E8811A] text-white text-sm font-bold tracking-[0.15em] uppercase hover:bg-[#d0740f] transition-colors">
+              START BUILDING <ArrowRight size={16} className="inline ml-2 -mt-0.5" />
             </button>
-            <button
-              className="px-8 py-4 text-sm font-bold tracking-widest uppercase border-[3px] transition-colors duration-300 hover:bg-white/10"
-              style={{ borderColor: C.ash, color: C.ash }}
-            >
-              View Our Work
+            <button className="px-8 py-4 border-2 border-[#E8811A] text-[#E8811A] text-sm font-bold tracking-[0.15em] uppercase hover:bg-[#E8811A]/10 transition-colors">
+              VIEW OUR WORK
             </button>
           </motion.div>
         </div>
       </section>
 
-      {/* ══════════════ SERVICES ══════════════ */}
-      <section style={{ background: C.steel }} className="py-24 md:py-32">
-        <div className="max-w-7xl mx-auto px-6">
-          <Reveal>
-            <p className="text-xs tracking-[0.35em] uppercase mb-3" style={{ color: C.orange, fontFamily: "monospace" }}>What We Build</p>
-            <h2 className="text-3xl md:text-5xl font-extrabold mb-16">Core Capabilities</h2>
-          </Reveal>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {services.map((s, i) => (
-              <Reveal key={s.title} delay={i * 0.1}>
-                <div
-                  className="p-8 border-l-4 transition-transform duration-300 hover:-translate-y-1"
-                  style={{ background: C.graphite, borderLeftColor: C.orange }}
-                >
-                  <div className="flex items-center gap-4 mb-4">
-                    <s.icon size={22} style={{ color: C.orange }} />
-                    <h3 className="text-sm font-bold tracking-widest" style={{ fontFamily: "monospace" }}>{s.title}</h3>
-                  </div>
-                  <p className="text-sm leading-relaxed" style={{ color: C.ash }}>{s.desc}</p>
-                </div>
+      {/* STATS BAR */}
+      <section className="border-y border-white/10 bg-[#111111]">
+        <div className="max-w-7xl mx-auto px-6 py-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {stats.map((s, i) => (
+              <Reveal key={s.label} delay={i * 0.08}>
+                <p className="text-3xl md:text-4xl font-bold text-[#E8811A]">{s.value}</p>
+                <p className="text-[10px] tracking-[0.2em] uppercase text-[#9CA3AF] mt-2">{s.label}</p>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ══════════════ PROCESS ══════════════ */}
-      <section className="py-24 md:py-32">
+      {/* SERVICES INTRO */}
+      <section className="py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <Reveal>
+            <p className="text-xs tracking-[0.3em] uppercase text-[#E8811A] font-bold mb-4">WHAT WE BUILD</p>
+            <h2 className="text-3xl md:text-5xl font-bold uppercase">OUR CORE SERVICES</h2>
+            <p className="mt-4 text-[#9CA3AF] max-w-2xl mx-auto">Five disciplines, one unified force. We handle every lever of your growth engine.</p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 5 SERVICE SPLIT SECTIONS */}
+      {services.map((s, i) => {
+        const imgLeft = i % 2 === 0;
+        return (
+          <section key={s.num} className="py-16 md:py-24 border-t border-white/5">
+            <div className="max-w-7xl mx-auto px-6">
+              <Reveal>
+                <div className={`flex flex-col ${imgLeft ? "md:flex-row" : "md:flex-row-reverse"} gap-10 md:gap-16 items-center`}>
+                  {/* Image placeholder */}
+                  <div className="w-full md:w-1/2">
+                    <div className="aspect-[4/3] bg-gradient-to-br from-[#1a1a1a] to-[#111] border border-white/5 flex items-center justify-center">
+                      <span className="text-6xl font-bold text-[#E8811A]/10">{s.num}</span>
+                    </div>
+                  </div>
+                  {/* Content */}
+                  <div className="w-full md:w-1/2">
+                    <span className="text-5xl md:text-6xl font-bold text-[#E8811A]">{s.num}</span>
+                    <h3 className="text-2xl md:text-3xl font-bold uppercase mt-4">{s.title}</h3>
+                    <p className="text-xs tracking-[0.25em] uppercase text-[#E8811A] font-bold mt-2">{s.subtitle}</p>
+                    <p className="text-[#9CA3AF] mt-4 leading-relaxed">{s.desc}</p>
+                    <ul className="mt-5 space-y-2">
+                      {s.bullets.map((b) => (
+                        <li key={b} className="flex items-start gap-3 text-[#9CA3AF] text-sm">
+                          <span className="w-2 h-2 bg-[#E8811A] mt-1.5 flex-shrink-0" />
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
+                    <button className="mt-6 px-6 py-3 border-2 border-[#E8811A] text-[#E8811A] text-xs font-bold tracking-[0.15em] uppercase hover:bg-[#E8811A] hover:text-white transition-colors">
+                      LEARN MORE <ArrowRight size={14} className="inline ml-1 -mt-0.5" />
+                    </button>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+          </section>
+        );
+      })}
+
+      {/* PROCESS */}
+      <section className="py-20 md:py-28 bg-[#111111]">
         <div className="max-w-7xl mx-auto px-6">
           <Reveal>
-            <p className="text-xs tracking-[0.35em] uppercase mb-3" style={{ color: C.amber, fontFamily: "monospace" }}>The Method</p>
-            <h2 className="text-3xl md:text-5xl font-extrabold mb-16">How We Work</h2>
+            <p className="text-xs tracking-[0.3em] uppercase text-[#E8811A] font-bold mb-4">THE METHOD</p>
+            <h2 className="text-3xl md:text-5xl font-bold uppercase mb-16">HOW WE FORGE RESULTS</h2>
           </Reveal>
-
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((s, i) => (
-              <Reveal key={s.num} delay={i * 0.12}>
-                <div className="relative">
-                  <span className="text-7xl md:text-8xl font-black opacity-10 absolute -top-6 -left-2 select-none" style={{ color: C.orange }}>
-                    {s.num}
-                  </span>
-                  <div className="relative z-10 pt-12">
-                    <div className="w-12 h-1 mb-4" style={{ background: C.orange }} />
-                    <h3 className="text-lg font-extrabold tracking-widest mb-3" style={{ fontFamily: "monospace" }}>{s.label}</h3>
-                    <p className="text-sm leading-relaxed" style={{ color: C.ash }}>{s.desc}</p>
-                  </div>
-                  {i < steps.length - 1 && (
-                    <ArrowRight size={18} className="hidden lg:block absolute top-16 -right-5" style={{ color: C.ash, opacity: 0.3 }} />
-                  )}
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════ TESTIMONIALS ══════════════ */}
-      <section style={{ background: C.steel }} className="py-24 md:py-32">
-        <div className="max-w-7xl mx-auto px-6">
-          <Reveal>
-            <p className="text-xs tracking-[0.35em] uppercase mb-3" style={{ color: C.orange, fontFamily: "monospace" }}>Proof of Work</p>
-            <h2 className="text-3xl md:text-5xl font-extrabold mb-16">Client Testimonials</h2>
-          </Reveal>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
-              <Reveal key={t.author} delay={i * 0.1}>
-                <div className="p-8 h-full flex flex-col justify-between" style={{ background: C.graphite }}>
-                  <div>
-                    <div className="w-8 h-1 mb-6" style={{ background: C.amber }} />
-                    <p className="text-sm leading-relaxed mb-8" style={{ color: C.cloud }}>&ldquo;{t.quote}&rdquo;</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold">{t.author}</p>
-                    <p className="text-xs mt-1" style={{ color: C.ash, fontFamily: "monospace" }}>{t.role}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════ METRICS BAR ══════════════ */}
-      <section className="py-16 border-y" style={{ borderColor: C.graphite }}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { val: "150+", label: "Clients Served" },
-              { val: "340%", label: "Avg. Lead Growth" },
-              { val: "98%", label: "Retention Rate" },
-              { val: "2.4M+", label: "Impressions / Mo" },
-            ].map((m, i) => (
-              <Reveal key={m.label} delay={i * 0.08}>
+              <Reveal key={s.num} delay={i * 0.1}>
                 <div>
-                  <p className="text-3xl md:text-4xl font-black" style={{ color: C.orange }}>{m.val}</p>
-                  <p className="text-xs tracking-widest uppercase mt-2" style={{ color: C.ash, fontFamily: "monospace" }}>{m.label}</p>
+                  <span className="text-4xl font-bold text-[#E8811A]">{s.num}</span>
+                  <div className="w-10 h-1 bg-[#E8811A] my-4" />
+                  <h3 className="text-lg font-bold uppercase tracking-wide mb-3">{s.title}</h3>
+                  <p className="text-sm text-[#9CA3AF] leading-relaxed">{s.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -232,61 +200,63 @@ export default function ForgeConcept() {
         </div>
       </section>
 
-      {/* ══════════════ CTA ══════════════ */}
-      <section className="py-24 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: `repeating-linear-gradient(90deg, ${C.orange} 0px, ${C.orange} 1px, transparent 1px, transparent 60px)` }} />
-        <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
+      {/* CTA */}
+      <section className="py-20 md:py-28">
+        <div className="max-w-4xl mx-auto px-6 text-center">
           <Reveal>
-            <h2 className="text-3xl md:text-5xl font-extrabold mb-6">
-              Ready to build something{" "}
-              <span style={{ color: C.amber }}>unbreakable?</span>
+            <p className="text-xs tracking-[0.3em] uppercase text-[#E8811A] font-bold mb-4">GET STARTED</p>
+            <h2 className="text-3xl md:text-5xl font-bold uppercase mb-6">
+              READY TO BUILD SOMETHING<br /><span className="text-[#E8811A]">UNBREAKABLE?</span>
             </h2>
-            <p className="text-sm md:text-base leading-relaxed mb-10" style={{ color: C.ash }}>
-              Book a free strategy session and get a custom blueprint for your brand&apos;s next chapter.
-            </p>
-            <button
-              className="px-10 py-5 text-sm font-bold tracking-widest uppercase border-[3px] transition-colors duration-300 hover:text-black"
-              style={{ borderColor: C.orange, color: C.cloud, background: C.orange }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = C.amber; e.currentTarget.style.borderColor = C.amber; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = C.orange; e.currentTarget.style.borderColor = C.orange; }}
-            >
-              Book Your Strategy Call <ArrowRight size={16} className="inline ml-2 -mt-0.5" />
-            </button>
+            <p className="text-[#9CA3AF] max-w-xl mx-auto mb-6">Book a free strategy session and get a custom blueprint for your brand&apos;s next chapter.</p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-[#9CA3AF] mb-8">
+              <span className="flex items-center gap-2"><Phone size={14} className="text-[#E8811A]" /> (555) 123-4567</span>
+              <span className="flex items-center gap-2"><Mail size={14} className="text-[#E8811A]" /> hello@simplyusandu.com</span>
+            </div>
+            <div className="flex flex-wrap justify-center gap-4">
+              <button className="px-10 py-4 bg-[#E8811A] text-white text-sm font-bold tracking-[0.15em] uppercase hover:bg-[#d0740f] transition-colors">
+                BOOK A STRATEGY CALL
+              </button>
+              <button className="px-10 py-4 border-2 border-[#E8811A] text-[#E8811A] text-sm font-bold tracking-[0.15em] uppercase hover:bg-[#E8811A]/10 transition-colors">
+                SEND US A MESSAGE
+              </button>
+            </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ══════════════ FOOTER ══════════════ */}
-      <footer style={{ background: C.steel }} className="py-16">
+      {/* FOOTER */}
+      <footer className="bg-[#111111] border-t border-white/10 py-16">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="md:col-span-2">
-              <h3 className="text-xl font-extrabold mb-3">SimplyUs&amp;U</h3>
-              <p className="text-sm leading-relaxed max-w-sm" style={{ color: C.ash }}>
-                Digital management, marketing, and operations — forged for businesses that refuse to settle.
+              <h3 className="text-xl font-bold uppercase mb-3">SIMPLYUS&amp;U</h3>
+              <p className="text-sm text-[#9CA3AF] leading-relaxed max-w-sm">
+                Industrial-strength marketing, operations, and automation — forged for businesses that refuse to settle.
               </p>
             </div>
             <div>
-              <h4 className="text-xs font-bold tracking-widest uppercase mb-4" style={{ fontFamily: "monospace", color: C.orange }}>Services</h4>
-              <ul className="space-y-2 text-sm" style={{ color: C.ash }}>
+              <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-[#E8811A] mb-4">SERVICES</h4>
+              <ul className="space-y-2 text-sm text-[#9CA3AF]">
                 <li className="hover:text-white transition-colors cursor-pointer">Social Media</li>
                 <li className="hover:text-white transition-colors cursor-pointer">Digital Marketing</li>
                 <li className="hover:text-white transition-colors cursor-pointer">Operations</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Brand Strategy</li>
+                <li className="hover:text-white transition-colors cursor-pointer">Project Management</li>
+                <li className="hover:text-white transition-colors cursor-pointer">Software &amp; Automation</li>
               </ul>
             </div>
             <div>
-              <h4 className="text-xs font-bold tracking-widest uppercase mb-4" style={{ fontFamily: "monospace", color: C.orange }}>Connect</h4>
-              <ul className="space-y-2 text-sm" style={{ color: C.ash }}>
+              <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-[#E8811A] mb-4">CONNECT</h4>
+              <ul className="space-y-2 text-sm text-[#9CA3AF]">
                 <li className="hover:text-white transition-colors cursor-pointer">Instagram</li>
                 <li className="hover:text-white transition-colors cursor-pointer">LinkedIn</li>
                 <li className="hover:text-white transition-colors cursor-pointer">Email Us</li>
               </ul>
             </div>
           </div>
-          <div className="border-t pt-8 flex flex-col md:flex-row justify-between items-center gap-4" style={{ borderColor: C.graphite }}>
-            <p className="text-xs" style={{ color: C.ash, fontFamily: "monospace" }}>&copy; 2026 SimplyUs&amp;U. All rights reserved.</p>
-            <div className="flex gap-6 text-xs" style={{ color: C.ash }}>
+          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-xs text-[#9CA3AF]">&copy; 2026 SimplyUs&amp;U. All rights reserved.</p>
+            <div className="flex gap-6 text-xs text-[#9CA3AF]">
               <span className="hover:text-white transition-colors cursor-pointer">Privacy</span>
               <span className="hover:text-white transition-colors cursor-pointer">Terms</span>
             </div>

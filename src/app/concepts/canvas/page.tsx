@@ -1,211 +1,194 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import {
-  ArrowLeft,
-  ArrowUpRight,
-  BarChart3,
-  Eye,
-  Layers,
-  Megaphone,
-  Palette,
-  PenTool,
-  Sparkles,
-  Zap,
-} from "lucide-react";
+import { ArrowLeft, ArrowRight, Phone, Mail } from "lucide-react";
 
-/* ------------------------------------------------------------------ */
-/*  Fade-in animation wrapper                                          */
-/* ------------------------------------------------------------------ */
-function FadeUp({
-  children,
-  className = "",
-  delay = 0,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
-}) {
+function FadeUp({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 28 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.55, ease: "easeOut", delay }}
-      className={className}
-    >
+    <motion.div ref={ref} initial={{ opacity: 0, y: 32 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, ease: "easeOut", delay }} className={className}>
       {children}
     </motion.div>
   );
 }
 
-/* ------------------------------------------------------------------ */
-/*  Marquee scroll text                                                */
-/* ------------------------------------------------------------------ */
-function Marquee() {
-  const items = [
-    "Brand Strategy",
-    "Digital Marketing",
-    "Automation",
-    "Social Media",
-    "Web Design",
-    "Content Creation",
-    "SEO & Analytics",
-    "Creative Direction",
-  ];
-  const doubled = [...items, ...items];
-  return (
-    <div className="overflow-hidden py-6 border-t border-b" style={{ borderColor: "#D6D0C9" }}>
-      <motion.div
-        className="flex whitespace-nowrap gap-12"
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-      >
-        {doubled.map((item, i) => (
-          <span key={i} className="text-sm tracking-[0.2em] uppercase flex items-center gap-12" style={{ color: "#8A8580" }}>
-            {item}
-            <span className="inline-block w-2 h-2" style={{ background: "#E63B2E" }} />
-          </span>
-        ))}
-      </motion.div>
-    </div>
-  );
-}
+const orange = "#E8811A";
+const gray = "#9CA3AF";
 
-/* ------------------------------------------------------------------ */
-/*  Color tokens                                                       */
-/* ------------------------------------------------------------------ */
-const c = {
-  bg: "#F5F0EB",
-  cream: "#FAF7F2",
-  ink: "#1A1A1A",
-  red: "#E63B2E",
-  gray: "#8A8580",
-  border: "#D6D0C9",
-};
+const stats = [
+  { value: "1000+", label: "POSTS CREATED" },
+  { value: "50M+", label: "REACH GENERATED" },
+  { value: "85%", label: "ENGAGEMENT LIFT" },
+  { value: "100%", label: "CUSTOM STRATEGY" },
+];
 
-/* ------------------------------------------------------------------ */
-/*  Data                                                               */
-/* ------------------------------------------------------------------ */
 const services = [
-  { num: "01", title: "Brand Strategy & Identity", desc: "We define who you are, how you speak, and why anyone should care. Every brand decision flows from strategy.", icon: Palette },
-  { num: "02", title: "Digital Marketing", desc: "Paid media, organic growth, email funnels, and conversion optimization engineered around your goals.", icon: Megaphone },
-  { num: "03", title: "Social Media Management", desc: "Content calendars, community management, and platform strategy that turns passive scrollers into buyers.", icon: Eye },
-  { num: "04", title: "Automation & Operations", desc: "We wire your business to run itself. CRM flows, email sequences, task automation, and system integrations.", icon: Zap },
-  { num: "05", title: "Web Design & Development", desc: "Fast, beautiful, conversion-focused websites built to work as hard as you do.", icon: Layers },
-  { num: "06", title: "Creative Production", desc: "Photography direction, copywriting, video concepts, and graphic design that makes your brand undeniable.", icon: PenTool },
+  {
+    num: "01",
+    title: "SOCIAL MEDIA MANAGEMENT",
+    subtitle: "Craft Your Digital Canvas",
+    desc: "We design scroll-stopping content, manage your communities, and grow your presence with bold creative strategy. Every post is a brushstroke in your brand story, carefully composed for engagement and conversion.",
+    bullets: ["Content Creation & Curation", "Community Engagement Strategy", "Platform Growth Campaigns", "Analytics & Performance Tracking"],
+  },
+  {
+    num: "02",
+    title: "DIGITAL MARKETING",
+    subtitle: "Paint The Market With Your Brand",
+    desc: "From paid ads to organic funnels, we create marketing campaigns that are as creative as they are data-driven. We blend artistry with analytics to reach your audience where they live and convert them where it counts.",
+    bullets: ["Paid Media & Social Advertising", "SEO & Content Strategy", "Email Campaign Design", "Funnel Optimization & CRO"],
+  },
+  {
+    num: "03",
+    title: "OPERATIONS CONSULTING",
+    subtitle: "Design Efficient Workflows",
+    desc: "We bring creative problem-solving to your business operations. Every inefficiency is an opportunity to redesign, every bottleneck a canvas for innovation. We architect systems that are as elegant as they are effective.",
+    bullets: ["Process Audit & Redesign", "Workflow Architecture", "Performance Metrics Setup", "Team Alignment & Training"],
+  },
+  {
+    num: "04",
+    title: "PROJECT MANAGEMENT",
+    subtitle: "Orchestrate Bold Initiatives",
+    desc: "Great creative work demands disciplined execution. We provide project management that keeps complex campaigns, launches, and transformations on track without stifling the creative energy that drives results.",
+    bullets: ["Campaign Launch Management", "Cross-Team Coordination", "Timeline & Milestone Tracking", "Budget & Resource Planning"],
+  },
+  {
+    num: "05",
+    title: "SOFTWARE & AUTOMATION",
+    subtitle: "Automate The Mundane, Amplify The Creative",
+    desc: "We build custom tools and automation pipelines that free your team from repetitive work. When machines handle the mundane, your people can focus on what humans do best: create, connect, and innovate.",
+    bullets: ["Custom Software Development", "Marketing Automation Pipelines", "CRM & Platform Integrations", "AI-Powered Creative Tools"],
+  },
 ];
 
 const process = [
-  { num: "01", title: "Listen", desc: "We study your market, your customers, and your competition until we understand the territory better than anyone." },
-  { num: "02", title: "Define", desc: "We distill insights into a sharp strategy with measurable objectives, clear positioning, and a creative brief." },
-  { num: "03", title: "Build", desc: "Campaigns launch, systems get built, content ships. Every deliverable is crafted with precision and purpose." },
-  { num: "04", title: "Refine", desc: "Data drives the next move. We test, iterate, and optimize relentlessly until the numbers speak for themselves." },
+  { num: "01", title: "DISCOVER", desc: "We immerse ourselves in your brand, market, and audience to find the creative opportunity." },
+  { num: "02", title: "CONCEPTUALIZE", desc: "Bold strategy meets creative direction. We build the blueprint for standout work." },
+  { num: "03", title: "CREATE", desc: "Campaigns launch, content ships, systems deploy. Every deliverable crafted with intent." },
+  { num: "04", title: "EVOLVE", desc: "Data shapes the next iteration. We refine, test, and push the boundaries further." },
 ];
 
-const testimonials = [
-  { name: "Ava Richardson", role: "Founder, Meridian Studio", text: "They didn't just redesign our brand. They gave us a voice we didn't know we had. Revenue up 140% in six months." },
-  { name: "Derek Okafor", role: "CEO, Baseline Co.", text: "Working with this team feels like having an unfair advantage. Our competitors genuinely don't understand what happened." },
-  { name: "Lina Park", role: "Head of Growth, Tidal", text: "The automation systems alone paid for themselves in three weeks. The marketing results were a bonus on top of that." },
-];
-
-/* ------------------------------------------------------------------ */
-/*  Page                                                               */
-/* ------------------------------------------------------------------ */
 export default function CanvasPage() {
   return (
-    <div className="min-h-screen" style={{ background: c.bg, color: c.ink, fontFamily: "system-ui, -apple-system, sans-serif" }}>
-      {/* ---- Back nav ---- */}
-      <div className="px-6 pt-6 md:px-12 lg:px-16">
-        <Link href="/concepts" className="inline-flex items-center gap-2 text-sm transition-colors hover:opacity-60" style={{ color: c.gray }}>
-          <ArrowLeft size={16} /> Back to Concepts
-        </Link>
-      </div>
-
-      {/* ---- HERO ---- */}
-      <section className="px-6 pt-24 pb-20 md:px-12 lg:px-16 max-w-7xl mx-auto">
-        <FadeUp>
-          <p className="text-xs tracking-[0.2em] uppercase mb-10" style={{ color: c.gray }}>Simply Us & You</p>
-        </FadeUp>
-
-        <div className="mb-12">
-          {["We", "Make", "Brands", "Impossible", "To Ignore"].map((word, i) => (
-            <FadeUp key={word} delay={i * 0.07}>
-              <h1
-                className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tight leading-[0.92]"
-                style={{ color: i === 3 ? c.red : c.ink }}
-              >
-                {word}
-              </h1>
-            </FadeUp>
-          ))}
+    <div className="min-h-screen bg-[#0A0A0A] text-white" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
+      {/* Sticky top bar */}
+      <nav className="sticky top-0 z-50 bg-[#0A0A0A]/90 backdrop-blur-md border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
+          <Link href="/concepts" className="inline-flex items-center gap-2 text-sm text-[#9CA3AF] hover:text-white transition-colors">
+            <ArrowLeft size={16} /> <span>&larr; Back to Concepts</span>
+          </Link>
+          <span className="text-sm font-bold tracking-wider uppercase">Simply Us & You</span>
         </div>
+      </nav>
 
-        <FadeUp delay={0.4}>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 max-w-5xl">
-            <p className="text-lg md:text-xl max-w-xl leading-relaxed" style={{ color: c.gray, fontFamily: "Georgia, 'Times New Roman', serif" }}>
-              Simply Us & You is a strategy-first collective that blends creative marketing, operational precision, and automation engineering.
+      {/* HERO */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0A0A0A]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-transparent to-[#0A0A0A]/80" />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-32 md:py-44 text-center">
+          <FadeUp>
+            <p className="text-xs tracking-[0.3em] uppercase mb-6 font-semibold" style={{ color: orange }}>THE CANVAS COLLECTIVE</p>
+          </FadeUp>
+          <FadeUp delay={0.1}>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tight leading-[0.95] mb-8">
+              CREATE. CONNECT.<br /><span style={{ color: orange }}>CONVERT.</span>
+            </h1>
+          </FadeUp>
+          <FadeUp delay={0.2}>
+            <p className="text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style={{ color: gray }}>
+              We blend bold creative vision with strategic precision to build brands that captivate audiences and drive measurable business growth.
             </p>
-            <Link href="/contact" className="text-lg font-semibold underline underline-offset-8 decoration-2 transition-colors hover:opacity-70 flex items-center gap-2 shrink-0" style={{ color: c.ink, textDecorationColor: c.red }}>
-              Start a Project <ArrowUpRight size={20} />
-            </Link>
-          </div>
+          </FadeUp>
+          <FadeUp delay={0.3}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 font-bold text-sm uppercase tracking-wider text-white transition-all hover:scale-105" style={{ backgroundColor: orange }}>
+                Start Creating <ArrowRight size={16} />
+              </Link>
+              <Link href="/services" className="inline-flex items-center justify-center gap-2 px-8 py-4 font-bold text-sm uppercase tracking-wider text-white border-2 transition-all hover:bg-white/5" style={{ borderColor: orange, color: orange }}>
+                View Services
+              </Link>
+            </div>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* STATS BAR */}
+      <section className="border-y border-white/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
+          <FadeUp>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              {stats.map((s) => (
+                <div key={s.label}>
+                  <p className="text-3xl md:text-4xl font-bold" style={{ color: orange }}>{s.value}</p>
+                  <p className="text-xs mt-2 tracking-wider uppercase" style={{ color: gray }}>{s.label}</p>
+                </div>
+              ))}
+            </div>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* SERVICES INTRO */}
+      <section className="max-w-7xl mx-auto px-6 md:px-12 pt-24 pb-8">
+        <FadeUp>
+          <p className="text-xs tracking-[0.3em] uppercase mb-4 font-semibold" style={{ color: orange }}>WHAT WE DO</p>
+          <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tight">OUR CREATIVE <span style={{ color: orange }}>SERVICES</span></h2>
         </FadeUp>
       </section>
 
-      {/* ---- MARQUEE ---- */}
-      <Marquee />
-
-      {/* ---- SERVICES ---- */}
-      <section className="px-6 py-24 md:px-12 lg:px-16 max-w-7xl mx-auto">
-        <FadeUp>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-16">
-            <div>
-              <p className="text-xs tracking-[0.2em] uppercase mb-3" style={{ color: c.red }}>What We Do</p>
-              <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight">Our Capabilities</h2>
-            </div>
-            <p className="text-sm max-w-sm" style={{ color: c.gray }}>
-              Six disciplines. One integrated team. Zero fluff.
-            </p>
-          </div>
-        </FadeUp>
-
-        <div>
-          {services.map((s, i) => (
-            <FadeUp key={s.num} delay={i * 0.06}>
-              <div className="border-t py-10 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start group" style={{ borderColor: c.border }}>
-                <span className="text-5xl md:text-7xl font-extrabold tracking-tight md:col-span-2" style={{ color: `${c.ink}12`, WebkitTextStroke: `1.5px ${c.border}` }}>{s.num}</span>
-                <div className="md:col-span-4 flex items-center gap-4">
-                  <s.icon size={20} style={{ color: c.red }} />
-                  <h3 className="text-xl md:text-2xl font-bold tracking-tight">{s.title}</h3>
+      {/* 5 ALTERNATING SERVICE SECTIONS */}
+      {services.map((s, i) => {
+        const isEven = i % 2 === 0;
+        return (
+          <section key={s.num} className="max-w-7xl mx-auto px-6 md:px-12 py-16">
+            <FadeUp>
+              <div className={`flex flex-col ${isEven ? "md:flex-row" : "md:flex-row-reverse"} gap-10 md:gap-16 items-center`}>
+                {/* Image placeholder */}
+                <div className="w-full md:w-1/2 aspect-[4/3] rounded-sm overflow-hidden" style={{ background: "linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%)" }}>
+                  <div className="w-full h-full flex items-center justify-center">
+                    <span className="text-6xl font-bold opacity-10" style={{ color: orange }}>{s.num}</span>
+                  </div>
                 </div>
-                <p className="md:col-span-6 text-base leading-relaxed" style={{ color: c.gray }}>{s.desc}</p>
+                {/* Content */}
+                <div className="w-full md:w-1/2">
+                  <p className="text-4xl md:text-5xl font-bold mb-2" style={{ color: orange }}>{s.num}</p>
+                  <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-3">{s.title}</h3>
+                  <p className="text-sm uppercase tracking-wider mb-4 font-semibold" style={{ color: orange }}>{s.subtitle}</p>
+                  <p className="text-base leading-relaxed mb-6" style={{ color: gray }}>{s.desc}</p>
+                  <ul className="space-y-2 mb-8">
+                    {s.bullets.map((b) => (
+                      <li key={b} className="flex items-center gap-3 text-sm" style={{ color: gray }}>
+                        <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: orange }} />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 font-bold text-sm uppercase tracking-wider border-2 transition-all hover:bg-white/5" style={{ borderColor: orange, color: orange }}>
+                    Learn More <ArrowRight size={14} />
+                  </Link>
+                </div>
               </div>
             </FadeUp>
-          ))}
-          <div className="border-t" style={{ borderColor: c.border }} />
-        </div>
-      </section>
+          </section>
+        );
+      })}
 
-      {/* ---- PROCESS ---- */}
-      <section className="py-24" style={{ background: c.ink }}>
-        <div className="px-6 md:px-12 lg:px-16 max-w-7xl mx-auto">
+      {/* PROCESS */}
+      <section className="border-t border-white/10 mt-12">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-24">
           <FadeUp>
-            <p className="text-xs tracking-[0.2em] uppercase mb-3" style={{ color: c.red }}>How We Work</p>
-            <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-16" style={{ color: c.cream }}>The Process</h2>
+            <p className="text-xs tracking-[0.3em] uppercase mb-4 font-semibold" style={{ color: orange }}>HOW WE WORK</p>
+            <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-tight mb-16">THE CREATIVE <span style={{ color: orange }}>PROCESS</span></h2>
           </FadeUp>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: "#333" }}>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {process.map((p, i) => (
-              <FadeUp key={p.num} delay={i * 0.08}>
-                <div className="p-10 md:p-12" style={{ background: c.ink }}>
-                  <span className="text-6xl font-extrabold tracking-tight block mb-4" style={{ color: c.red }}>{p.num}</span>
-                  <h3 className="text-2xl font-bold tracking-tight mb-3" style={{ color: c.cream }}>{p.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "#999" }}>{p.desc}</p>
+              <FadeUp key={p.num} delay={i * 0.1}>
+                <div className="border-t-2 pt-8" style={{ borderColor: orange }}>
+                  <span className="text-4xl font-bold block mb-3" style={{ color: orange }}>{p.num}</span>
+                  <h3 className="text-lg font-bold uppercase tracking-wider mb-2">{p.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: gray }}>{p.desc}</p>
                 </div>
               </FadeUp>
             ))}
@@ -213,86 +196,69 @@ export default function CanvasPage() {
         </div>
       </section>
 
-      {/* ---- STATS ---- */}
-      <section className="px-6 py-20 md:px-12 lg:px-16 max-w-7xl mx-auto">
-        <FadeUp>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { val: "200+", label: "Projects Delivered" },
-              { val: "4.8x", label: "Average ROI" },
-              { val: "98%", label: "Client Retention" },
-              { val: "30+", label: "Hours Saved Weekly" },
-            ].map((s, i) => (
-              <div key={s.label} className="text-center md:text-left">
-                <p className="text-4xl md:text-5xl font-extrabold tracking-tight" style={{ color: i === 0 ? c.red : c.ink }}>{s.val}</p>
-                <p className="text-xs mt-2 tracking-[0.15em] uppercase" style={{ color: c.gray }}>{s.label}</p>
+      {/* CTA */}
+      <section className="border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-24">
+          <FadeUp>
+            <div className="text-center md:text-left">
+              <p className="text-xs tracking-[0.3em] uppercase mb-6 font-semibold" style={{ color: orange }}>READY TO CREATE?</p>
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tight mb-8">
+                LET&apos;S BUILD SOMETHING<br /><span style={{ color: orange }}>IMPOSSIBLE TO IGNORE</span>
+              </h2>
+              <div className="flex flex-col sm:flex-row gap-6 mb-10" style={{ color: gray }}>
+                <span className="flex items-center gap-2 text-sm"><Phone size={16} style={{ color: orange }} /> (555) 123-4567</span>
+                <span className="flex items-center gap-2 text-sm"><Mail size={16} style={{ color: orange }} /> hello@simplyusandyou.com</span>
               </div>
-            ))}
-          </div>
-        </FadeUp>
-      </section>
-
-      {/* ---- TESTIMONIALS ---- */}
-      <section className="px-6 py-24 md:px-12 lg:px-16 max-w-7xl mx-auto">
-        <FadeUp>
-          <p className="text-xs tracking-[0.2em] uppercase mb-3" style={{ color: c.red }}>Kind Words</p>
-          <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-16">What They Say</h2>
-        </FadeUp>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ background: c.border }}>
-          {testimonials.map((t, i) => (
-            <FadeUp key={t.name} delay={i * 0.1}>
-              <div className="p-8 md:p-10 h-full flex flex-col" style={{ background: c.cream }}>
-                <p className="text-base leading-relaxed mb-8 flex-1" style={{ color: c.ink, fontFamily: "Georgia, 'Times New Roman', serif" }}>
-                  &ldquo;{t.text}&rdquo;
-                </p>
-                <div className="border-t pt-6" style={{ borderColor: c.border }}>
-                  <p className="font-bold text-sm">{t.name}</p>
-                  <p className="text-xs mt-1" style={{ color: c.gray }}>{t.role}</p>
-                </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 font-bold text-sm uppercase tracking-wider text-white transition-all hover:scale-105" style={{ backgroundColor: orange }}>
+                  Start A Project <ArrowRight size={16} />
+                </Link>
+                <Link href="/services" className="inline-flex items-center justify-center gap-2 px-8 py-4 font-bold text-sm uppercase tracking-wider border-2 transition-all hover:bg-white/5" style={{ borderColor: orange, color: orange }}>
+                  Explore Services
+                </Link>
               </div>
-            </FadeUp>
-          ))}
+            </div>
+          </FadeUp>
         </div>
       </section>
 
-      {/* ---- CTA ---- */}
-      <section className="px-6 py-24 md:px-12 lg:px-16 max-w-7xl mx-auto">
-        <FadeUp>
-          <div className="p-12 md:p-20 text-center" style={{ background: c.ink }}>
-            <p className="text-xs tracking-[0.2em] uppercase mb-6" style={{ color: c.red }}>Ready?</p>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6" style={{ color: c.cream }}>
-              Let&apos;s make something
-              <br />
-              <span style={{ color: c.red }}>impossible to ignore.</span>
-            </h2>
-            <p className="max-w-md mx-auto mb-10 text-sm leading-relaxed" style={{ color: "#999" }}>
-              No pitch decks. No fluff. Just a conversation about what your brand needs to win.
-            </p>
-            <Link
-              href="/contact"
-              className="text-lg font-semibold underline underline-offset-8 decoration-2 transition-colors hover:opacity-70 inline-flex items-center gap-2"
-              style={{ color: c.cream, textDecorationColor: c.red }}
-            >
-              Start a Project <ArrowUpRight size={20} />
-            </Link>
+      {/* FOOTER */}
+      <footer className="border-t border-white/10 bg-[#0A0A0A]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+            <div className="md:col-span-1">
+              <p className="font-bold text-lg uppercase tracking-wider mb-2">Simply Us & You</p>
+              <p className="text-xs" style={{ color: gray }}>Concept 06 &mdash; Canvas Collective</p>
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider mb-4" style={{ color: orange }}>SERVICES</p>
+              <div className="space-y-2 text-sm" style={{ color: gray }}>
+                <p>Social Media Management</p>
+                <p>Digital Marketing</p>
+                <p>Operations Consulting</p>
+                <p>Project Management</p>
+                <p>Software & Automation</p>
+              </div>
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider mb-4" style={{ color: orange }}>COMPANY</p>
+              <div className="space-y-2 text-sm" style={{ color: gray }}>
+                <Link href="/about" className="block hover:text-white transition-colors">About</Link>
+                <Link href="/services" className="block hover:text-white transition-colors">Services</Link>
+                <Link href="/contact" className="block hover:text-white transition-colors">Contact</Link>
+              </div>
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider mb-4" style={{ color: orange }}>CONTACT</p>
+              <div className="space-y-2 text-sm" style={{ color: gray }}>
+                <p>hello@simplyusandyou.com</p>
+                <p>(555) 123-4567</p>
+              </div>
+            </div>
           </div>
-        </FadeUp>
-      </section>
-
-      {/* ---- FOOTER ---- */}
-      <footer className="px-6 py-16 md:px-12 lg:px-16 border-t" style={{ borderColor: c.border }}>
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-          <div>
-            <p className="font-extrabold text-lg tracking-tight">Simply Us & You</p>
-            <p className="text-xs mt-1" style={{ color: c.gray }}>Concept 06 &mdash; Canvas Collective</p>
+          <div className="border-t border-white/10 mt-12 pt-8 text-center">
+            <p className="text-xs" style={{ color: gray }}>&copy; 2026 Simply Us & You. All rights reserved.</p>
           </div>
-          <div className="flex gap-8 text-sm" style={{ color: c.gray }}>
-            <Link href="/services" className="hover:opacity-60 transition-opacity">Services</Link>
-            <Link href="/about" className="hover:opacity-60 transition-opacity">About</Link>
-            <Link href="/contact" className="hover:opacity-60 transition-opacity">Contact</Link>
-          </div>
-          <p className="text-xs" style={{ color: c.gray }}>&copy; 2026 Simply Us & You. All rights reserved.</p>
         </div>
       </footer>
     </div>
