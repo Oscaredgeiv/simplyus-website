@@ -35,12 +35,10 @@ export function Navbar() {
     >
       <Container>
         <nav className="flex h-16 items-center justify-between">
-          {/* Left — Logo text as home link (clean, no image) */}
-          <Link
-            href="/"
-            className="text-sm font-semibold tracking-wide text-white/80 transition-colors hover:text-white"
-          >
-            Simply Us & U
+          {/* Left — Styled wordmark */}
+          <Link href="/" className="group flex items-center gap-1.5 transition-opacity hover:opacity-100" style={{ opacity: 0.85 }}>
+            <span className="text-[15px] font-bold tracking-tight text-[#F97316]">Simply</span>
+            <span className="text-[15px] font-light tracking-tight text-white/60">Us & U</span>
           </Link>
 
           {/* Center — Desktop Nav Links */}
