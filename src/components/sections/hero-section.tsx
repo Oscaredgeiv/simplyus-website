@@ -83,8 +83,10 @@ export function HeroSection() {
       </div>
 
       {/* ===== DESKTOP LAYOUT (logo offset right, text left) ===== */}
-      <div className="relative z-10 hidden min-h-screen items-center md:flex px-6">
-        {/* Logo — offset right backdrop */}
+      <div className="relative z-10 hidden min-h-screen items-center md:flex">
+        {/* Centering shell — keeps everything contained on ultrawide */}
+        <div className="relative mx-auto w-full max-w-[1400px] min-h-screen flex items-center px-6">
+        {/* Logo — offset right backdrop, pinned inside the container */}
         <motion.img
           src="/logo-transparent.png"
           alt=""
@@ -142,6 +144,7 @@ export function HeroSection() {
             </motion.div>
           </div>
         </div>
+        </div>{/* close centering shell */}
       </div>
     </section>
   );
