@@ -89,8 +89,8 @@ export function HeroSection() {
           src="/logo-transparent.png"
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-1/2 -translate-y-1/2 select-none w-[1600px] lg:w-[1900px] xl:w-[2200px]"
-          style={{ marginLeft: "-18%" }}
+          className="pointer-events-none absolute left-1/2 top-1/2 select-none w-[1600px] lg:w-[1900px] xl:w-[2200px]"
+          style={{ marginLeft: "-25%", marginTop: "-8%" }}
           initial={{ opacity: 0, scale: 0.85, x: 80 }}
           animate={{ opacity: 0.25, scale: 1, x: 0 }}
           transition={{ duration: 4, ease: [0.16, 1, 0.3, 1] }}
