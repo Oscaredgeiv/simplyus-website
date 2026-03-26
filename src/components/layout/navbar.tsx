@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -35,19 +34,21 @@ export function Navbar() {
       )}
     >
       <Container>
-        <nav className="flex h-20 items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="relative h-10 w-40 shrink-0">
-            <Image
-              src="/logo-transparent.png"
-              alt="Simply Us & U"
-              fill
-              className="object-contain object-left"
-              priority
-            />
-          </Link>
+        <nav className="flex h-16 items-center justify-between">
+          {/* Left — Menu toggle (mobile + desktop) */}
+          <button
+            className="p-2 -ml-2"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+          >
+            {isOpen ? (
+              <X className="h-5 w-5 text-white" />
+            ) : (
+              <Menu className="h-5 w-5 text-white" />
+            )}
+          </button>
 
-          {/* Desktop Nav — Center */}
+          {/* Center — Desktop Nav Links */}
           <div className="hidden items-center gap-8 lg:flex">
             {mainNavItems.map((item) => (
               <Link
@@ -65,32 +66,17 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Desktop CTA — Right */}
-          <div className="hidden lg:flex items-center">
-            <Link
-              href="/contact"
-              className="inline-flex h-10 items-center justify-center rounded-full bg-[#F97316] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#EA580C]"
-            >
-              Get Started
-            </Link>
-          </div>
-
-          {/* Mobile Toggle */}
-          <button
-            className="lg:hidden p-2"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label={isOpen ? "Close menu" : "Open menu"}
+          {/* Right — CTA */}
+          <Link
+            href="/contact"
+            className="inline-flex h-9 items-center justify-center rounded-full bg-[#F97316] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#EA580C]"
           >
-            {isOpen ? (
-              <X className="h-6 w-6 text-white" />
-            ) : (
-              <Menu className="h-6 w-6 text-white" />
-            )}
-          </button>
+            Get Started
+          </Link>
         </nav>
       </Container>
 
-      {/* Mobile Menu */}
+      {/* Dropdown Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -98,7 +84,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden border-t border-white/[0.06] bg-[#0B0B0D]/95 backdrop-blur-xl lg:hidden"
+            className="overflow-hidden border-t border-white/[0.06] bg-[#0B0B0D]/95 backdrop-blur-xl"
           >
             <Container className="py-6">
               <div className="flex flex-col gap-1">

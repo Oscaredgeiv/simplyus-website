@@ -25,24 +25,21 @@ export function HeroSection() {
         }}
       />
 
-      {/* Animated logo watermark */}
-      <div className="pointer-events-none absolute inset-0 flex justify-center overflow-hidden">
+      {/* Content — logo ABOVE text in normal flow */}
+      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center pt-20">
+        {/* Logo — large, visible, ABOVE the headline */}
         <motion.img
           src="/logo-transparent.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute top-[8%] left-1/2 w-[400px] -translate-x-1/2 select-none sm:top-[10%] sm:w-[500px] md:w-[600px] lg:w-[700px]"
-          initial={{ opacity: 0, y: -30, scale: 1.05 }}
-          animate={{ opacity: 0.9, y: 0, scale: 1 }}
-          transition={{ duration: 2, ease: "easeOut" }}
+          alt="Simply Us & U"
+          className="mx-auto mb-8 w-[280px] sm:w-[350px] md:w-[420px] lg:w-[500px] select-none"
+          initial={{ opacity: 0, y: -20, scale: 1.05 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
         />
-      </div>
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
         {/* Headline */}
         <motion.h1
-          className="text-5xl font-bold leading-[0.95] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
+          className="text-4xl font-bold leading-[0.95] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
           initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.9, delay: 0.4 }}
