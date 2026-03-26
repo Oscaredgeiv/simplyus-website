@@ -30,6 +30,7 @@ export function HeroSection() {
           src="/logo-transparent.png"
           alt="Simply Us & U"
           className="-mb-40 w-[160vw] max-w-[1600px] select-none -mx-[30vw] relative z-0"
+          style={{ maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)", WebkitMaskImage: "linear-gradient(to bottom, black 60%, transparent 100%)" }}
           initial={{ opacity: 0, scale: 0.9, y: -20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 3, ease: [0.16, 1, 0.3, 1] }}
@@ -38,6 +39,7 @@ export function HeroSection() {
         {/* Text content — centered on mobile */}
         <motion.h1
           className="relative z-10 text-center text-3xl font-bold leading-[1.1] tracking-tight"
+          style={{ textShadow: "0 2px 20px rgba(11,11,13,0.9), 0 0 40px rgba(11,11,13,0.8)" }}
           initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 1.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
