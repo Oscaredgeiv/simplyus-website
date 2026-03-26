@@ -48,8 +48,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@simplyusandyou.com",
-    href: "mailto:hello@simplyusandyou.com",
+    value: "Support@SimplyUsandU.com",
+    href: "mailto:Support@SimplyUsandU.com",
   },
   {
     icon: MapPin,

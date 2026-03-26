@@ -4,7 +4,7 @@ export const SITE_CONFIG = {
   description:
     "We help businesses grow through digital marketing, social content creation, website design, hosting, software development, and ad campaign management.",
   url: "https://simplyusandyou.com",
-  email: "hello@simplyusandyou.com",
+  email: "Support@SimplyUsandU.com",
   phone: "(555) 123-4567",
   location: "Remote — Serving clients nationwide",
   socials: {
@@ -61,7 +61,7 @@ export const SERVICES = [
     shortDescription:
       "High-converting Google Ads, Meta campaigns, creative design, and ongoing A/B testing.",
     image:
-      "https://images.unsplash.com/photo-1563986768609-322da13575f2?w=1200&q=90",
+      "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=1200&q=90",
   },
 ] as const;
 
@@ -77,5 +77,5 @@ export const SERVICE_IMAGES = {
   "software-development":
     "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=90",
   "ad-creation":
-    "https://images.unsplash.com/photo-1563986768609-322da13575f2?w=1200&q=90",
+    "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=1200&q=90",
 } as const;

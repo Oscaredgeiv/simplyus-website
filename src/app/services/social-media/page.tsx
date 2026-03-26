@@ -330,7 +330,7 @@ export default function SocialMediaPage() {
                 title: "Ad Creation & Campaigns",
                 slug: "ad-creation",
                 description: "High-converting ad creative and campaign management across Google and Meta.",
-                image: "https://images.unsplash.com/photo-1563986768609-322da13575f2?w=800&q=80",
+                image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800&q=80",
               },
             ].map((s, i) => (
               <Reveal key={s.slug} delay={i * 0.1}>

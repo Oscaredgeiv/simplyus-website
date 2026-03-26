@@ -74,7 +74,7 @@ export function HeroSection() {
             Get a Free Quote
           </Link>
           <Link
-            href="mailto:hello@simplyusandyou.com"
+            href="mailto:Support@SimplyUsandU.com"
             className="inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wider text-[#F97316] transition-colors duration-200 hover:text-white"
           >
             Or Email Us <ArrowRight size={15} />
@@ -134,7 +134,7 @@ export function HeroSection() {
                 Get a Free Quote
               </Link>
               <Link
-                href="mailto:hello@simplyusandyou.com"
+                href="mailto:Support@SimplyUsandU.com"
                 className="inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wider text-[#F97316] transition-colors duration-200 hover:text-white"
               >
                 Or Email Us <ArrowRight size={15} />

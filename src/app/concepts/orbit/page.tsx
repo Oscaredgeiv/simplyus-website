@@ -226,7 +226,7 @@ export default function OrbitPage() {
             <div>
               <h4 className="text-sm font-bold uppercase tracking-wider mb-4">Contact</h4>
               <ul className="space-y-3 text-sm text-[#9CA3AF]">
-                <li className="flex items-center gap-2"><Mail size={14} className="text-[#F97316]" /> hello@simplyusandyou.com</li>
+                <li className="flex items-center gap-2"><Mail size={14} className="text-[#F97316]" /> Support@SimplyUsandU.com</li>
                 <li className="flex items-center gap-2"><Phone size={14} className="text-[#F97316]" /> (555) 123-4567</li>
                 <li className="flex items-center gap-2"><MapPin size={14} className="text-[#F97316]" /> Los Angeles, CA</li>
               </ul>

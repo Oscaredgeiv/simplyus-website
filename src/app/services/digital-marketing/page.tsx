@@ -383,7 +383,7 @@ export default function DigitalMarketingPage() {
                 description:
                   "High-converting creative and campaign management that maximizes ROAS.",
                 image:
-                  "https://images.unsplash.com/photo-1563986768609-322da13575f2?w=800&q=80",
+                  "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800&q=80",
               },
             ].map((s, i) => (
               <Reveal key={s.slug} delay={i * 0.1}>

@@ -45,7 +45,7 @@ const sections = [
   {
     title: "Contact Us",
     content:
-      "If you have any questions about these Terms of Service, please contact us at hello@simplyusandyou.com or call us at (555) 123-4567. Simply Us & U reserves the right to update these Terms of Service at any time. Changes will be effective upon posting to this page. Your continued use of our services after any changes constitutes acceptance of the updated terms.",
+      "If you have any questions about these Terms of Service, please contact us at Support@SimplyUsandU.com or call us at (555) 123-4567. Simply Us & U reserves the right to update these Terms of Service at any time. Changes will be effective upon posting to this page. Your continued use of our services after any changes constitutes acceptance of the updated terms.",
   },
 ];
 

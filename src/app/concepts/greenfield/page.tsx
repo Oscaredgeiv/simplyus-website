@@ -228,7 +228,7 @@ export default function GreenfieldPage() {
           <div>
             <h4 className="text-sm font-bold uppercase tracking-wider mb-4 text-white">Contact</h4>
             <ul className="space-y-3 text-sm text-[#9CA3AF]">
-              <li className="flex items-center gap-2"><Mail size={14} className="text-[#F97316]" /> hello@simplyusandyou.com</li>
+              <li className="flex items-center gap-2"><Mail size={14} className="text-[#F97316]" /> Support@SimplyUsandU.com</li>
               <li className="flex items-center gap-2"><Phone size={14} className="text-[#F97316]" /> (704) 555-0123</li>
               <li className="flex items-center gap-2"><MapPin size={14} className="text-[#F97316]" /> Charlotte, NC</li>
             </ul>

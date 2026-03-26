@@ -494,7 +494,7 @@ export const services: ServiceDetail[] = [
     fullDescription:
       "We design and manage high-performing ad campaigns across Google, Meta, LinkedIn, and more. From creative concept and copywriting to audience targeting and A/B testing, every campaign is built to maximize conversions while minimizing wasted spend. Our data-driven approach ensures your ad budget works harder.",
     heroImage:
-      "https://images.unsplash.com/photo-1563986768609-322da13575f2?w=1200&q=90",
+      "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=1200&q=90",
     features: [
       {
         title: "Google Ads Management",

@@ -155,7 +155,7 @@ export default function VelocityPage() {
             <Link href="#contact" className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(249,115,22,0.3)]" style={{ background: orange }}>
               GET A FREE QUOTE
             </Link>
-            <Link href="mailto:info@simplyusandyou.com" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:text-white" style={{ color: orange }}>
+            <Link href="mailto:Support@SimplyUsandU.com" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:text-white" style={{ color: orange }}>
               OR EMAIL US <ArrowRight size={16} />
             </Link>
           </motion.div>
@@ -261,7 +261,7 @@ export default function VelocityPage() {
               <Link href="tel:+15551234567" className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(249,115,22,0.3)]" style={{ background: orange }}>
                 <Phone size={16} /> CALL NOW
               </Link>
-              <Link href="mailto:info@simplyusandyou.com" className="inline-flex items-center gap-2 rounded-full border-2 px-8 py-4 text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:bg-white/5" style={{ borderColor: orange, color: orange }}>
+              <Link href="mailto:Support@SimplyUsandU.com" className="inline-flex items-center gap-2 rounded-full border-2 px-8 py-4 text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:bg-white/5" style={{ borderColor: orange, color: orange }}>
                 <Mail size={16} /> EMAIL US
               </Link>
             </div>
@@ -306,7 +306,7 @@ export default function VelocityPage() {
               <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>CONTACT</p>
               <div className="space-y-2 text-sm" style={{ color: gray }}>
                 <p>(555) 123-4567</p>
-                <p>info@simplyusandyou.com</p>
+                <p>Support@SimplyUsandU.com</p>
                 <p>Mon - Fri: 9AM - 6PM</p>
               </div>
             </div>

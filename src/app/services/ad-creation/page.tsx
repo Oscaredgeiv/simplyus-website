@@ -199,7 +199,7 @@ export default function AdCreationPage() {
             </div>
             <Reveal delay={0.3} className="hidden lg:block">
               <div className="rounded-xl overflow-hidden border border-white/[0.06]">
-                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f2?w=1200&q=90" alt="Ad campaign performance" className="w-full h-auto object-cover" />
+                <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=1200&q=90" alt="Ad campaign performance" className="w-full h-auto object-cover" />
               </div>
             </Reveal>
           </div>
