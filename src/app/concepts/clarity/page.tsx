@@ -48,7 +48,7 @@ const services = [
     desc: "Scroll-stopping content, reels, graphics, and strategy that build consistent brand presence and turn followers into loyal customers.",
     bullets: ["Social Media Strategy & Planning", "Content Creation (Photos, Video, Reels)", "Community Management & Engagement", "Brand Voice Development"],
     img: "Social Content Creation",
-    imgSrc: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=90",
+    imgSrc: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&q=90",
   },
   {
     num: "03",

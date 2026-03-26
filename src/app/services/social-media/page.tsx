@@ -211,7 +211,7 @@ export default function SocialMediaPage() {
             <Reveal delay={0.3} className="hidden lg:block">
               <div className="rounded-xl overflow-hidden border border-white/[0.06]">
                 <img
-                  src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=90"
+                  src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&q=90"
                   alt="Social media content creation"
                   className="w-full h-auto object-cover"
                 />

@@ -28,9 +28,9 @@ export function HeroSection() {
         src="/logo-transparent.png"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute right-[-5%] top-1/2 -translate-y-1/2 w-[600px] select-none sm:w-[750px] md:w-[900px] lg:w-[1050px] xl:w-[1150px]"
-        initial={{ opacity: 0, scale: 0.92, x: 40 }}
-        animate={{ opacity: 0.2, scale: 1, x: 0 }}
+        className="pointer-events-none absolute right-[-8%] top-1/2 -translate-y-1/2 w-[750px] select-none sm:w-[950px] md:w-[1150px] lg:w-[1350px] xl:w-[1550px]"
+        initial={{ opacity: 0, scale: 0.88, x: 60 }}
+        animate={{ opacity: 0.25, scale: 1, x: 0 }}
         transition={{ duration: 2, ease: [0.25, 0.4, 0, 1] }}
       />
 

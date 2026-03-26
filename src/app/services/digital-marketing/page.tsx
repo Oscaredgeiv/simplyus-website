@@ -375,7 +375,7 @@ export default function DigitalMarketingPage() {
                 description:
                   "Scroll-stopping content and community management that amplifies your marketing.",
                 image:
-                  "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
+                  "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&q=80",
               },
               {
                 title: "Ad Creation & Campaigns",

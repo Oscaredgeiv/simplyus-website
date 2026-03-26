@@ -29,7 +29,7 @@ const services = [
     description:
       "Scroll-stopping content, reels, graphics, and social strategy that grows your audience.",
     image:
-      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=90",
+      "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&q=90",
   },
   {
     num: "03",

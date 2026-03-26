@@ -120,7 +120,7 @@ export const services: ServiceDetail[] = [
     fullDescription:
       "We create social media strategies and content that build real communities around your brand. From platform-specific content calendars and short-form video to community management and brand voice development, we handle the entire social presence so you can focus on running your business.",
     heroImage:
-      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=90",
+      "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&q=90",
     features: [
       {
         title: "Social Strategy & Calendars",

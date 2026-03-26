@@ -36,7 +36,7 @@ const services = [
     subtitle: "CONTENT & AMPLIFICATION",
     desc: "Precision-targeted scroll-stopping content, reels, graphics, and strategy backed by real-time analytics. Every post is measured and optimized for maximum signal clarity.",
     bullets: ["Social Media Strategy & Planning", "Content Creation (Photos, Video, Reels)", "Community Management & Engagement", "Brand Voice Development"],
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=90",
+    image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&q=90",
   },
   {
     num: "03",

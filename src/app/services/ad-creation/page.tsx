@@ -313,7 +313,7 @@ export default function AdCreationPage() {
                 title: "Social Media & Content",
                 slug: "social-media",
                 description: "Scroll-stopping content and community management that amplifies your brand.",
-                image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
+                image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&q=80",
               },
             ].map((s, i) => (
               <Reveal key={s.slug} delay={i * 0.1}>

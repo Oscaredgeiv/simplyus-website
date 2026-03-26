@@ -29,7 +29,7 @@ export const SERVICES = [
     shortDescription:
       "Scroll-stopping content, reels, graphics, and social strategy that grows your audience.",
     image:
-      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=90",
+      "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&q=90",
   },
   {
     title: "Website Design",
@@ -69,7 +69,7 @@ export const SERVICE_IMAGES = {
   "digital-marketing":
     "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=90",
   "social-content-creation":
-    "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=90",
+    "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&q=90",
   "website-design":
     "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&q=90",
   "website-hosting":

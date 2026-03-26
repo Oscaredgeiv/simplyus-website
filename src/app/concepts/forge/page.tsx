@@ -36,7 +36,7 @@ const services = [
     subtitle: "CONTENT & COMMUNITY",
     desc: "We build scroll-stopping content, reels, graphics, and strategy across every platform. Your brand stays present, relevant, and impossible to scroll past.",
     bullets: ["Social Media Strategy & Planning", "Content Creation (Photos, Video, Reels)", "Community Management & Engagement", "Brand Voice Development"],
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=90",
+    image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&q=90",
   },
   {
     num: "03",
