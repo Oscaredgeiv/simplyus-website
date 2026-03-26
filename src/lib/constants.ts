@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
     "We help businesses grow through digital marketing, social content creation, website design, hosting, software development, and ad campaign management.",
   url: "https://simplyusandyou.com",
   email: "Support@SimplyUsandU.com",
-  phone: "(555) 123-4567",
+  phone: "(770) 524-0488",
   location: "Remote — Serving clients nationwide",
   socials: {
     linkedin: "https://linkedin.com/company/simplyusandyou",

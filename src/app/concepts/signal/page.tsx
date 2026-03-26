@@ -267,7 +267,7 @@ export default function SignalFlowConcept() {
             <div>
               <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-[#F97316] mb-4">CONTACT</h4>
               <ul className="space-y-3 text-sm text-[#9CA3AF]">
-                <li className="flex items-center gap-2"><Phone size={14} className="text-[#F97316]" /> (555) 123-4567</li>
+                <li className="flex items-center gap-2"><Phone size={14} className="text-[#F97316]" /> (770) 524-0488</li>
                 <li className="flex items-center gap-2"><Mail size={14} className="text-[#F97316]" /> hello@simplyusandu.com</li>
                 <li className="flex items-start gap-2"><MapPin size={14} className="text-[#F97316] mt-0.5" /> Dallas, TX</li>
               </ul>

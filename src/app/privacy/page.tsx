@@ -40,7 +40,7 @@ const sections = [
   {
     title: "Contact Us",
     content:
-      "If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at Support@SimplyUsandU.com or call us at (555) 123-4567. Simply Us & U reserves the right to update this Privacy Policy at any time. We will notify you of any changes by posting the new policy on this page and updating the effective date.",
+      "If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at Support@SimplyUsandU.com or call us at (770) 524-0488. Simply Us & U reserves the right to update this Privacy Policy at any time. We will notify you of any changes by posting the new policy on this page and updating the effective date.",
   },
 ];
 

@@ -191,8 +191,8 @@ export default function WebsiteDesignPage() {
                   <Link href="/contact" className="inline-flex items-center gap-2 rounded-lg bg-[#F97316] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#F97316]/20 transition hover:bg-[#EA580C]">
                     Start Your Project <ArrowRight className="h-4 w-4" />
                   </Link>
-                  <a href="tel:+15551234567" className="inline-flex items-center gap-2 rounded-lg border border-white/[0.06] bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
-                    <Phone className="h-4 w-4" /> (555) 123-4567
+                  <a href="tel:+17705240488" className="inline-flex items-center gap-2 rounded-lg border border-white/[0.06] bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                    <Phone className="h-4 w-4" /> (770) 524-0488
                   </a>
                 </div>
               </Reveal>
@@ -354,8 +354,8 @@ export default function WebsiteDesignPage() {
               <Link href="/contact" className="inline-flex items-center gap-2 rounded-lg bg-[#F97316] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#F97316]/20 transition hover:bg-[#EA580C]">
                 Start Your Project <ArrowRight className="h-4 w-4" />
               </Link>
-              <a href="tel:+15551234567" className="inline-flex items-center gap-2 rounded-lg border border-white/[0.06] bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
-                <Phone className="h-4 w-4" /> (555) 123-4567
+              <a href="tel:+17705240488" className="inline-flex items-center gap-2 rounded-lg border border-white/[0.06] bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                <Phone className="h-4 w-4" /> (770) 524-0488
               </a>
             </div>
           </Reveal>

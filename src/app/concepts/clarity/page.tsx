@@ -256,9 +256,9 @@ export default function ClarityPage() {
             <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed md:text-lg" style={{ color: gray }}>
               No pitch deck. No pressure. Just a 30-minute call to understand where you are and explore whether we are the right fit.
             </p>
-            <p className="mt-8 text-3xl font-bold md:text-4xl" style={{ color: orange }}>(555) 123-4567</p>
+            <p className="mt-8 text-3xl font-bold md:text-4xl" style={{ color: orange }}>(770) 524-0488</p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <Link href="tel:+15551234567" className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(249,115,22,0.3)]" style={{ background: orange }}>
+              <Link href="tel:+17705240488" className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(249,115,22,0.3)]" style={{ background: orange }}>
                 <Phone size={16} /> CALL NOW
               </Link>
               <Link href="mailto:Support@SimplyUsandU.com" className="inline-flex items-center gap-2 rounded-full border-2 px-8 py-4 text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:bg-white/5" style={{ borderColor: orange, color: orange }}>
@@ -305,7 +305,7 @@ export default function ClarityPage() {
             <div>
               <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em]" style={{ color: orange }}>CONTACT</p>
               <div className="space-y-2 text-sm" style={{ color: gray }}>
-                <p>(555) 123-4567</p>
+                <p>(770) 524-0488</p>
                 <p>Support@SimplyUsandU.com</p>
                 <p>Mon - Fri: 9AM - 6PM</p>
               </div>

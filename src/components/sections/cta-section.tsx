@@ -58,13 +58,13 @@ export function CTASection() {
 
           {/* Phone number */}
           <p className="mt-8 text-3xl font-bold text-[#F97316] md:text-4xl">
-            (555) 123-4567
+            (770) 524-0488
           </p>
 
           {/* Buttons */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="tel:+15551234567"
+              href="tel:+17705240488"
               className="inline-flex items-center gap-2 rounded-full bg-[#F97316] px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(249,115,22,0.3)]"
             >
               <Phone size={16} /> CALL NOW
