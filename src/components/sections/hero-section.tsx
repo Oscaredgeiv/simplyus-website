@@ -6,13 +6,13 @@ import { ArrowRight } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6">
+    <section className="relative flex min-h-screen items-center overflow-hidden px-6">
       {/* Background layers */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse at 50% 35%, rgba(249,115,22,0.09) 0%, transparent 55%), radial-gradient(ellipse at 75% 65%, rgba(249,115,22,0.04) 0%, transparent 50%), #0B0B0D",
+            "radial-gradient(ellipse at 65% 40%, rgba(249,115,22,0.1) 0%, transparent 55%), radial-gradient(ellipse at 30% 70%, rgba(249,115,22,0.04) 0%, transparent 50%), #0B0B0D",
         }}
       />
       <div
@@ -23,68 +23,76 @@ export function HeroSection() {
         }}
       />
 
-      {/* Content */}
-      <div className="relative z-10 flex max-w-5xl flex-col items-center text-center">
-        {/* LOGO — massive, commanding, the undeniable focal point */}
-        <motion.img
-          src="/logo-transparent.png"
-          alt="Simply Us & U"
-          className="mb-10 w-[85vw] max-w-[800px] sm:w-[70vw] md:w-[60vw] lg:w-[50vw] lg:max-w-[900px]"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.6, ease: [0.25, 0.4, 0, 1] }}
-        />
+      {/* Logo — offset right, large, the brand backdrop */}
+      <motion.img
+        src="/logo-transparent.png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute right-[-5%] top-1/2 -translate-y-1/2 w-[600px] select-none sm:w-[750px] md:w-[900px] lg:w-[1050px] xl:w-[1150px]"
+        initial={{ opacity: 0, scale: 0.92, x: 40 }}
+        animate={{ opacity: 0.2, scale: 1, x: 0 }}
+        transition={{ duration: 2, ease: [0.25, 0.4, 0, 1] }}
+      />
 
-        {/* Thin orange divider */}
-        <motion.div
-          className="mb-6 h-px w-12 bg-[#F97316]"
-          initial={{ opacity: 0, scaleX: 0 }}
-          animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        />
+      {/* Content — left-aligned, overlapping the logo */}
+      <div className="relative z-10 mx-auto w-full max-w-7xl pt-20">
+        <div className="max-w-3xl">
+          {/* Small logo — visible brand mark above headline */}
+          <motion.img
+            src="/logo-transparent.png"
+            alt="Simply Us & U"
+            className="mb-8 w-[200px] sm:w-[260px] md:w-[300px]"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.1, ease: [0.25, 0.4, 0, 1] }}
+          />
 
-        {/* Headline — small, supporting, secondary to the logo */}
-        <motion.p
-          className="text-lg font-medium tracking-wide text-white/90 sm:text-xl md:text-2xl"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4, ease: [0.25, 0.4, 0, 1] }}
-        >
-          Digital Marketing. Web Design.{" "}
-          <span className="text-[#F97316]">Software Development.</span>
-        </motion.p>
-
-        {/* Subtext */}
-        <motion.p
-          className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-[#9CA3AF] sm:text-base"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.6, ease: [0.25, 0.4, 0, 1] }}
-        >
-          The growth engine behind brands that move fast. Marketing, design, and
-          technology — deployed as one integrated system.
-        </motion.p>
-
-        {/* CTAs */}
-        <motion.div
-          className="mt-8 flex flex-wrap items-center justify-center gap-4"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8, ease: [0.25, 0.4, 0, 1] }}
-        >
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-[#F97316] px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-[#EA580C] hover:shadow-[0_0_24px_rgba(249,115,22,0.25)]"
+          {/* Headline — big, bold, left-aligned */}
+          <motion.h1
+            className="text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+            initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.9, delay: 0.3, ease: [0.25, 0.4, 0, 1] }}
           >
-            Get a Free Quote
-          </Link>
-          <Link
-            href="mailto:hello@simplyusandyou.com"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wider text-[#F97316] transition-colors duration-200 hover:text-white"
+            Digital Marketing.
+            <br />
+            Web Design.
+            <br />
+            <span className="text-[#F97316]">Software Development.</span>
+          </motion.h1>
+
+          {/* Subtext */}
+          <motion.p
+            className="mt-6 max-w-xl text-base leading-relaxed text-[#9CA3AF] md:text-lg"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5, ease: [0.25, 0.4, 0, 1] }}
           >
-            Or Email Us <ArrowRight size={15} />
-          </Link>
-        </motion.div>
+            The growth engine behind brands that move fast. Marketing, design,
+            and technology — deployed as one integrated system.
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            className="mt-8 flex flex-wrap items-center gap-4"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7, ease: [0.25, 0.4, 0, 1] }}
+          >
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#F97316] px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-[#EA580C] hover:shadow-[0_0_24px_rgba(249,115,22,0.25)]"
+            >
+              Get a Free Quote
+            </Link>
+            <Link
+              href="mailto:hello@simplyusandyou.com"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wider text-[#F97316] transition-colors duration-200 hover:text-white"
+            >
+              Or Email Us <ArrowRight size={15} />
+            </Link>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
