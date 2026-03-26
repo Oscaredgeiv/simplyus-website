@@ -6,13 +6,13 @@ import { ArrowRight } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-[92vh] flex-col items-center justify-center overflow-hidden px-6">
+    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6">
       {/* Background layers */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse at 50% 30%, rgba(249,115,22,0.08) 0%, transparent 55%), radial-gradient(ellipse at 80% 70%, rgba(249,115,22,0.04) 0%, transparent 50%), #0B0B0D",
+            "radial-gradient(ellipse at 50% 35%, rgba(249,115,22,0.09) 0%, transparent 55%), radial-gradient(ellipse at 75% 65%, rgba(249,115,22,0.04) 0%, transparent 50%), #0B0B0D",
         }}
       />
       <div
@@ -23,44 +23,43 @@ export function HeroSection() {
         }}
       />
 
-      {/* Content — everything in normal flow, vertically centered */}
-      <div className="relative z-10 flex max-w-4xl flex-col items-center text-center">
-        {/* LOGO — the hero, the brand, the anchor */}
+      {/* Content */}
+      <div className="relative z-10 flex max-w-5xl flex-col items-center text-center">
+        {/* LOGO — massive, commanding, the undeniable focal point */}
         <motion.img
           src="/logo-transparent.png"
           alt="Simply Us & U"
-          className="mb-8 w-[340px] sm:w-[440px] md:w-[520px] lg:w-[600px]"
-          initial={{ opacity: 0, scale: 0.95 }}
+          className="mb-10 w-[85vw] max-w-[800px] sm:w-[70vw] md:w-[60vw] lg:w-[50vw] lg:max-w-[900px]"
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: [0.25, 0.4, 0, 1] }}
+          transition={{ duration: 1.6, ease: [0.25, 0.4, 0, 1] }}
         />
 
-        {/* Thin orange divider — visual breath between logo and headline */}
+        {/* Thin orange divider */}
         <motion.div
-          className="mb-8 h-px w-14 bg-[#F97316]"
+          className="mb-6 h-px w-12 bg-[#F97316]"
           initial={{ opacity: 0, scaleX: 0 }}
           animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
         />
 
-        {/* Headline — intentionally smaller than the logo's presence */}
-        <motion.h1
-          className="text-3xl font-bold leading-[1.1] tracking-tight sm:text-4xl md:text-5xl"
-          initial={{ opacity: 0, y: 16 }}
+        {/* Headline — small, supporting, secondary to the logo */}
+        <motion.p
+          className="text-lg font-medium tracking-wide text-white/90 sm:text-xl md:text-2xl"
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.4, 0, 1] }}
+          transition={{ duration: 0.7, delay: 0.4, ease: [0.25, 0.4, 0, 1] }}
         >
-          Digital Marketing. Web Design.
-          <br />
+          Digital Marketing. Web Design.{" "}
           <span className="text-[#F97316]">Software Development.</span>
-        </motion.h1>
+        </motion.p>
 
         {/* Subtext */}
         <motion.p
-          className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-[#9CA3AF] sm:text-base md:text-lg"
-          initial={{ opacity: 0, y: 12 }}
+          className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-[#9CA3AF] sm:text-base"
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5, ease: [0.25, 0.4, 0, 1] }}
+          transition={{ duration: 0.7, delay: 0.6, ease: [0.25, 0.4, 0, 1] }}
         >
           The growth engine behind brands that move fast. Marketing, design, and
           technology — deployed as one integrated system.
@@ -69,9 +68,9 @@ export function HeroSection() {
         {/* CTAs */}
         <motion.div
           className="mt-8 flex flex-wrap items-center justify-center gap-4"
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.7, ease: [0.25, 0.4, 0, 1] }}
+          transition={{ duration: 0.6, delay: 0.8, ease: [0.25, 0.4, 0, 1] }}
         >
           <Link
             href="/contact"
