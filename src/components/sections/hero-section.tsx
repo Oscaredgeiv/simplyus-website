@@ -29,9 +29,9 @@ export function HeroSection() {
         alt=""
         aria-hidden="true"
         className="pointer-events-none absolute right-[-8%] top-1/2 -translate-y-1/2 w-[750px] select-none sm:w-[950px] md:w-[1150px] lg:w-[1350px] xl:w-[1550px]"
-        initial={{ opacity: 0, scale: 0.88, x: 60 }}
+        initial={{ opacity: 0, scale: 0.85, x: 80 }}
         animate={{ opacity: 0.25, scale: 1, x: 0 }}
-        transition={{ duration: 2, ease: [0.25, 0.4, 0, 1] }}
+        transition={{ duration: 4, ease: [0.16, 1, 0.3, 1] }}
       />
 
       {/* Content — left-aligned, overlapping the logo */}
@@ -40,9 +40,9 @@ export function HeroSection() {
           {/* Headline — big, bold, left-aligned */}
           <motion.h1
             className="text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
-            initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
+            initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.9, delay: 0.3, ease: [0.25, 0.4, 0, 1] }}
+            transition={{ duration: 2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             Digital Marketing.
             <br />
@@ -54,9 +54,9 @@ export function HeroSection() {
           {/* Subtext */}
           <motion.p
             className="mt-6 max-w-xl text-base leading-relaxed text-[#9CA3AF] md:text-lg"
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5, ease: [0.25, 0.4, 0, 1] }}
+            transition={{ duration: 1.8, delay: 1.6, ease: [0.16, 1, 0.3, 1] }}
           >
             The growth engine behind brands that move fast. Marketing, design,
             and technology — deployed as one integrated system.
@@ -65,9 +65,9 @@ export function HeroSection() {
           {/* CTAs */}
           <motion.div
             className="mt-8 flex flex-wrap items-center gap-4"
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7, ease: [0.25, 0.4, 0, 1] }}
+            transition={{ duration: 1.5, delay: 2.2, ease: [0.16, 1, 0.3, 1] }}
           >
             <Link
               href="/contact"
