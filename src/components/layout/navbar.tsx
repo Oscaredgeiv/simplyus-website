@@ -27,38 +27,33 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/[0.06]",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-[#0B0B0D]/95 backdrop-blur-xl"
-          : "bg-[#0B0B0D]/90 backdrop-blur-xl"
+          ? "bg-[#0B0B0D]/95 backdrop-blur-xl border-b border-white/[0.06]"
+          : "bg-transparent"
       )}
     >
       <Container>
         <nav className="flex h-16 items-center justify-between">
-          {/* Left — Menu toggle (mobile + desktop) */}
-          <button
-            className="p-2 -ml-2"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label={isOpen ? "Close menu" : "Open menu"}
+          {/* Left — Logo text as home link (clean, no image) */}
+          <Link
+            href="/"
+            className="text-sm font-semibold tracking-wide text-white/80 transition-colors hover:text-white"
           >
-            {isOpen ? (
-              <X className="h-5 w-5 text-white" />
-            ) : (
-              <Menu className="h-5 w-5 text-white" />
-            )}
-          </button>
+            Simply Us & U
+          </Link>
 
           {/* Center — Desktop Nav Links */}
-          <div className="hidden items-center gap-8 lg:flex">
+          <div className="hidden items-center gap-7 lg:flex">
             {mainNavItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "text-sm font-medium transition-colors duration-200",
+                  "text-[13px] font-medium tracking-wide transition-colors duration-200",
                   pathname === item.href
                     ? "text-white"
-                    : "text-[#9CA3AF] hover:text-white"
+                    : "text-white/50 hover:text-white"
                 )}
               >
                 {item.label}
@@ -66,17 +61,32 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Right — CTA */}
-          <Link
-            href="/contact"
-            className="inline-flex h-9 items-center justify-center rounded-full bg-[#F97316] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#EA580C]"
-          >
-            Get Started
-          </Link>
+          {/* Right — CTA + Mobile toggle */}
+          <div className="flex items-center gap-4">
+            <Link
+              href="/contact"
+              className="hidden sm:inline-flex h-9 items-center justify-center rounded-full bg-[#F97316] px-5 text-xs font-semibold tracking-wide text-white transition-all duration-200 hover:bg-[#EA580C]"
+            >
+              Get Started
+            </Link>
+
+            {/* Mobile only */}
+            <button
+              className="p-2 lg:hidden"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+            >
+              {isOpen ? (
+                <X className="h-5 w-5 text-white" />
+              ) : (
+                <Menu className="h-5 w-5 text-white" />
+              )}
+            </button>
+          </div>
         </nav>
       </Container>
 
-      {/* Dropdown Menu */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -84,9 +94,9 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden border-t border-white/[0.06] bg-[#0B0B0D]/95 backdrop-blur-xl"
+            className="overflow-hidden border-t border-white/[0.06] bg-[#0B0B0D]/95 backdrop-blur-xl lg:hidden"
           >
-            <Container className="py-6">
+            <Container className="py-5">
               <div className="flex flex-col gap-1">
                 {mainNavItems.map((item) => (
                   <Link
@@ -96,7 +106,7 @@ export function Navbar() {
                       "rounded-lg px-4 py-3 text-sm font-medium transition-colors",
                       pathname === item.href
                         ? "bg-white/[0.06] text-white"
-                        : "text-[#9CA3AF] hover:bg-white/[0.04] hover:text-white"
+                        : "text-white/60 hover:bg-white/[0.04] hover:text-white"
                     )}
                   >
                     {item.label}
@@ -104,7 +114,7 @@ export function Navbar() {
                 ))}
                 <Link
                   href="/contact"
-                  className="mt-4 inline-flex h-12 items-center justify-center rounded-full bg-[#F97316] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#EA580C]"
+                  className="mt-3 inline-flex h-11 items-center justify-center rounded-full bg-[#F97316] px-6 text-sm font-semibold text-white"
                 >
                   Get Started
                 </Link>
