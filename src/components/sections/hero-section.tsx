@@ -29,7 +29,7 @@ export function HeroSection() {
         <motion.img
           src="/logo-transparent.png"
           alt="Simply Us & U"
-          className="mb-6 w-[280px] select-none"
+          className="mb-6 w-[85vw] max-w-[840px] select-none"
           initial={{ opacity: 0, scale: 0.9, y: -20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 3, ease: [0.16, 1, 0.3, 1] }}
