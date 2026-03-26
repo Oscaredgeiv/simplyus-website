@@ -91,7 +91,7 @@ export function HeroSection() {
           src="/logo-transparent.png"
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute right-[-8%] top-1/2 -translate-y-1/2 select-none w-[1000px] lg:w-[1200px] xl:w-[1400px]"
+          className="pointer-events-none absolute right-[-10%] top-1/2 -translate-y-1/2 select-none w-[1200px] lg:w-[1450px] xl:w-[1650px]"
           initial={{ opacity: 0, scale: 0.85, x: 80 }}
           animate={{ opacity: 0.25, scale: 1, x: 0 }}
           transition={{ duration: 4, ease: [0.16, 1, 0.3, 1] }}
