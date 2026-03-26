@@ -37,16 +37,6 @@ export function HeroSection() {
       {/* Content — left-aligned, overlapping the logo */}
       <div className="relative z-10 mx-auto w-full max-w-7xl pt-20">
         <div className="max-w-3xl">
-          {/* Small logo — visible brand mark above headline */}
-          <motion.img
-            src="/logo-transparent.png"
-            alt="Simply Us & U"
-            className="mb-8 w-[200px] sm:w-[260px] md:w-[300px]"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.1, ease: [0.25, 0.4, 0, 1] }}
-          />
-
           {/* Headline — big, bold, left-aligned */}
           <motion.h1
             className="text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
