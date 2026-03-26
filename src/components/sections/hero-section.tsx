@@ -32,7 +32,7 @@ export function HeroSection() {
           className="-mb-40 w-[160vw] max-w-[1600px] select-none -mx-[30vw] relative z-0"
           style={{ maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)", WebkitMaskImage: "linear-gradient(to bottom, black 60%, transparent 100%)" }}
           initial={{ opacity: 0, scale: 0.9, y: -20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
+          animate={{ opacity: 0.75, scale: 1, y: 0 }}
           transition={{ duration: 3, ease: [0.16, 1, 0.3, 1] }}
         />
 
@@ -94,7 +94,7 @@ export function HeroSection() {
           className="pointer-events-none absolute top-1/2 -translate-y-[55%] select-none"
           style={{ left: "208px", width: "1600px", marginTop: "-120px" }}
           initial={{ opacity: 0, scale: 0.85, x: 80 }}
-          animate={{ opacity: 1, scale: 1, x: 0 }}
+          animate={{ opacity: 0.75, scale: 1, x: 0 }}
           transition={{ duration: 4, ease: [0.16, 1, 0.3, 1] }}
         />
 
