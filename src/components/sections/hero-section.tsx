@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6">
+    <section className="relative flex min-h-[92vh] flex-col items-center justify-center overflow-hidden px-6">
       {/* Background layers */}
       <div
         className="pointer-events-none absolute inset-0"
@@ -29,7 +29,7 @@ export function HeroSection() {
         <motion.img
           src="/logo-transparent.png"
           alt="Simply Us & U"
-          className="mb-10 w-[320px] sm:w-[400px] md:w-[480px] lg:w-[540px]"
+          className="mb-8 w-[340px] sm:w-[440px] md:w-[520px] lg:w-[600px]"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: [0.25, 0.4, 0, 1] }}
@@ -37,7 +37,7 @@ export function HeroSection() {
 
         {/* Thin orange divider — visual breath between logo and headline */}
         <motion.div
-          className="mb-10 h-px w-16 bg-[#F97316]"
+          className="mb-8 h-px w-14 bg-[#F97316]"
           initial={{ opacity: 0, scaleX: 0 }}
           animate={{ opacity: 1, scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
