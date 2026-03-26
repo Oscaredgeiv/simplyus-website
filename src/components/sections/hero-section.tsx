@@ -83,20 +83,20 @@ export function HeroSection() {
       </div>
 
       {/* ===== DESKTOP LAYOUT (logo offset right, text left) ===== */}
-      <div className="relative z-10 hidden min-h-screen items-center md:flex">
-        {/* Logo — OUTSIDE the container so it can be huge without clipping */}
+      <div className="relative z-10 hidden min-h-screen items-center md:flex overflow-hidden">
+        {/* Centering shell — logo + text both anchored to this container */}
+        <div className="relative mx-auto w-full max-w-[1400px] min-h-screen flex items-center px-6 overflow-visible">
+        {/* Logo — inside container so position is relative to content, not viewport */}
         <motion.img
           src="/logo-transparent.png"
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-1/2 -translate-y-[55%] select-none w-[1600px] lg:w-[1900px] xl:w-[2200px]"
-          style={{ marginLeft: "-25%" }}
+          className="pointer-events-none absolute top-1/2 -translate-y-[55%] select-none w-[1600px] lg:w-[1900px] xl:w-[2200px]"
+          style={{ left: "25%" }}
           initial={{ opacity: 0, scale: 0.85, x: 80 }}
           animate={{ opacity: 0.25, scale: 1, x: 0 }}
           transition={{ duration: 4, ease: [0.16, 1, 0.3, 1] }}
         />
-        {/* Centering shell — keeps TEXT contained on ultrawide */}
-        <div className="relative mx-auto w-full max-w-[1400px] min-h-screen flex items-center px-6">
 
         {/* Text content — left-aligned */}
         <div className="mx-auto w-full max-w-7xl">
