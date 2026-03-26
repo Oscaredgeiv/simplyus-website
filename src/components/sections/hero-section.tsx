@@ -84,22 +84,24 @@ export function HeroSection() {
 
       {/* ===== DESKTOP LAYOUT (logo offset right, text left) ===== */}
       <div className="relative z-10 hidden min-h-screen items-center md:flex px-6">
-        {/* Logo — offset right backdrop */}
+        {/* Logo — locked to right 55% of viewport, vertically centered */}
         <motion.img
           src="/logo-transparent.png"
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute right-[-8%] top-1/2 -translate-y-1/2 select-none w-[1000px] lg:w-[1200px] xl:w-[1400px]"
+          className="pointer-events-none absolute top-1/2 -translate-y-1/2 select-none"
+          style={{ right: "-5vw", width: "65vw", maxWidth: "65vw", minWidth: "65vw" }}
           initial={{ opacity: 0, scale: 0.85, x: 80 }}
           animate={{ opacity: 0.25, scale: 1, x: 0 }}
           transition={{ duration: 4, ease: [0.16, 1, 0.3, 1] }}
         />
 
-        {/* Text content — left-aligned */}
+        {/* Text content — left-aligned, locked to left 50% */}
         <div className="mx-auto w-full max-w-7xl">
-          <div className="max-w-3xl">
+          <div style={{ maxWidth: "50%" }}>
             <motion.h1
-              className="text-5xl font-bold leading-[1.05] tracking-tight lg:text-7xl"
+              className="font-bold leading-[1.05] tracking-tight"
+              style={{ fontSize: "clamp(2.5rem, 4.5vw, 4.5rem)" }}
               initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -112,7 +114,8 @@ export function HeroSection() {
             </motion.h1>
 
             <motion.p
-              className="mt-6 max-w-xl text-base leading-relaxed text-[#9CA3AF] lg:text-lg"
+              className="mt-6 text-[#9CA3AF] leading-relaxed"
+              style={{ fontSize: "clamp(0.875rem, 1.1vw, 1.125rem)", maxWidth: "85%" }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.8, delay: 1.6, ease: [0.16, 1, 0.3, 1] }}
