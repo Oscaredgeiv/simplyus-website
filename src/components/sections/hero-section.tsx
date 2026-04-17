@@ -58,7 +58,7 @@ export function HeroSection() {
           transition={{ duration: 1.5, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
         >
           The growth engine behind brands that move fast. Marketing, design,
-          and technology — deployed as one integrated system.
+          technology, and AI — deployed as one integrated system.
         </motion.p>
 
         <motion.div
@@ -121,7 +121,7 @@ export function HeroSection() {
               transition={{ duration: 1.8, delay: 1.6, ease: [0.16, 1, 0.3, 1] }}
             >
               The growth engine behind brands that move fast. Marketing, design,
-              and technology — deployed as one integrated system.
+              technology, and AI — deployed as one integrated system.
             </motion.p>
 
             <motion.div

@@ -63,6 +63,14 @@ export const SERVICES = [
     image:
       "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=1200&q=90",
   },
+  {
+    title: "AI Integration & Automation",
+    slug: "ai-integration",
+    shortDescription:
+      "Practical AI systems that reduce manual work, automate follow-up, and help your team operate faster.",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&q=90",
+  },
 ] as const;
 
 export const SERVICE_IMAGES = {
@@ -78,4 +86,6 @@ export const SERVICE_IMAGES = {
     "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=90",
   "ad-creation":
     "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=1200&q=90",
+  "ai-integration":
+    "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&q=90",
 } as const;

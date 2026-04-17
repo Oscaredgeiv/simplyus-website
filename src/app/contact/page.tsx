@@ -34,6 +34,7 @@ const services = [
   "Website Design & Development",
   "Website Hosting & Maintenance",
   "Software Development",
+  "AI Integration & Automation",
   "SEO & PPC Advertising",
   "Other",
 ];

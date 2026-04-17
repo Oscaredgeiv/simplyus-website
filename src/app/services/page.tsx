@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
 import Link from "next/link";
+import { AILogoMesh } from "@/components/shared/ai-logo-mesh";
 
 /* ------------------------------------------------------------------ */
 /*  Metadata must be exported from a server component in Next 16,     */
@@ -69,6 +70,22 @@ const services = [
   },
 ] as const;
 
+const aiService = {
+  num: "07",
+  title: "AI Integration & Automation",
+  slug: "ai-integration",
+  description:
+    "Practical AI systems that reduce manual work, automate follow-up, and help your team operate faster — built into the tools and processes you already use.",
+  image:
+    "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&q=90",
+  bullets: [
+    "AI-powered workflow automation",
+    "Automated follow-up & communication",
+    "Knowledge bases & documentation",
+    "CRM & tool integration",
+  ],
+} as const;
+
 /* ---------- animation helper ---------- */
 function Reveal({
   children,
@@ -118,14 +135,15 @@ export default function ServicesPage() {
           <Reveal delay={0.2}>
             <p className="mt-6 max-w-2xl text-lg text-[#9CA3AF] leading-relaxed">
               End-to-end digital services — from marketing and content to web
-              design, hosting, and custom software. One partner, zero gaps.
+              design, hosting, custom software, and AI automation. One partner,
+              zero gaps.
             </p>
           </Reveal>
         </div>
       </section>
 
       {/* ---------- Service Cards Grid ---------- */}
-      <section className="pb-28">
+      <section className="pb-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service, i) => (
@@ -163,6 +181,49 @@ export default function ServicesPage() {
               </Reveal>
             ))}
           </div>
+
+          {/* ---------- AI Service — Full-Width Featured Card ---------- */}
+          <Reveal delay={0.5}>
+            <Link
+              href={`/services/${aiService.slug}`}
+              className="group mt-6 flex flex-col overflow-hidden rounded-lg border border-white/[0.06] bg-[#111111] transition-all duration-300 hover:border-[#F97316]/30 hover:shadow-[0_0_30px_-10px_rgba(249,115,22,.15)] lg:flex-row"
+            >
+              {/* AI logo mesh visual */}
+              <div className="h-56 overflow-hidden lg:h-auto lg:w-2/5">
+                <AILogoMesh className="h-full w-full" />
+              </div>
+
+              {/* content */}
+              <div className="flex flex-1 flex-col justify-center p-8 lg:p-10">
+                <span className="text-xs font-bold tracking-widest text-[#F97316]">
+                  {aiService.num}
+                </span>
+                <h2 className="mt-2 text-2xl font-bold text-white group-hover:text-[#F97316] transition-colors sm:text-3xl">
+                  {aiService.title}
+                </h2>
+                <p className="mt-3 max-w-2xl text-base text-[#9CA3AF] leading-relaxed">
+                  {aiService.description}
+                </p>
+
+                {/* bullet points */}
+                <ul className="mt-5 grid gap-2 sm:grid-cols-2">
+                  {aiService.bullets.map((b) => (
+                    <li key={b} className="flex items-center gap-2.5">
+                      <span className="block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#F97316]" />
+                      <span className="text-sm font-medium text-[#9CA3AF]">
+                        {b}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-[#F97316]">
+                  Learn More
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </div>
+            </Link>
+          </Reveal>
         </div>
       </section>
 

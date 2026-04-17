@@ -25,6 +25,10 @@ export const footerNavItems = {
       label: "Ad Creation & Campaigns",
       href: "/services/ad-creation",
     },
+    {
+      label: "AI Integration & Automation",
+      href: "/services/ai-integration",
+    },
   ],
   company: [
     { label: "About", href: "/about" },

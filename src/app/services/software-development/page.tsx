@@ -304,16 +304,16 @@ export default function SoftwareDevelopmentPage() {
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             {[
               {
+                title: "AI Integration & Automation",
+                slug: "ai-integration",
+                description: "Practical AI systems that reduce manual work, automate follow-up, and help your team operate faster.",
+                image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+              },
+              {
                 title: "Website Design",
                 slug: "website-design",
                 description: "Custom, conversion-focused websites that look premium and perform even better.",
                 image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
-              },
-              {
-                title: "Website Hosting",
-                slug: "hosting",
-                description: "Fast, secure hosting with 99.9% uptime and managed infrastructure.",
-                image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
               },
             ].map((s, i) => (
               <Reveal key={s.slug} delay={i * 0.1}>

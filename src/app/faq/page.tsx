@@ -70,6 +70,18 @@ const faqs: Record<Category, { q: string; a: string }[]> = {
       q: "What platforms do you specialize in?",
       a: "On the marketing side, we work with Meta, Google, TikTok, LinkedIn, and more. For web development, we specialize in React, Next.js, and WordPress. For software, we build with modern stacks including Node.js, Python, and cloud-native platforms.",
     },
+    {
+      q: "What is AI Integration & Automation?",
+      a: "We help businesses integrate practical AI into their daily operations — automating follow-up, reducing manual admin, standardizing processes, and connecting your existing tools with AI-powered workflows. It's not about building AI products. It's about making your current business run faster and more consistently.",
+    },
+    {
+      q: "Can AI really save my team time?",
+      a: "Yes — and we can usually show you exactly where within the first conversation. Most of our clients see 10 to 20 hours per week freed up across their team within the first month. The savings come from automating repetitive tasks your team is doing manually every day: follow-ups, data entry, status updates, reporting, and scheduling.",
+    },
+    {
+      q: "Do you replace our existing tools with AI?",
+      a: "No. We build AI into the tools you already use. If your team works in HubSpot, Slack, and Google Workspace, that's where we build. The goal is to make your existing investment work harder — not to add another platform to manage.",
+    },
   ],
   Pricing: [
     {

@@ -482,7 +482,7 @@ export const services: ServiceDetail[] = [
       "Workflow automation & process optimization",
       "RESTful & GraphQL API development",
     ],
-    relatedSlugs: ["website-design", "website-hosting"],
+    relatedSlugs: ["ai-integration", "website-design"],
   },
   {
     slug: "ad-creation",
@@ -578,6 +578,102 @@ export const services: ServiceDetail[] = [
       "Ongoing A/B testing & performance optimization",
     ],
     relatedSlugs: ["digital-marketing", "social-content-creation"],
+  },
+  {
+    slug: "ai-integration",
+    title: "AI Integration & Automation",
+    subtitle: "WORKFLOWS, OPERATIONS & BUSINESS AI",
+    num: "07",
+    shortDescription:
+      "Practical AI systems that reduce manual work, automate follow-up, and help your team operate faster — built into the tools and processes you already use.",
+    fullDescription:
+      "We integrate practical AI into your daily operations — automating follow-up, reducing manual work, standardizing processes, and helping your team get more done without changing the way you already work. From CRM and project management tools to communication platforms and internal documentation, we build AI into the systems your business runs on.",
+    heroImage:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&q=90",
+    features: [
+      {
+        title: "Workflow Automation",
+        description:
+          "Automate repetitive business processes — from lead intake and assignment to invoicing and status updates — using AI-powered workflows that run in the background.",
+      },
+      {
+        title: "Follow-Up & Communication Systems",
+        description:
+          "Automated follow-up sequences, internal notifications, client check-ins, and status updates that keep nothing from slipping through the cracks.",
+      },
+      {
+        title: "Knowledge & Documentation",
+        description:
+          "Centralized knowledge bases, AI-assisted SOPs, and searchable documentation systems that capture what your team knows and make it accessible to everyone.",
+      },
+      {
+        title: "Operations & Admin Automation",
+        description:
+          "Reduce the hours your team spends on scheduling, data entry, report generation, and routine admin through targeted AI automation.",
+      },
+    ],
+    process: [
+      {
+        num: "01",
+        title: "Audit",
+        description:
+          "We map your current workflows, tools, and team processes to identify where AI can save the most time and reduce the most friction.",
+      },
+      {
+        num: "02",
+        title: "Design",
+        description:
+          "We build a custom automation plan targeting your highest-impact processes — with clear outcomes and timelines for each.",
+      },
+      {
+        num: "03",
+        title: "Implement",
+        description:
+          "We configure, integrate, and test every automation in your live environment — with your team involved at every step.",
+      },
+      {
+        num: "04",
+        title: "Support",
+        description:
+          "Ongoing monitoring, optimization, and training to make sure your AI systems keep delivering as your business evolves.",
+      },
+    ],
+    stats: [
+      { value: "50+", label: "Workflows Built" },
+      { value: "60%", label: "Less Manual Work" },
+      { value: "15+", label: "Hrs Saved Weekly" },
+      { value: "12+", label: "Industries Served" },
+    ],
+    faqs: [
+      {
+        question: "Do I need to be technical to use AI in my business?",
+        answer:
+          "Not at all. We build systems that work inside the tools your team already uses — email, CRM, project management, calendars, and messaging. Your team doesn't need to learn AI. They just get faster, more consistent tools.",
+      },
+      {
+        question:
+          "How is this different from your software development service?",
+        answer:
+          "Software development builds custom applications from scratch — mobile apps, web platforms, APIs. AI Integration & Automation focuses on embedding AI into your existing tools and daily operations. Software development builds the car. AI integration makes it drive itself to the places you go every day.",
+      },
+      {
+        question: "What tools and platforms do you integrate with?",
+        answer:
+          "We work with whatever your business already uses — HubSpot, Salesforce, Slack, Microsoft Teams, Google Workspace, Asana, Monday, Notion, QuickBooks, and dozens of others. If your team uses it daily, we can integrate AI into it.",
+      },
+      {
+        question: "How long does a typical AI integration project take?",
+        answer:
+          "Most initial implementations take 2 to 4 weeks from audit to live deployment. Simpler automations can be running within days. We prioritize quick wins first so your team sees value immediately, then expand from there.",
+      },
+    ],
+    bullets: [
+      "AI-powered workflow automation & process optimization",
+      "Automated follow-up, reminders & communication sequences",
+      "Internal knowledge bases & documentation systems",
+      "AI integration with existing CRM, PM & business tools",
+    ],
+    relatedSlugs: ["software-development", "digital-marketing"],
   },
 ];
 

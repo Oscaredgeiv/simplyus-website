@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { TawkChat } from "@/components/shared/tawk-chat";
 import "./globals.css";
 
 const heading = Plus_Jakarta_Sans({
@@ -44,6 +45,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <TawkChat />
       </body>
     </html>
   );
