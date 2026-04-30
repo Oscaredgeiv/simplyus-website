@@ -179,7 +179,7 @@ export default function WebsiteDesignPage() {
               </Reveal>
               <Reveal delay={0.3}>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  {["3x Conversion Rate", "50+ Sites Built", "Sub-2s Load Time"].map((s) => (
+                  {["100% Custom Built", "Mobile-First Design", "Fast Load Times"].map((s) => (
                     <span key={s} className="rounded-full border border-white/[0.06] bg-white/5 px-4 py-1.5 text-xs font-medium text-white">
                       {s}
                     </span>

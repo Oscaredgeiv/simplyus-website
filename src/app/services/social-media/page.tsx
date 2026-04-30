@@ -179,7 +179,7 @@ export default function SocialMediaPage() {
               </Reveal>
               <Reveal delay={0.3}>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  {["50M+ Reach", "1000+ Posts", "85% Engagement Lift"].map(
+                  {["Steady Growth", "Brand-Aligned Content", "Multi-Platform"].map(
                     (s) => (
                       <span
                         key={s}

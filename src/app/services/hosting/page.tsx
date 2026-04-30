@@ -179,7 +179,7 @@ export default function HostingPage() {
               </Reveal>
               <Reveal delay={0.3}>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  {["99.9% Uptime", "0 Security Breaches", "Sub-200ms Response"].map((s) => (
+                  {["99.9% Uptime", "SSL Always Secure", "24/7 Monitoring"].map((s) => (
                     <span key={s} className="rounded-full border border-white/[0.06] bg-white/5 px-4 py-1.5 text-xs font-medium text-white">
                       {s}
                     </span>

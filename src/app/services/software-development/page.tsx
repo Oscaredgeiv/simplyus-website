@@ -179,7 +179,7 @@ export default function SoftwareDevelopmentPage() {
               </Reveal>
               <Reveal delay={0.3}>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  {["40+ Apps Built", "150+ Automations", "60% Time Saved"].map((s) => (
+                  {["Dozens of Builds", "Custom Solutions", "Ongoing Support"].map((s) => (
                     <span key={s} className="rounded-full border border-white/[0.06] bg-white/5 px-4 py-1.5 text-xs font-medium text-white">
                       {s}
                     </span>

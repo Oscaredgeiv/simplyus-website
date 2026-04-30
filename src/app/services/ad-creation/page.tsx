@@ -179,7 +179,7 @@ export default function AdCreationPage() {
               </Reveal>
               <Reveal delay={0.3}>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  {["3.8x Avg ROAS", "500+ Campaigns", "45% Lower CPA"].map((s) => (
+                  {["Strong ROAS Lift", "Strategic Spend", "Always Optimizing"].map((s) => (
                     <span key={s} className="rounded-full border border-white/[0.06] bg-white/5 px-4 py-1.5 text-xs font-medium text-white">
                       {s}
                     </span>

@@ -144,10 +144,10 @@ const process = [
 ];
 
 const stats = [
-  { value: "312%", label: "Avg ROI" },
-  { value: "4.2M+", label: "Impressions" },
-  { value: "100+", label: "Campaigns" },
-  { value: "85%", label: "Client Retention" },
+  { value: "312%", label: "Avg ROI Lift" },
+  { value: "Multi", label: "Channel Strategy" },
+  { value: "Always", label: "Optimizing" },
+  { value: "100%", label: "Custom Plans" },
 ];
 
 const faqs = [
@@ -201,7 +201,7 @@ export default function DigitalMarketingPage() {
               </Reveal>
               <Reveal delay={0.3}>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  {["312% Avg ROI", "4.2M+ Impressions", "100+ Campaigns"].map(
+                  {["312% Avg ROI", "Multi-Channel Strategy", "Always Optimizing"].map(
                     (s) => (
                       <span
                         key={s}
