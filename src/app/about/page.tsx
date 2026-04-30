@@ -60,36 +60,36 @@ const values = [
 ];
 
 const stats = [
-  { icon: Calendar, value: "8+", label: "Years in Business" },
-  { icon: Users, value: "100+", label: "Clients Served" },
-  { icon: Briefcase, value: "15+", label: "Team Members" },
-  { icon: FolderCheck, value: "500+", label: "Projects Delivered" },
+  { icon: Calendar, value: "Since 2020", label: "Established" },
+  { icon: Users, value: "100+", label: "Happy Clients" },
+  { icon: Briefcase, value: "Friendly", label: "Professional Team" },
+  { icon: FolderCheck, value: "On-Time", label: "Every Delivery" },
 ];
 
 const milestones = [
   {
-    year: "2017",
+    year: "2020",
     title: "Founded",
     description:
-      "Simply Us & U was born from a simple belief: small businesses deserve big-agency results without the big-agency price tag.",
+      "Simply Us & U was born from a simple belief: small and growing businesses deserve big-agency results without the big-agency price tag.",
   },
   {
-    year: "2018",
-    title: "First Major Client",
+    year: "2022",
+    title: "Building the Foundation",
     description:
-      "Landed our first enterprise-level partnership, proving our model could scale while maintaining the personal touch that sets us apart.",
-  },
-  {
-    year: "2020",
-    title: "Expanded to Software",
-    description:
-      "Added custom software development and SaaS solutions to our toolkit, becoming a true full-service digital partner for our clients.",
+      "Spent the next couple of years quietly serving local clients, sharpening our craft, and learning what actually moves the needle for service-based businesses.",
   },
   {
     year: "2024",
-    title: "100th Client",
+    title: "Full Digital Agency Launch",
     description:
-      "Reached a major milestone of 100 clients served across dozens of industries, with a 95% client satisfaction rate.",
+      "Officially expanded into a full-service digital agency — bringing marketing, design, hosting, and software development under one roof.",
+  },
+  {
+    year: "2025",
+    title: "100+ Clients & Growing",
+    description:
+      "Crossed the 100-client mark with a track record of on-time delivery, only positive reviews, and a roster of happy partners across industries.",
   },
 ];
 
@@ -113,9 +113,10 @@ export default function AboutPage() {
             <p className="text-lg sm:text-xl text-[#9CA3AF] max-w-2xl mx-auto leading-relaxed">
               We&apos;re a full-service digital agency that helps businesses
               grow through strategic marketing, stunning design, and powerful
-              technology. Founded in 2017, we&apos;ve spent years perfecting the
-              art of turning ambitious ideas into measurable results — and
-              we&apos;re just getting started.
+              technology. Founded in 2020, we&apos;ve spent the past few years
+              quietly building real relationships with real clients — and now
+              we&apos;re bringing that same hands-on approach to every business
+              we work with.
             </p>
           </Reveal>
         </div>

@@ -126,10 +126,10 @@ const process = [
 ];
 
 const stats = [
-  { value: "3.8x", label: "Avg ROAS" },
-  { value: "500+", label: "Campaigns" },
-  { value: "45%", label: "Lower CPA" },
-  { value: "10M+", label: "Ad Impressions" },
+  { value: "Strong", label: "ROAS Lift" },
+  { value: "Strategic", label: "Spend Allocation" },
+  { value: "A/B", label: "Tested Creative" },
+  { value: "Always", label: "Optimizing" },
 ];
 
 const faqs = [

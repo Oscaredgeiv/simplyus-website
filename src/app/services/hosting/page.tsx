@@ -126,9 +126,9 @@ const process = [
 ];
 
 const stats = [
-  { value: "99.9%", label: "Uptime" },
-  { value: "0", label: "Security Breaches" },
-  { value: "<200ms", label: "Response Time" },
+  { value: "99.9%", label: "Uptime Target" },
+  { value: "SSL", label: "Always Secure" },
+  { value: "Daily", label: "Backups" },
   { value: "24/7", label: "Monitoring" },
 ];
 

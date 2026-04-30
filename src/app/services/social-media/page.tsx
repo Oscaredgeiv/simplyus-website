@@ -126,10 +126,10 @@ const process = [
 ];
 
 const stats = [
-  { value: "50M+", label: "Reach" },
-  { value: "1000+", label: "Posts Created" },
-  { value: "85%", label: "Engagement Lift" },
-  { value: "100%", label: "Custom Strategy" },
+  { value: "Steady", label: "Audience Growth" },
+  { value: "Hundreds", label: "of Posts Created" },
+  { value: "Multi", label: "Platform Coverage" },
+  { value: "100%", label: "Brand-Aligned" },
 ];
 
 const faqs = [

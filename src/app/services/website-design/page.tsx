@@ -126,10 +126,10 @@ const process = [
 ];
 
 const stats = [
-  { value: "3x", label: "Conversion Rate" },
-  { value: "50+", label: "Sites Built" },
-  { value: "<2s", label: "Load Time" },
-  { value: "100%", label: "Responsive" },
+  { value: "100%", label: "Custom Built" },
+  { value: "Fast", label: "Load Times" },
+  { value: "Mobile", label: "First Design" },
+  { value: "Dozens", label: "of Sites Launched" },
 ];
 
 const faqs = [

@@ -75,10 +75,10 @@ export const services: ServiceDetail[] = [
       },
     ],
     stats: [
-      { value: "340%", label: "Avg. ROI Increase" },
-      { value: "2.5x", label: "Lead Generation" },
-      { value: "68%", label: "Lower Cost Per Lead" },
-      { value: "150+", label: "Campaigns Managed" },
+      { value: "312%", label: "Avg ROI Lift" },
+      { value: "Multi", label: "Channel Strategy" },
+      { value: "Always", label: "Optimizing" },
+      { value: "100%", label: "Custom Plans" },
     ],
     faqs: [
       {
@@ -170,10 +170,10 @@ export const services: ServiceDetail[] = [
       },
     ],
     stats: [
-      { value: "280%", label: "Engagement Increase" },
-      { value: "45K+", label: "Followers Grown" },
-      { value: "500+", label: "Posts Created Monthly" },
-      { value: "12", label: "Platforms Managed" },
+      { value: "Steady", label: "Audience Growth" },
+      { value: "Hundreds", label: "of Posts Created" },
+      { value: "Multi", label: "Platform Coverage" },
+      { value: "100%", label: "Brand-Aligned" },
     ],
     faqs: [
       {
@@ -265,10 +265,10 @@ export const services: ServiceDetail[] = [
       },
     ],
     stats: [
-      { value: "98%", label: "Client Satisfaction" },
-      { value: "3.2s", label: "Avg. Load Time" },
-      { value: "65%", label: "Conversion Lift" },
-      { value: "200+", label: "Sites Launched" },
+      { value: "100%", label: "Custom Built" },
+      { value: "Fast", label: "Load Times" },
+      { value: "Mobile", label: "First Design" },
+      { value: "Dozens", label: "of Sites Launched" },
     ],
     faqs: [
       {
@@ -354,10 +354,10 @@ export const services: ServiceDetail[] = [
       },
     ],
     stats: [
-      { value: "99.9%", label: "Uptime Guarantee" },
-      { value: "<1s", label: "Avg. Response Time" },
+      { value: "99.9%", label: "Uptime Target" },
+      { value: "Fast", label: "Response Times" },
       { value: "24/7", label: "Monitoring" },
-      { value: "500+", label: "Sites Hosted" },
+      { value: "Daily", label: "Backups" },
     ],
     faqs: [
       {
@@ -449,10 +449,10 @@ export const services: ServiceDetail[] = [
       },
     ],
     stats: [
-      { value: "50+", label: "Apps Delivered" },
-      { value: "99%", label: "On-Time Delivery" },
-      { value: "40%", label: "Efficiency Gains" },
-      { value: "24hr", label: "Support Response" },
+      { value: "Dozens", label: "of Builds Delivered" },
+      { value: "100%", label: "On-Time Delivery" },
+      { value: "Custom", label: "Tailored Solutions" },
+      { value: "Ongoing", label: "Support" },
     ],
     faqs: [
       {
@@ -544,10 +544,10 @@ export const services: ServiceDetail[] = [
       },
     ],
     stats: [
-      { value: "4.2x", label: "Avg. ROAS" },
-      { value: "52%", label: "Lower CPA" },
-      { value: "$2M+", label: "Ad Spend Managed" },
-      { value: "1,200+", label: "Ads Created" },
+      { value: "Strong", label: "ROAS Lift" },
+      { value: "Strategic", label: "Spend Allocation" },
+      { value: "A/B", label: "Tested Creative" },
+      { value: "Always", label: "Optimizing" },
     ],
     faqs: [
       {

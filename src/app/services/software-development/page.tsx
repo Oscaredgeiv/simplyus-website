@@ -126,10 +126,10 @@ const process = [
 ];
 
 const stats = [
-  { value: "40+", label: "Apps Built" },
-  { value: "150+", label: "Automations" },
-  { value: "99.7%", label: "Uptime" },
-  { value: "60%", label: "Time Saved" },
+  { value: "Dozens", label: "of Builds Delivered" },
+  { value: "100%", label: "On-Time Delivery" },
+  { value: "Custom", label: "Tailored Solutions" },
+  { value: "Ongoing", label: "Support" },
 ];
 
 const faqs = [
