@@ -6,33 +6,25 @@ minutes per audit.
 
 ---
 
-## 1. Setup (one-time)
+## 1. Lead Delivery (already configured)
 
-### 1a. Wire up Resend (lead notifications)
+Leads from the exit-intent popup are delivered via **Gmail SMTP**
+to your inbox automatically.
 
-The popup is connected to `/api/audit-request`. To get email
-notifications when leads submit, set up Resend:
+**Currently configured in Vercel env vars:**
+- `SMTP_HOST` = `smtp.gmail.com`
+- `SMTP_PORT` = `587`
+- `SMTP_USER` = `oscar@servicestorm.io` (Gmail App Password)
+- `SMTP_PASS` = (Gmail App Password)
+- `FROM_EMAIL` = `support@servicestorm.io`
+- `NOTIFY_EMAIL` = `support@servicestorm.io`
 
-1. Sign up at <https://resend.com> (free: 3K emails/mo)
-2. Add `simplyusandu.com` as a verified sending domain (one DNS
-   record — see Resend dashboard)
-3. Generate an API key
-4. In the Vercel project → Settings → Environment Variables, add:
-   - `RESEND_API_KEY` → paste the key
-   - `AUDIT_NOTIFY_EMAIL` → `Support@SimplyUsandU.com`
-   - `AUDIT_FROM_EMAIL` → `leads@simplyusandu.com`
-5. Redeploy (or push any commit — Vercel will auto-rebuild)
+To change which inbox leads land in, edit the `NOTIFY_EMAIL` env
+var in Vercel → Project Settings → Environment Variables, then
+redeploy.
 
-Done. From now on, every popup submission emails you the prospect's
-URL, email, and a paste-ready Claude prompt.
-
-> **Until Resend is set up**, the popup still works — leads just go
-> to the Vercel function logs (Vercel Dashboard → Project → Logs).
-
-### 1b. Subscribe to Claude Pro / Claude API
-
-The audit workflow uses Claude (claude.ai or Claude Code) to do the
-research and write. Either is fine.
+> **No service signup needed.** Resend, Formspree, etc. were
+> alternatives — we use your existing Gmail SMTP setup instead.
 
 ---
 
@@ -41,7 +33,9 @@ research and write. Either is fine.
 When a popup submission arrives in your inbox:
 
 ### Step 1 — Open the email
-The notification includes a "Paste-Ready Claude Prompt" with the
+Subject: *"New website audit request — [their domain]"*
+
+The email contains a "Paste-Ready Claude Prompt" with the
 prospect's URL pre-filled. Copy that prompt.
 
 ### Step 2 — Run it through Claude
@@ -70,7 +64,8 @@ Three easy options:
 - **Branded:** Use a Google Doc template with your logo
 
 ### Step 5 — Send the email
-Reply to the lead's email with:
+Reply to the lead's email (the popup auto-sets `Reply-To` to the
+prospect, so just hit reply) with:
 
 ```
 Subject: Your website review — [their domain]
@@ -177,17 +172,16 @@ single popup.
 
 ---
 
-## 5. When to Automate Further
+## 5. Troubleshooting
 
-This manual workflow is the right call for **the first 50-100
-audits**. After that, if volume gets crazy:
+**Leads aren't arriving:**
+1. Check Vercel → Project → Logs for errors from `/api/audit-request`
+2. Verify `SMTP_*` env vars are present in Vercel settings
+3. Confirm the Gmail App Password hasn't expired (rotate at
+   <https://myaccount.google.com/apppasswords> if it has)
+4. Check spam folder on the receiving inbox
 
-- Pre-fetch screenshots automatically (Browserless / ApiFlash)
-- Auto-pull Lighthouse + PageSpeed data
-- Use Claude API to draft → you review → send
-- Store leads in Airtable or Notion automatically
-- Send templated follow-up emails via Resend automation
-
-We can build that as a Phase 2 when the volume justifies it. For
-now, manual delivery preserves the personal-feel that makes the
-offer convert in the first place.
+**Want to change the destination email:**
+1. Vercel → Project → Settings → Environment Variables
+2. Edit `NOTIFY_EMAIL` to your preferred inbox
+3. Redeploy (or push any commit)

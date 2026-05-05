@@ -1,28 +1,21 @@
 import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 
 /**
  * /api/audit-request — receives website-audit lead from exit-intent popup.
  *
- * If RESEND_API_KEY is set in environment variables, sends an email to
- * Support@SimplyUsandU.com with the prospect's URL + email + a ready-
- * to-use Claude prompt for generating their custom audit.
+ * Sends a formatted notification email via SMTP (Gmail by default).
+ * If SMTP env vars are missing, falls back to console-only logging
+ * so the popup still works during local dev.
  *
- * If no API key, falls back to console logging so the form still works
- * during local dev.
- *
- * Setup:
- *   1. Sign up at https://resend.com (free tier: 3K emails/mo)
- *   2. Verify simplyusandu.com as a sending domain
- *   3. Add RESEND_API_KEY to Vercel project env vars
- *   4. Set AUDIT_NOTIFY_EMAIL to your inbox (defaults to support address)
+ * Required Vercel env vars (already set on this project):
+ *   SMTP_HOST     — e.g. smtp.gmail.com
+ *   SMTP_PORT     — e.g. 587
+ *   SMTP_USER     — your Gmail address (sending account)
+ *   SMTP_PASS     — Gmail App Password (NOT your regular password)
+ *   FROM_EMAIL    — the From address that appears on the email
+ *   NOTIFY_EMAIL  — inbox where leads should be delivered
  */
-
-const NOTIFY_EMAIL =
-  process.env.AUDIT_NOTIFY_EMAIL || "Support@SimplyUsandU.com";
-/* Defaults to Resend's free dev sender (works without domain verification).
-   Once simplyusandu.com is verified in Resend, set AUDIT_FROM_EMAIL to
-   leads@simplyusandu.com for branded sending. */
-const FROM_EMAIL = process.env.AUDIT_FROM_EMAIL || "onboarding@resend.dev";
 
 interface AuditRequestBody {
   website?: string;
@@ -40,7 +33,6 @@ export async function POST(req: Request) {
   const website = (body.website || "").trim();
   const email = (body.email || "").trim();
 
-  /* Basic validation */
   if (!website || !email) {
     return NextResponse.json(
       { error: "Both website and email are required." },
@@ -48,62 +40,58 @@ export async function POST(req: Request) {
     );
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return NextResponse.json(
-      { error: "Invalid email." },
-      { status: 400 },
-    );
+    return NextResponse.json({ error: "Invalid email." }, { status: 400 });
   }
 
-  /* Normalize URL */
   let normalizedUrl = website;
   if (!/^https?:\/\//i.test(normalizedUrl)) {
     normalizedUrl = `https://${normalizedUrl}`;
   }
 
-  /* Build a paste-ready Claude prompt for Oz */
   const claudePrompt = buildClaudePrompt(normalizedUrl, email);
 
-  const apiKey = process.env.RESEND_API_KEY;
+  /* Read SMTP config */
+  const host = process.env.SMTP_HOST;
+  const port = process.env.SMTP_PORT;
+  const user = process.env.SMTP_USER;
+  const pass = process.env.SMTP_PASS;
+  const fromEmail = process.env.FROM_EMAIL || user;
+  const notifyEmail = process.env.NOTIFY_EMAIL || fromEmail;
 
-  /* No API key → just log and succeed (so the form still works) */
-  if (!apiKey) {
-    console.log("[audit-request] No RESEND_API_KEY — logging instead");
-    console.log({ website: normalizedUrl, email });
+  if (!host || !port || !user || !pass) {
+    console.log("[audit-request] SMTP not configured — logging instead", {
+      website: normalizedUrl,
+      email,
+    });
     return NextResponse.json({ ok: true, mode: "logged" });
   }
 
-  /* Send notification via Resend */
   try {
-    const r = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: FROM_EMAIL,
-        to: NOTIFY_EMAIL,
-        reply_to: email,
-        subject: `New website audit request — ${normalizedUrl}`,
-        html: buildEmailHtml(normalizedUrl, email, claudePrompt),
-      }),
+    const transporter = nodemailer.createTransport({
+      host,
+      port: parseInt(port, 10),
+      secure: parseInt(port, 10) === 465, // 465 = SSL, 587 = STARTTLS
+      auth: { user, pass },
     });
 
-    if (!r.ok) {
-      const errText = await r.text().catch(() => "");
-      console.error("[audit-request] Resend error", r.status, errText);
-      /* Don't fail the user-facing flow over email issues */
-      return NextResponse.json({ ok: true, mode: "queued" });
-    }
+    await transporter.sendMail({
+      from: `"Simply Us & U Leads" <${fromEmail}>`,
+      to: notifyEmail,
+      replyTo: email,
+      subject: `New website audit request — ${normalizedUrl}`,
+      html: buildEmailHtml(normalizedUrl, email, claudePrompt),
+      text: buildEmailText(normalizedUrl, email, claudePrompt),
+    });
 
     return NextResponse.json({ ok: true, mode: "sent" });
   } catch (err) {
     console.error("[audit-request] Send failed", err);
+    /* Don't fail the user-facing flow over email issues */
     return NextResponse.json({ ok: true, mode: "errored" });
   }
 }
 
-/* ─────────────────────── helpers ─────────────────────── */
+/* ───────────────────── helpers ───────────────────── */
 
 function buildClaudePrompt(url: string, email: string): string {
   return `You are an expert website auditor. Produce a 1-page website review for Simply Us & U to send to a prospect.
@@ -157,12 +145,27 @@ Want our team to handle these fixes for you? Reply to this email or book a free 
 Tone: plain-spoken, helpful, not salesy. Specific examples over vague advice. No invented stats. No "industry-leading" filler.`;
 }
 
+function buildEmailText(url: string, email: string, prompt: string): string {
+  return `New website audit request
+
+Website: ${url}
+Email:   ${email}
+Sent:    ${new Date().toUTCString()}
+
+────────────────────────────────────────
+PASTE-READY CLAUDE PROMPT (copy below)
+────────────────────────────────────────
+
+${prompt}
+
+────────────────────────────────────────
+Sent from simplyusandu.com exit-intent capture
+`;
+}
+
 function buildEmailHtml(url: string, email: string, prompt: string): string {
   const escape = (s: string) =>
-    s
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
+    s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
   return `<!doctype html>
 <html><body style="font-family:-apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif;background:#0B0B0D;color:#fff;margin:0;padding:24px;">
