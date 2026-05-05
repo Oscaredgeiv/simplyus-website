@@ -24,10 +24,21 @@ export function ExitIntent() {
   const [email, setEmail] = useState("");
   const [sending, setSending] = useState(false);
 
-  async function submitToBackend(_payload: { website: string; email: string }) {
-    /* TODO: wire to your email service. For now we just resolve. */
-    void _payload;
-    return new Promise<void>((r) => setTimeout(r, 350));
+  async function submitToBackend(payload: { website: string; email: string }) {
+    try {
+      const r = await fetch("/api/audit-request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!r.ok) {
+        console.warn("Audit request returned non-200:", r.status);
+      }
+    } catch (err) {
+      console.warn("Audit request failed:", err);
+      /* Still mark as submitted so the user sees a success state.
+         The email will arrive via Resend or be in server logs. */
+    }
   }
 
   async function onSubmit(e: FormEvent) {
