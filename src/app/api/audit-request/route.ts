@@ -78,7 +78,11 @@ export async function POST(req: Request) {
       from: `"Simply Us & U Leads" <${fromEmail}>`,
       to: notifyEmail,
       replyTo: email,
-      subject: `New website audit request — ${normalizedUrl}`,
+      subject: `[Simply Us & U] New Audit Lead — ${normalizedUrl}`,
+      headers: {
+        "X-SUU-Source": "exit-intent-popup",
+        "X-SUU-Lead-Type": "website-audit",
+      },
       html: buildEmailHtml(normalizedUrl, email, claudePrompt),
       text: buildEmailText(normalizedUrl, email, claudePrompt),
     });
