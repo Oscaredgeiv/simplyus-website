@@ -9,7 +9,7 @@ export function Footer() {
   return (
     <footer className="bg-[#0B0B0D] border-t border-white/[0.06]">
       <Container className="py-16 lg:py-20">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           {/* Col 1: Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="relative inline-block h-10 w-40">
@@ -64,7 +64,26 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Col 4: Contact */}
+          {/* Col 4: Service Areas */}
+          <div>
+            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-[#F97316]">
+              Service Areas
+            </h3>
+            <ul className="mt-4 space-y-3">
+              {footerNavItems.areas.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-[#9CA3AF] hover:text-white transition-colors duration-200"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 5: Contact */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-[#F97316]">
               Contact

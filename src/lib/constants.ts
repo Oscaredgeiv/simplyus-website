@@ -3,7 +3,7 @@ export const SITE_CONFIG = {
   tagline: "Your Growth. Our Obsession.",
   description:
     "We help businesses grow through digital marketing, social content creation, website design, hosting, software development, and ad campaign management.",
-  url: "https://simplyusandyou.com",
+  url: "https://simplyusandu.com",
   email: "Support@SimplyUsandU.com",
   phone: "(770) 524-0488",
   location: "Remote — Serving clients nationwide",

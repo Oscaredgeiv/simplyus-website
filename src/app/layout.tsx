@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   description:
     "We help businesses grow through digital marketing, social content creation, website design, hosting, and software development.",
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://simplyusandyou.com"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://simplyusandu.com"
   ),
   icons: {
     icon: "/favicon.ico",
