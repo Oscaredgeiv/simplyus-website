@@ -19,7 +19,10 @@ import { NextResponse } from "next/server";
 
 const NOTIFY_EMAIL =
   process.env.AUDIT_NOTIFY_EMAIL || "Support@SimplyUsandU.com";
-const FROM_EMAIL = process.env.AUDIT_FROM_EMAIL || "leads@simplyusandu.com";
+/* Defaults to Resend's free dev sender (works without domain verification).
+   Once simplyusandu.com is verified in Resend, set AUDIT_FROM_EMAIL to
+   leads@simplyusandu.com for branded sending. */
+const FROM_EMAIL = process.env.AUDIT_FROM_EMAIL || "onboarding@resend.dev";
 
 interface AuditRequestBody {
   website?: string;
