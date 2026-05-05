@@ -578,7 +578,7 @@ export const priorityCities = (): City[] =>
  * new tier on the next build.
  */
 type Phase = 1 | 2 | 3;
-export const CURRENT_PHASE = 2 as Phase;
+export const CURRENT_PHASE = 3 as Phase;
 
 export const currentPhaseCities = (): City[] => {
   const phase: Phase = CURRENT_PHASE;
