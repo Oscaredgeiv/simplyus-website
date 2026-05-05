@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "100+", label: "CLIENTS SERVED" },
+  { value: "Growing", label: "CLIENT ROSTER" },
   { value: "312%", label: "AVG ROI" },
   { value: "100%", label: "ON-TIME DELIVERY" },
   { value: "5-STAR", label: "RATED" },

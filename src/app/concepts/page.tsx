@@ -12,7 +12,7 @@ const concepts = [
     headline: "DIGITAL MARKETING. CONTENT. DEVELOPMENT.",
     description:
       "Speed and data-driven. Metric counters, split-layout services, and a relentless focus on ROI.",
-    stats: "100+ Clients · 312% Avg ROI",
+    stats: "Growing Roster · 312% Avg ROI",
   },
   {
     id: "02",
@@ -48,7 +48,7 @@ const concepts = [
     headline: "LAUNCH. SCALE. DOMINATE.",
     description:
       "Mission-control energy. 360° service coverage with satellite-precision campaign monitoring.",
-    stats: "100+ Brands · 24/7 Monitoring",
+    stats: "Growing Brand Roster · 24/7 Monitoring",
   },
   {
     id: "06",

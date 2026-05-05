@@ -25,7 +25,7 @@ const orange = "#F97316";
 const gray = "#9CA3AF";
 
 const stats = [
-  { value: "100+", label: "CLIENTS SERVED" },
+  { value: "Growing", label: "CLIENT ROSTER" },
   { value: "312%", label: "AVG ROI" },
   { value: "4.2M+", label: "IMPRESSIONS" },
   { value: "5-STAR", label: "RATING" },

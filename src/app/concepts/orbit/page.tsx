@@ -16,7 +16,7 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
 const stats = [
   { value: "360\u00B0", label: "SERVICE COVERAGE" },
   { value: "24/7", label: "CAMPAIGN MONITORING" },
-  { value: "100+", label: "BRANDS LAUNCHED" },
+  { value: "Growing", label: "BRAND ROSTER" },
   { value: "5-STAR", label: "CLIENT REVIEWS" },
 ];
 

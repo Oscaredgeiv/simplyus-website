@@ -61,7 +61,7 @@ const values = [
 
 const stats = [
   { icon: Calendar, value: "Since 2020", label: "Established" },
-  { icon: Users, value: "100+", label: "Happy Clients" },
+  { icon: Users, value: "Growing", label: "Client Roster" },
   { icon: Briefcase, value: "Friendly", label: "Professional Team" },
   { icon: FolderCheck, value: "On-Time", label: "Every Delivery" },
 ];
@@ -87,9 +87,9 @@ const milestones = [
   },
   {
     year: "2025",
-    title: "100+ Clients & Growing",
+    title: "Growing Client Roster",
     description:
-      "Crossed the 100-client mark with a track record of on-time delivery, only positive reviews, and a roster of happy partners across industries.",
+      "Building a track record of on-time delivery, only positive reviews, and long-term partnerships across industries — one happy client at a time.",
   },
 ];
 
