@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import {
   cities,
   cityBySlug,
-  priorityCities,
+  currentPhaseCities,
   type City,
 } from "@/data/cities";
 import {
@@ -27,10 +27,10 @@ import { NearbyAreas } from "@/components/seo/nearby-areas";
 import { LocalCTA } from "@/components/seo/local-cta";
 import { subServicesByParent } from "@/data/sub-services";
 
-/* ───────────────── Phase 1: Tier-1 cities × all 7 services ───────────────── */
+/* Phased rollout — controlled by CURRENT_PHASE in cities.ts */
 export function generateStaticParams() {
   const params: { city: string; service: string }[] = [];
-  for (const city of priorityCities()) {
+  for (const city of currentPhaseCities()) {
     for (const service of SERVICE_SLUGS) {
       params.push({ city: city.slug, service });
     }

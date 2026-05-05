@@ -566,3 +566,24 @@ export const allCitySlugs = (): string[] => cities.map((c) => c.slug);
 
 export const priorityCities = (): City[] =>
   cities.filter((c) => c.tier === 1);
+
+/**
+ * Cities included in the current SEO rollout phase.
+ * Phase 1: Tier 1 only (~9 cities)
+ * Phase 2: Tier 1 + Tier 2 (~28 cities)
+ * Phase 3: All cities (~53 cities)
+ *
+ * Bump this constant to widen the rollout — every dynamic route
+ * that uses currentPhaseCities() will automatically include the
+ * new tier on the next build.
+ */
+type Phase = 1 | 2 | 3;
+export const CURRENT_PHASE = 2 as Phase;
+
+export const currentPhaseCities = (): City[] => {
+  const phase: Phase = CURRENT_PHASE;
+  if (phase === 1) return cities.filter((c) => c.tier === 1);
+  if (phase === 2)
+    return cities.filter((c) => c.tier === 1 || c.tier === 2);
+  return cities;
+};

@@ -4,7 +4,7 @@ import Link from "next/link";
 import {
   cities,
   cityBySlug,
-  priorityCities,
+  currentPhaseCities,
   type City,
 } from "@/data/cities";
 import { countyBySlug } from "@/data/counties";
@@ -22,9 +22,9 @@ import { ServiceMiniGrid } from "@/components/seo/service-mini-grid";
 import { NearbyAreas } from "@/components/seo/nearby-areas";
 import { LocalCTA } from "@/components/seo/local-cta";
 
-/* ───────────────── Phase 1: Tier-1 cities only ───────────────── */
+/* Phased rollout — controlled by CURRENT_PHASE in cities.ts */
 export function generateStaticParams() {
-  return priorityCities().map((c) => ({ city: c.slug }));
+  return currentPhaseCities().map((c) => ({ city: c.slug }));
 }
 
 export async function generateMetadata({

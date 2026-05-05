@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { priorityCities } from "@/data/cities";
+import { currentPhaseCities, citiesByTier } from "@/data/cities";
 import { counties } from "@/data/counties";
 import { subServices } from "@/data/sub-services";
 import { SERVICE_SLUGS, SITE_URL } from "@/lib/seo-helpers";
@@ -63,24 +63,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  /* Tier-1 city hubs */
-  for (const city of priorityCities()) {
+  /* All cities in current phase — city hubs + city × service combos */
+  for (const city of currentPhaseCities()) {
+    /* Tier 1 cities get higher priority */
+    const cityPriority = city.tier === 1 ? 0.85 : 0.75;
+    const serviceComboPriority = city.tier === 1 ? 0.7 : 0.6;
+
     entries.push({
       url: url(`/areas/${city.slug}`),
       lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.85,
+      priority: cityPriority,
     });
-    /* Tier-1 city × all services */
+
     for (const slug of SERVICE_SLUGS) {
       entries.push({
         url: url(`/areas/${city.slug}/${slug}`),
         lastModified: now,
         changeFrequency: "monthly",
-        priority: 0.7,
+        priority: serviceComboPriority,
       });
     }
   }
+  // Reference Tier 2 specifically for clarity (used implicitly via phase helper).
+  void citiesByTier;
 
   /* All counties + county × service */
   for (const county of counties) {
